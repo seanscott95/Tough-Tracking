@@ -1,6 +1,6 @@
 const { Schema } = require('mongoose');
 
-const strengthSchema = new Schema({
+const cardioSchema = new Schema({
   activity: {
     type: String,
     required: true,
@@ -23,6 +23,6 @@ const strengthSchema = new Schema({
   },
 });
 
-const Strength = mongoose.model('Strength', strengthSchema);
+const Cardio = mongoose.model('Cardio', cardioSchema);
 
-module.exports = Strength;
+module.exports = Cardio;
