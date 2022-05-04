@@ -23,6 +23,6 @@ const cardioSchema = new Schema({
   },
 });
 
-const Cardio = mongoose.model('Cardio', cardioSchema);
+const Cardio = model('Cardio', cardioSchema);
 
 module.exports = Cardio;

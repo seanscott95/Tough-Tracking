@@ -23,6 +23,6 @@ const strengthSchema = new Schema({
   },
 });
 
-const Strength = mongoose.model('Strength', strengthSchema);
+const Strength = model('Strength', strengthSchema);
 
 module.exports = Strength;
