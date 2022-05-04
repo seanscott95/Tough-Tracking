@@ -7,17 +7,17 @@ const strengthSchema = new Schema({
     trim: true
   },
   weight: {
-    type: String,
+    type: Number,
     required: true,
     trim: true
   },
   sets: {
-    type: String,
+    type: Number,
     required: true,
     trim: true
   },
   reps: {
-    type: String,
+    type: Number,
     required: true,
     trim: true
   },
