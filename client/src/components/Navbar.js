@@ -7,23 +7,23 @@ export default function Navbar({ currentPage, handlePageChange }) {
     const navbarPages = [
         {
             title: 'Home',
-            link: '#/'
+            link: '/'
         },
         {
             title: 'Login',
-            link: '#/login'
+            link: '/login'
         },
         {
             title: 'CreateWorkout',
-            link: '#/createWorkout'
+            link: '/createWorkout'
         },
         {
             title: 'EditWorkout',
-            link: '#/editWorkout'
+            link: '/editWorkout'
         },
         {
             title: 'SingleWorkout',
-            link: '#/singleWorkout'
+            link: '/singleWorkout'
         },
     ];
 
