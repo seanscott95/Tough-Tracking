@@ -2,12 +2,12 @@ import React, { useState } from 'react';
 import { Router, Route, Routes } from 'react-router-dom';
 
 import Navbar from './components/Navbar'
-import Home from './components/Home';
-import Login from './components/Login';
-import Dashboard from './components/Dashboard';
-import CreateWorkout from './components/CreateWorkout';
-import EditWorkout from './components/EditWorkout';
-import SingleWorkout from './components/SingleWorkout';
+import Home from './components/pages/Home';
+import Login from './components/pages/Login';
+import Dashboard from './components/pages/Dashboard';
+import CreateWorkout from './components/pages/CreateWorkout';
+import EditWorkout from './components/pages/EditWorkout';
+import SingleWorkout from './components/pages/SingleWorkout';
 
 function App() {
   const [currentPage, setCurrentPage] = useState('Home');
