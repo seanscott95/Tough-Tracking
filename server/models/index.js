@@ -1,6 +1,5 @@
 const User = require('./User');
 const Session = require('./Session');
-const Strength = require('./Strength');
-const Cardio = require('./Cardio');
+const Exercise = require('./Exercise');
 
-module.exports = { User, Session, Strength, Cardio };
+module.exports = { User, Session, Exercise };

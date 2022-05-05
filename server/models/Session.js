@@ -7,13 +7,9 @@ const sessionSchema = new Schema({
     required: true,
     trim: true
   },
-  strength: {
+  exercise: {
     type: Schema.Types.ObjectId,
-    ref: 'Strength',
-  },
-  cardio: {
-    type: Schema.Types.ObjectId,
-    ref: 'Cardio',
+    ref: 'Exercise',
   },
   createdAt: {
     type: Date,
