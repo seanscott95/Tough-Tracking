@@ -19,10 +19,6 @@ const userSchema = new Schema({
     required: true,
     minlength: 5,
   },
-  sessions: {
-    type: Schema.Types.ObjectId,
-    ref: 'Session',
-  }
 });
 
 userSchema.pre('save', async function (next) {

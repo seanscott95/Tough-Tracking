@@ -5,12 +5,12 @@ const typeDefs = gql`
         _id: ID
         username: String
         email: String
-        password: String
-        sessions: [Session]!
     }
     
     type Exercise {
         _id: ID
+        name: String!
+        type: String!
         exercise: String!
         weight: Number
         sets: Number
@@ -21,7 +21,7 @@ const typeDefs = gql`
     }
 
     type Session {
-        _id: _id
+        _id: ID
         name: String
         exercise: [Exercise]!
     }
@@ -32,12 +32,11 @@ const typeDefs = gql`
     }
 
     type Query {
-        users: [User]
-        user(username: String!): User
-        exercises: [Exercise]!
-        exercise(exerciseId: ID!): Exercise
+        myUser: User
+        sessions: [Session]
         session(sessionId: ID!): Session
-        sessions: [Session]!
+        exercises: [Exercise]
+        exercise(exerciseId: ID!): Exercise
     }
 
     type Mutation {
@@ -46,7 +45,8 @@ const typeDefs = gql`
         addSession(name: String!): Session
         addExercise(
             sessionId: ID!
-            exercise: String!
+            name: String!
+            type: String!
             weight: Number
             sets: Number
             reps: Number

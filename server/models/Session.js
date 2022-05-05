@@ -7,10 +7,16 @@ const sessionSchema = new Schema({
     required: true,
     trim: true
   },
-  exercise: {
+  user: {
+    type: Schema.Types.ObjectId,
+    ref: 'User',
+  },
+  exercise: [
+    {
     type: Schema.Types.ObjectId,
     ref: 'Exercise',
-  },
+    },
+  ],
   createdAt: {
     type: Date,
     default: Date.now,

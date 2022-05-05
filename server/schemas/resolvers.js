@@ -5,23 +5,20 @@ const { signToken } = require('../utils/auth');
 
 const resolvers = {
     Query: {
-        users: async () => {
-            return User.find().populate('sessions');
-        },
-        user: async (parent, { username }) => {
-            return User.findOne({ username }).populate('sessions');
-        },
-        exercises: async () => {
-            return Exercise.find();
-        },
-        exercise: async (parent, { exerciseId }) => {
-            return Exercise.findOne({ _id: exerciseId });
+        myUser: async () => {
+            return User.find();
         },
         sessions: async () => {
             return Session.find();
         },
         session: async (parent, { sessionId }) => {
             return Session.findOne({ _id: sessionId });
+        },
+        exercises: async () => {
+            return Exercise.find();
+        },
+        exercise: async (parent, { exerciseId }) => {
+            return Exercise.findOne({ _id: exerciseId });
         },
     },
 
@@ -48,11 +45,11 @@ const resolvers = {
         addSession: async (parent, { name }) => {
             return Session.create({ name });
         },
-        addExercise: async (parent, { sessionId, exercise, weight, sets, reps, distance, time, intensity }) => {
+        addExercise: async (parent, { sessionId, name, type, weight, sets, reps, distance, time, intensity }) => {
             return Session.findOneAndUpdate(
                 { _id: sessionId },
                 {
-                    $addToSet: { exercise: { exercise, weight, sets, reps, distance, time, intensity } },
+                    $addToSet: { exercise: { name, type, weight, sets, reps, distance, time, intensity } },
                 },
                 {
                     new: true,
