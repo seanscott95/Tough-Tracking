@@ -15,17 +15,18 @@ function App() {
 
   const handlePageChange = (page) => setCurrentPage(page);
 
+  
   return (
     <Router>
       <Routes>
         <GlobalStyles />
         <Navbar currentPage={currentPage} handlePageChange={handlePageChange} />
-          <Route exact path='/' component={Home}></Route>
-          <Route path='/login' component={Login}></Route>
-          <Route path='/dashboard' component={Dashboard}></Route>
-          <Route path='/createWorkout' component={CreateWorkout}></Route>
-          <Route path='/editWorkout' component={EditWorkout}></Route>
-          <Route path='/singleWorkout' component={SingleWorkout}></Route>
+          <Route exact path='/' element={<Home />}></Route>
+          <Route path='/login' element={<Login />}></Route>
+          <Route path='/dashboard' element={<Dashboard />}></Route>
+          <Route path='/createWorkout' element={<CreateWorkout />}></Route>
+          <Route path='/editWorkout' element={<EditWorkout />}></Route>
+          <Route path='/singleWorkout' element={<SingleWorkout />}></Route>
       </Routes>
     </Router>
   );
