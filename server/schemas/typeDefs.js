@@ -12,11 +12,11 @@ const typeDefs = gql`
         name: String!
         type: String!
         exercise: String!
-        weight: Number
-        sets: Number
-        reps: Number
-        distance: Number
-        time: Number
+        weight: Float
+        sets: Int
+        reps: Int
+        distance: Float
+        time: Float
         intensity: String
     }
 
@@ -47,11 +47,11 @@ const typeDefs = gql`
             sessionId: ID!
             name: String!
             type: String!
-            weight: Number
-            sets: Number
-            reps: Number
-            distance: Number
-            time: Number
+            weight: Float
+            sets: Int
+            reps: Int
+            distance: Float
+            time: Float
             intensity: String
         ): Session
         removeSession(sessionId: ID!): Session
