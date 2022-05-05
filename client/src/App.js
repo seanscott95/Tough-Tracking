@@ -8,6 +8,7 @@ import Dashboard from './components/pages/Dashboard';
 import CreateWorkout from './components/pages/CreateWorkout';
 import EditWorkout from './components/pages/EditWorkout';
 import SingleWorkout from './components/pages/SingleWorkout';
+import GlobalStyles from './components/styles/Global';
 
 function App() {
   const [currentPage, setCurrentPage] = useState('Home');
@@ -17,6 +18,7 @@ function App() {
   return (
     <Router>
       <Routes>
+        <GlobalStyles />
         <Navbar currentPage={currentPage} handlePageChange={handlePageChange} />
           <Route exact path='/' component={Home}></Route>
           <Route path='/login' component={Login}></Route>
