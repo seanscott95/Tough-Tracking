@@ -5,7 +5,7 @@ export const StyledNavbar = styled.nav`
     display: flex;
     justify-content: center;
     text-align: center;
-    font-size: 18px;
+    font-size: 16px;
     list-style: none;
     background: #1e2327;
     margin: 0px;
@@ -20,7 +20,6 @@ export const StyledNavbar = styled.nav`
         margin: 10px;
         transition: transform .3s;
         color: white;
-
     }
 
     .navbarLink:hover {
@@ -28,7 +27,7 @@ export const StyledNavbar = styled.nav`
     }
 
     .navbarLinkActive {
-        padding: 5px;
+        padding: 10px;
         margin: 10px;
         font-size: 20px;
         text-decoration: underline;
