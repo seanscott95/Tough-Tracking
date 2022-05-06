@@ -2,24 +2,36 @@ import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyles = createGlobalStyle`
     * {
+        padding: 0;
+        margin: 0;
         box-sizing: border-box;
     }
-
-    body {
-        background: #fff;
-        color: hsl(192, 100%, 9%);
-        font-size: 1.15em;
-        margin: 0;
+  
+    html {
+        font-size: 10px;
+        font-family: 'Roboto Mono';
+        background-color: #fff;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
     }
 
-    p {
-        opacity: 0.6;
-        line-height: 1.5;
+    ul, li {
+        list-style: none;
     }
 
-    img {
-        max-width: 100%;
+    a {
+        text-decoration: none;
     }
-`
 
+    img, svg {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    button {
+        outline: none
+    }
+`;
 export default GlobalStyles;
