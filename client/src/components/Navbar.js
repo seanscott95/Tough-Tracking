@@ -1,8 +1,13 @@
+import React from 'react';
+import { Link, NavLink, useLocation } from 'react-router-dom';
+
+// import React, { useState } from 'react';
+
 import { StyledNavbar } from './styles/Navbar.styled';
 import { StyledNavbarLink } from './styles/NavbarLink.styled';
 import { StyledNavbarLinkActive } from './styles/NavbarLinkActive.styled';
 
-export default function Navbar({ currentPage, handlePageChange }) {
+export default function Navbar() {
 
     const navbarPages = [
         {
@@ -28,22 +33,23 @@ export default function Navbar({ currentPage, handlePageChange }) {
     ];
 
     return (
-        <StyledNavbar>
+        <div>
             <ul className='navbar'>
                 {navbarPages.map((page) => (
-                    currentPage === page.title ?
-                    <StyledNavbarLinkActive>
-                        <a href={page.link} onClick={() => handlePageChange(page.title)}>
+                    
+                        <NavLink key={page.link} to={page.link} >
                             {page.title}
-                        </a>
-                    </StyledNavbarLinkActive> : 
-                    <StyledNavbarLink>
-                        <a href={page.link} onClick={() => handlePageChange(page.title)}>
-                            {page.title}
-                        </a>
-                    </StyledNavbarLink>
+                        </NavLink>
+                //    page.title === page.title ?
+                //     <StyledNavbarLinkActive >
+                //     </StyledNavbarLinkActive> : 
+                //     <StyledNavbarLink>
+                //         <Link to={page.link} onClick={() => handlePageChange(page.title)}>
+                //             {page.title}
+                //         </Link>
+                //     </StyledNavbarLink>
                 ))}
             </ul>
-        </StyledNavbar>
+        </div>
     );
 }

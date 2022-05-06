@@ -1,28 +1,42 @@
 import React from 'react';
-import { Router, Route, Routes } from 'react-router-dom';
+import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 // import Navbar from './components/Navbar'
 import Home from './components/pages/Home';
-// import Login from './components/pages/Login';
-// import Dashboard from './components/pages/Dashboard';
-// import CreateWorkout from './components/pages/CreateWorkout';
-// import EditWorkout from './components/pages/EditWorkout';
-// import SingleWorkout from './components/pages/SingleWorkout';
+import Mainlayout from './layouts/Mainlayout';
+import Login from './components/pages/Login';
+import Dashboard from './components/pages/Dashboard';
+import CreateWorkout from './components/pages/CreateWorkout';
+import EditWorkout from './components/pages/EditWorkout';
+import SingleWorkout from './components/pages/SingleWorkout';
 // import GlobalStyles from './components/styles/Global';
 
+const client = new ApolloClient({
+  uri: '/graphql',
+  cache: new InMemoryCache(),
+});
+
 function App() {
-  
+
   return (
-    <Router>
-      <Routes>
-        <Route path='/' element={<Home />} />
-        {/* <Route path='/login' element={<Login />} />
-        <Route path='/dashboard' element={<Dashboard />} />
-        <Route path='/createworkout' element={<CreateWorkout />} />
-        <Route path='/editworkout' element={<EditWorkout />} />
-        <Route path='/singleworkout' element={<SingleWorkout />} /> */}
-      </Routes>
-    </Router>
+    <ApolloProvider client={client}>
+
+
+      <Router>
+        <Mainlayout>
+          <Routes>
+            <Route path='/' element={<Home />} />
+            <Route path='/login' element={<Login />} />
+          <Route path='/dashboard' element={<Dashboard />} />
+          <Route path='/createworkout' element={<CreateWorkout />} />
+          <Route path='/editworkout' element={<EditWorkout />} />
+          <Route path='/singleworkout' element={<SingleWorkout />} />
+          </Routes>
+        </Mainlayout>
+      </Router>
+    </ApolloProvider>
+
   );
 }
 
