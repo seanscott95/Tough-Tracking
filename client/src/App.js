@@ -7,7 +7,6 @@ import Mainlayout from './layouts/Mainlayout';
 import Login from './components/pages/Login';
 import Dashboard from './components/pages/Dashboard';
 import CreateWorkout from './components/pages/CreateWorkout';
-import EditWorkout from './components/pages/EditWorkout';
 import SingleWorkout from './components/pages/SingleWorkout';
 import GlobalStyles from './components/styles/Global';
 
@@ -27,9 +26,8 @@ function App() {
             <Route path='/' element={<Home />} />
             <Route path='/login' element={<Login />} />
             <Route path='/dashboard' element={<Dashboard />} />
-            <Route path='/createworkout' element={<CreateWorkout />} />
-            <Route path='/editworkout' element={<EditWorkout />} />
-            <Route path='/singleworkout' element={<SingleWorkout />} />
+            <Route path='/createWorkout' element={<CreateWorkout />} />
+            <Route path='/viewWorkouts' element={<SingleWorkout />} />
           </Routes>
         </Mainlayout>
       </Router>

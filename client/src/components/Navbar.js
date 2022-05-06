@@ -1,55 +1,50 @@
-import React from 'react';
-import { Link, NavLink, useLocation } from 'react-router-dom';
+// import React from 'react';
+import { NavLink } from 'react-router-dom';
 
-// import React, { useState } from 'react';
+import React, { useState } from 'react';
 
 import { StyledNavbar } from './styles/Navbar.styled';
-import { StyledNavbarLink } from './styles/NavbarLink.styled';
-import { StyledNavbarLinkActive } from './styles/NavbarLinkActive.styled';
 
 export default function Navbar() {
 
+    const [currentPage, setCurrentPage] = useState('Home');
+    
     const navbarPages = [
         {
             title: 'Home',
             link: '/'
         },
         {
-            title: 'Login',
-            link: '/login'
+            title: 'Dashboard',
+            link: '/dashboard'
         },
         {
-            title: 'CreateWorkout',
+            title: 'Create Workout',
             link: '/createWorkout'
         },
         {
-            title: 'EditWorkout',
-            link: '/editWorkout'
+            title: 'View Workouts',
+            link: '/viewWorkout'
         },
         {
-            title: 'SingleWorkout',
-            link: '/singleWorkout'
+            title: 'Login / Signup',
+            link: '/login'  
         },
     ];
 
     return (
-        <div>
-            <ul className='navbar'>
-                {navbarPages.map((page) => (
-                    
-                        <NavLink key={page.link} to={page.link} >
-                            {page.title}
-                        </NavLink>
-                //    page.title === page.title ?
-                //     <StyledNavbarLinkActive >
-                //     </StyledNavbarLinkActive> : 
-                //     <StyledNavbarLink>
-                //         <Link to={page.link} onClick={() => handlePageChange(page.title)}>
-                //             {page.title}
-                //         </Link>
-                //     </StyledNavbarLink>
-                ))}
-            </ul>
-        </div>
+        <>
+            <StyledNavbar>
+                <ul className='navbarList'>
+                    {navbarPages.map((page) => (
+                        <li key={page.link} className={currentPage === page.title ? 'navbarLinkActive' : 'navbarLink'}>
+                            <NavLink key={page.link} to={page.link} onClick={() => setCurrentPage(page.title)} >
+                                {page.title}
+                            </NavLink>
+                        </li>
+                    ))}
+                </ul>
+            </StyledNavbar>
+        </>
     );
 }
