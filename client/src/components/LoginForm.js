@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
+
 import { Link } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
 import { LOGIN_USER } from '../utils/mutations';
+import { StyledForm } from './styles/Form.styled';
 
 export default function LoginForm() {
 
@@ -46,7 +48,7 @@ export default function LoginForm() {
             ) : (
                 <>
                     <h2>Login</h2>
-                    <form onSubmit={handleFormSubmit}>
+                    <StyledForm onSubmit={handleFormSubmit}>
                         <div>
                             <label for="email">Email:</label>
                             <input 
@@ -70,7 +72,7 @@ export default function LoginForm() {
                         <div>
                             <button type="submit">Log In</button>
                         </div>
-                    </form>
+                    </StyledForm>
                 </>
             )}
             {error && (
