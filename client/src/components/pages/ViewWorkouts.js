@@ -1,9 +1,9 @@
 import React from 'react';
 
-export default function SingleWorkout() {
+export default function ViewWorkouts() {
     return (
         <div>
-            SingleWorkout
+            View Workouts
         </div>
     );
 }
