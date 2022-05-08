@@ -8,7 +8,7 @@ export const StyledForm = styled.form`
     padding: 5px;
     margin: 5px;
     
-    input {
+    input, select {
         width: 100%;
         line-height: 1.5;
         border: 1px solid #ccc;
