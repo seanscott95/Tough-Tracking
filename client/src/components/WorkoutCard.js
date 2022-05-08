@@ -1,0 +1,62 @@
+import React from 'react'
+
+export default function WorkoutCard() {
+  return (
+    <>
+        <div>
+            <h2>WorkoutName - Date</h2>
+            <div>
+                <div>
+                    <p>Exercise</p>
+                    <p>ExerciseName</p>
+                </div>
+                <div>
+                    <p>Exercise</p>
+                    <p>ExerciseName</p>
+                </div>
+            </div>
+            <button>Edit</button>
+        </div>
+        <div>
+            <div>
+                <h2>ExerciseType</h2>
+                <div>
+                    <p>Exercise:</p>
+                    <p>ExerciseName</p>
+                </div>
+                <div>
+                    <p>Weight:</p>
+                    <p>ExerciseWeight</p>
+                </div>
+                <div>
+                    <p>Sets:</p>
+                    <p>ExerciseSets</p>
+                </div>
+                <div>
+                    <p>Reps:</p>
+                    <p>ExerciseReps</p>
+                </div>
+            </div>
+            <div>
+                <h2>ExerciseType</h2>
+                <div>
+                    <p>Exercise:</p>
+                    <p>ExerciseName</p>
+                </div>
+                <div>
+                    <p>Weight:</p>
+                    <p>ExerciseWeight</p>
+                </div>
+                <div>
+                    <p>Sets:</p>
+                    <p>ExerciseSets</p>
+                </div>
+                <div>
+                    <p>Reps:</p>
+                    <p>ExerciseReps</p>
+                </div>
+            </div>
+        </div>
+    </>
+  )
+}
