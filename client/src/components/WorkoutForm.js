@@ -11,49 +11,87 @@ export default function WorkoutForm() {
                     <label for="name">Name:</label>
                     <input
                         type="text"
-                        name="name" />
+                        name="name"
+                        placeholder='Gym, Running, Swimming...'
+                        required />
                 </div>
                 <div>
                     <label for="name">Type:</label>
-                    <input
+                    <select
                         type="text"
-                        name="name" />
+                        name="name"
+                        required >
+                            <option value="" disabled selected>Choose a type...</option>
+                            <option value='strength'>Strength</option>
+                            <option value='cardio'>Cardio</option>
+                    </select>
                 </div>
                 <div>
                     <label for="name">Weight:</label>
                     <input
-                        type="text"
-                        name="name" />
+                        type="number"
+                        name="name"
+                        min="0"
+                        max="500"
+                        step="2.5"
+                        placeholder='50kg...'
+                        required />
                 </div>
                 <div>
                     <label for="name">Sets:</label>
                     <input
-                        type="text"
-                        name="name" />
+                        type="number"
+                        name="name"
+                        min="1"
+                        max="10"
+                        step="1"
+                        placeholder='3...'
+                        required />
                 </div>
                 <div>
                     <label for="name">Reps:</label>
                     <input
-                        type="text"
-                        name="name" />
+                        type="number"
+                        name="name"
+                        min="1"
+                        max="10"
+                        step="1"
+                        placeholder='8...'
+                        required />
                 </div>
                 <div>
                     <label for="name">Distance:</label>
                     <input
-                        type="text"
-                        name="name" />
+                        type="number"
+                        name="name"
+                        min="1"
+                        max="1000"
+                        step="1"
+                        placeholder='5.4'
+                        required />
                 </div>
                 <div>
                     <label for="name">Time:</label>
                     <input
                         type="text"
-                        name="name" />
+                        name="number"
+                        min="1"
+                        max="1440"
+                        step="1"
+                        placeholder='45min...'
+                        required/>
                 </div>
                 <div>
                     <label for="name">Intensity:</label>
-                    <input
-                        type="text"
-                        name="name" />
+                    <select 
+                        name="name"
+                        placeholder='Slow, Medium, High...'
+                        required >
+                            <option value="" disabled selected>Choose an intensity...</option>
+                            <option value='low'>Low</option>
+                            <option value='moderate'>Moderate</option>
+                            <option value='high'>High</option>
+                    </select>
                 </div>
                 <div>
                     <button type="submit">Sign Up</button>
