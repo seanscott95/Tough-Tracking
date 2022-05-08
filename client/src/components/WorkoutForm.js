@@ -94,7 +94,7 @@ export default function WorkoutForm() {
                     </select>
                 </div>
                 <div>
-                    <button type="submit">Sign Up</button>
+                    <button type="submit">Add</button>
                 </div>
             </StyledForm>
         </>
