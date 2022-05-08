@@ -19,6 +19,10 @@ export const StyledForm = styled.form`
         font-size: 12px;
     }
 
+    select {
+        opacity: 70%;
+    }
+
     button {
         padding: 1px 5px;
         margin: 5px 0px;
