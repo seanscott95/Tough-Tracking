@@ -11,7 +11,7 @@ export default function Navbar() {
         Auth.logout();
     };
 
-    const [currentPage, setCurrentPage] = useState('');
+    const [currentPage, setCurrentPage] = useState('Home');
 
     const navbarPages = [
         {
@@ -48,7 +48,7 @@ export default function Navbar() {
                                 </NavLink>
                             </li>
                             ) : (
-                                <li key=''></li>
+                                <li key={page.link}></li>
                             )
                         ))
                     }
