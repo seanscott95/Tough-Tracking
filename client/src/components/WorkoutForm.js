@@ -24,7 +24,7 @@ export default function WorkoutForm() {
             <h3>Add an exercise to your workout:</h3>
             <StyledForm onSubmit={handleSubmit}>
                 <div>
-                    <label for="name">Name:</label>
+                    <label htmlFor="name">Name:</label>
                     <input
                         type="text"
                         name="name"
@@ -32,7 +32,7 @@ export default function WorkoutForm() {
                         required />
                 </div>
                 <div>
-                    <label for="name">Type:</label>
+                    <label htmlFor="name">Type:</label>
                     <select
                         type="text"
                         name="name"
@@ -47,7 +47,7 @@ export default function WorkoutForm() {
                     </select>
                 </div>
                 <div>
-                    <label for="name">Weight:</label>
+                    <label htmlFor="name">Weight:</label>
                     <input
                         type="number"
                         name="name"
@@ -58,7 +58,7 @@ export default function WorkoutForm() {
                         required />
                 </div>
                 <div>
-                    <label for="name">Sets:</label>
+                    <label htmlFor="name">Sets:</label>
                     <input
                         type="number"
                         name="name"
@@ -69,7 +69,7 @@ export default function WorkoutForm() {
                         required />
                 </div>
                 <div>
-                    <label for="name">Reps:</label>
+                    <label htmlFor="name">Reps:</label>
                     <input
                         type="number"
                         name="name"
@@ -80,7 +80,7 @@ export default function WorkoutForm() {
                         required />
                 </div>
                 <div>
-                    <label for="name">Distance:</label>
+                    <label htmlFor="name">Distance:</label>
                     <input
                         type="number"
                         name="name"
@@ -91,7 +91,7 @@ export default function WorkoutForm() {
                         required />
                 </div>
                 <div>
-                    <label for="name">Time:</label>
+                    <label htmlFor="name">Time:</label>
                     <input
                         type="text"
                         name="number"
@@ -102,7 +102,7 @@ export default function WorkoutForm() {
                         required/>
                 </div>
                 <div>
-                    <label for="name">Intensity:</label>
+                    <label htmlFor="name">Intensity:</label>
                     <select 
                         name="name"
                         onChange={intensityHandleChange}
