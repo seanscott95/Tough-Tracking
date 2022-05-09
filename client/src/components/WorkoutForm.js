@@ -1,12 +1,28 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { StyledForm } from './styles/Form.styled';
 
 export default function WorkoutForm() {
 
+    const [typeValue, setTypeValue] = useState('default');
+    const [intensityValue, setIntensityValue] = useState('default');
+
+    const typeHandleChange = (e) => {
+        setTypeValue(e.target.value);
+    }
+
+    const intensityHandleChange = (e) => {
+        setIntensityValue(e.target.value);
+    }
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        console.log(typeValue, intensityValue)
+    }
+    
     return (
         <>
             <h3>Add an exercise to your workout:</h3>
-            <StyledForm>
+            <StyledForm onSubmit={handleSubmit}>
                 <div>
                     <label for="name">Name:</label>
                     <input
@@ -20,8 +36,12 @@ export default function WorkoutForm() {
                     <select
                         type="text"
                         name="name"
+                        onChange={typeHandleChange}
+                        defaultValue={typeValue}
                         required >
-                            <option value="" disabled selected>Choose a type...</option>
+                            <option value="default" disabled hidden>
+                                Choose type...
+                            </option>
                             <option value='strength'>Strength</option>
                             <option value='cardio'>Cardio</option>
                     </select>
@@ -85,9 +105,12 @@ export default function WorkoutForm() {
                     <label for="name">Intensity:</label>
                     <select 
                         name="name"
-                        placeholder='Slow, Medium, High...'
+                        onChange={intensityHandleChange}
+                        defaultValue={intensityValue}
                         required >
-                            <option value="" disabled selected>Choose an intensity...</option>
+                            <option value="default" disabled hidden>
+                                Choose intensity...
+                            </option>
                             <option value='low'>Low</option>
                             <option value='moderate'>Moderate</option>
                             <option value='high'>High</option>
