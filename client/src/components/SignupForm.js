@@ -34,7 +34,6 @@ export default function SignupForm() {
             });
 
             Auth.login(data.addUser.token);
-            window.location.href = "/dashboard";
         } catch (e) {
             console.error(e);
         }

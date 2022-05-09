@@ -28,7 +28,6 @@ export default function LoginForm() {
             });
 
             Auth.login(data.login.token);
-            window.location.href = "/dashboard";
         } catch (e) {
             console.error(e);
         }
