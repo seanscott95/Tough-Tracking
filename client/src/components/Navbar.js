@@ -1,13 +1,18 @@
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 
-
+import Auth from '../utils/auth';
 import { StyledNavbar } from './styles/Navbar.styled';
 
 export default function Navbar() {
 
+    const logout = (event) => {
+        event.preventDefault();
+        Auth.logout();
+    };
+
     const [currentPage, setCurrentPage] = useState('Home');
-    
+
     const navbarPages = [
         {
             title: 'Home',
@@ -25,10 +30,6 @@ export default function Navbar() {
             title: 'View Workouts',
             link: '/viewWorkout'
         },
-        {
-            title: 'Login / Signup',
-            link: '/login'  
-        },
     ];
 
     return (
@@ -42,6 +43,17 @@ export default function Navbar() {
                             </NavLink>
                         </li>
                     ))}
+                    <li className={currentPage === 'login' ? 'navbarLinkActive' : 'navbarLink'}>
+                        {Auth.loggedIn() ? (
+                            <NavLink to='/' onClick={logout}>
+                                Logout
+                            </NavLink>
+                        ) : (
+                            <NavLink key='login' to="/login" onClick={() => setCurrentPage('login')}>
+                                Login/Signup
+                            </NavLink>
+                        )}
+                    </li>
                 </ul>
             </StyledNavbar>
         </>
