@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 
-import { Link } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
 import { LOGIN_USER } from '../utils/mutations';
 import { StyledForm } from './styles/Form.styled';
+import Auth from '../utils/auth';
 
 export default function LoginForm() {
 
@@ -36,7 +36,6 @@ export default function LoginForm() {
             email: '',
             password: '',
         });
-        
     };
 
     return (
