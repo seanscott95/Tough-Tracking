@@ -36,48 +36,43 @@ export default function LoginForm() {
             email: '',
             password: '',
         });
+        
+        window.location.href = "/dashboard";
     };
 
     return (
         <>
-            {data ? (
-              <p>
-                Success! You may now head{' '}
-                <Link to="/">back to the homepage.</Link>
-              </p>
-            ) : (
-                <>
-                    <h2>Login</h2>
-                    <StyledForm onSubmit={handleFormSubmit}>
-                        <div>
-                            <label for="email">Email:</label>
-                            <input 
-                                type="text"
-                                name="email"
-                                placeholder="Enter your email"
-                                value={formState.email}
-                                onChange={handleChange}
-                                required />
-                        </div>
-                        <div>
-                            <label for="password">Password:</label>
-                            <input 
-                                type="password"
-                                name="password"
-                                placeholder="Your password should be longer than 5 characters"
-                                value={formState.password}
-                                onChange={handleChange}
-                                required />
-                        </div>
-                        <div>
-                            <button type="submit">Log In</button>
-                        </div>
-                    </StyledForm>
-                </>
-            )}
+            <div>
+                <h2>Login</h2>
+                <StyledForm onSubmit={handleFormSubmit}>
+                    <div>
+                        <label for="email">Email:</label>
+                        <input
+                            type="text"
+                            name="email"
+                            placeholder="Enter your email"
+                            value={formState.email}
+                            onChange={handleChange}
+                            required />
+                    </div>
+                    <div>
+                        <label for="password">Password:</label>
+                        <input
+                            type="password"
+                            name="password"
+                            placeholder="Your password should be longer than 5 characters"
+                            value={formState.password}
+                            onChange={handleChange}
+                            required />
+                    </div>
+                    <div>
+                        <button type="submit">Log In</button>
+                    </div>
+                </StyledForm>
+            </div>
             {error && (
                 <div>
-                  {error.message}
+                    {error.message}
                 </div>
             )}
         </>
