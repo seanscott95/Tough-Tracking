@@ -3,6 +3,10 @@ import { StyledForm } from './styles/Form.styled';
 
 export default function WorkoutForm() {
 
+    const [exerciseList, setExerciseList] = useState([]);
+
+    // let exerciseList = [];
+
     const [exerciseFormState, setExerciseFormState] = useState({
         name: '',
         type: 'strength',
@@ -14,22 +18,22 @@ export default function WorkoutForm() {
         intensity: '',
     });
 
-    const handleExerciseChange = (event) => {
-        const { name, value } = event.target;
-    
+    const handleExerciseChange = (e) => {
+        const { name, value } = e.target;
+
         setExerciseFormState({
-          ...exerciseFormState,
-          [name]: value,
+            ...exerciseFormState,
+            [name]: value,
         });
     };
 
-    // const exerciseList = [];
 
     const handleSubmitExercise = (e) => {
         e.preventDefault();
-        // const list = document.getElementById('addExercise').value;
-        // exerciseList.push(list);
-        // console.log('exerciselist:', list);
+
+        const temp = exerciseList;
+        temp.push(exerciseFormState)
+        setExerciseList(temp);
 
         setExerciseFormState({
             name: '',
@@ -45,6 +49,17 @@ export default function WorkoutForm() {
 
     return (
         <>
+            <div>
+                <h3>Todays workout:</h3>
+                {exerciseList.map((item) => (
+                    <div key={item.name}>
+                        <p>Exercise - {item.name}</p>
+                    </div>
+                )
+                )}
+                <p>Once you have added all your exercises click save workout to finish.</p>
+                <button>Save Workout</button>
+            </div>
             <h3>Add an exercise to your workout:</h3>
             <StyledForm id='addExercise' onSubmit={handleSubmitExercise}>
                 <div>

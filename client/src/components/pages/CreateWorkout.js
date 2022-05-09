@@ -14,9 +14,6 @@ export default function CreateWorkout() {
                 </div>
             </div>
             <button>View Workout</button> */}
-            <div>
-                
-            </div>
             <WorkoutForm />
         </div>
     );
