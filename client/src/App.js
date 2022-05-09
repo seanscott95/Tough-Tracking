@@ -8,6 +8,8 @@ import Login from './components/pages/Login';
 import Dashboard from './components/pages/Dashboard';
 import CreateWorkout from './components/pages/CreateWorkout';
 import ViewWorkouts from './components/pages/ViewWorkouts';
+import EditWorkout from './components/pages/EditWorkout'
+import ViewSingle from './components/pages/ViewSingle'
 import GlobalStyles from './components/styles/Global';
 
 const client = new ApolloClient({
@@ -28,6 +30,8 @@ function App() {
             <Route path='/dashboard' element={<Dashboard />} />
             <Route path='/createWorkout' element={<CreateWorkout />} />
             <Route path='/viewWorkout' element={<ViewWorkouts />} />
+            <Route path='/editWorkout' element={<EditWorkout />} />
+            <Route path='/viewSingle' element={<ViewSingle />} />
           </Routes>
         </Mainlayout>
       </Router>
