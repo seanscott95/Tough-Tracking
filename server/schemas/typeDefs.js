@@ -20,7 +20,7 @@ const typeDefs = gql`
         intensity: String
     }
 
-    type Session {
+    type Workout {
         _id: ID
         name: String
         exercise: [Exercise]!
@@ -33,8 +33,8 @@ const typeDefs = gql`
 
     type Query {
         myUser: User
-        sessions: [Session]
-        session(sessionId: ID!): Session
+        workouts: [Workout]
+        workout(workoutId: ID!): Workout
         exercises: [Exercise]
         exercise(exerciseId: ID!): Exercise
     }
@@ -42,9 +42,9 @@ const typeDefs = gql`
     type Mutation {
         addUser(username: String!, email: String!, password: String!): Auth
         login(email: String!, password: String!): Auth
-        addSession(name: String!): Session
+        addWorkout(name: String!): Workout
         addExercise(
-            sessionId: ID!
+            workoutId: ID!
             name: String!
             type: String!
             weight: Float
@@ -53,9 +53,9 @@ const typeDefs = gql`
             distance: Float
             time: Float
             intensity: String
-        ): Session
-        removeSession(sessionId: ID!): Session
-        removeExercise(sessionId: ID!, exerciseId: ID!): Session
+        ): Workout
+        removeWorkout(workoutId: ID!): Workout
+        removeExercise(workoutId: ID!, exerciseId: ID!): Workout
     }
 `;
 

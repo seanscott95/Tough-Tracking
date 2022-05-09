@@ -1,4 +1,4 @@
-const { Session, Exercise, User } = require('../models');
+const { Workout, Exercise, User } = require('../models');
 const { AuthenticationError } = require('apollo-server-express');
 const { signToken } = require('../utils/auth');
 
@@ -8,11 +8,11 @@ const resolvers = {
         myUser: async () => {
             return User.find();
         },
-        sessions: async () => {
-            return Session.find();
+        workouts: async () => {
+            return Workout.find();
         },
-        session: async (parent, { sessionId }) => {
-            return Session.findOne({ _id: sessionId });
+        workout: async (parent, { workoutId }) => {
+            return Workout.findOne({ _id: workoutId });
         },
         exercises: async () => {
             return Exercise.find();
@@ -42,12 +42,12 @@ const resolvers = {
             const token = signToken(user);
             return { token, user };
         },
-        addSession: async (parent, { name }) => {
-            return Session.create({ name });
+        addWorkout: async (parent, { name }) => {
+            return Workout.create({ name });
         },
-        addExercise: async (parent, { sessionId, name, type, weight, sets, reps, distance, time, intensity }) => {
-            return Session.findOneAndUpdate(
-                { _id: sessionId },
+        addExercise: async (parent, { workoutId, name, type, weight, sets, reps, distance, time, intensity }) => {
+            return Workout.findOneAndUpdate(
+                { _id: workoutId },
                 {
                     $addToSet: { exercise: { name, type, weight, sets, reps, distance, time, intensity } },
                 },
@@ -57,12 +57,12 @@ const resolvers = {
                 }
             );
         },
-        removeSession: async (parent, { sessionId }) => {
-            return Session.findOneAndDelete({ _id: sessionId });
+        removeWorkout: async (parent, { workoutId }) => {
+            return Workout.findOneAndDelete({ _id: workoutId });
         },
-        removeExercise: async (parent, { sessionId, exerciseId }) => {
-            return Session.findOneAndUpdate(
-                { _id: sessionId },
+        removeExercise: async (parent, { workoutId, exerciseId }) => {
+            return Workout.findOneAndUpdate(
+                { _id: workoutId },
                 { $pull: { exercise: { _id: exerciseId } } },
                 { new: true }
             );
