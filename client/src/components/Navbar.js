@@ -17,7 +17,6 @@ export default function Navbar() {
         {
             title: 'Home',
             link: '/',
-            show: true,
         },
         {
             title: 'Dashboard',
