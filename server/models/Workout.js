@@ -1,7 +1,7 @@
 const { Schema, model } = require('mongoose');
 const dateFormat = require('../utils/dateFormat');
 
-const sessionSchema = new Schema({
+const workoutSchema = new Schema({
   name: {
     type: String,
     required: true,
@@ -24,6 +24,6 @@ const sessionSchema = new Schema({
   },
 });
 
-const Session = model('Session', sessionSchema);
+const Workout = model('Workout', workoutSchema);
 
-module.exports = Session;
+module.exports = Workout;
