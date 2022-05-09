@@ -31,7 +31,7 @@ export default function Navbar() {
         },
         {
             title: 'View Workouts',
-            link: '/viewWorkout',
+            link: '/viewWorkouts',
             show: false
         },
     ];
