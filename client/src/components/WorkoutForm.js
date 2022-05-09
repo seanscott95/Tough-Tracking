@@ -18,7 +18,7 @@ export default function WorkoutForm() {
         e.preventDefault();
         console.log(typeValue, intensityValue)
     }
-    
+
     return (
         <>
             <h3>Add an exercise to your workout:</h3>
@@ -28,7 +28,7 @@ export default function WorkoutForm() {
                     <input
                         type="text"
                         name="name"
-                        placeholder='Gym, Running, Swimming...'
+                        placeholder='Benchpress, Running, Swimming...'
                         required />
                 </div>
                 <div>
@@ -39,47 +39,56 @@ export default function WorkoutForm() {
                         onChange={typeHandleChange}
                         defaultValue={typeValue}
                         required >
-                            <option value="default" disabled hidden>
-                                Choose type...
-                            </option>
-                            <option value='strength'>Strength</option>
-                            <option value='cardio'>Cardio</option>
+                        <option value="default" disabled hidden>
+                            Choose type...
+                        </option>
+                        <option value='strength'>Strength</option>
+                        <option value='cardio'>Cardio</option>
                     </select>
                 </div>
-                <div>
-                    <label htmlFor="name">Weight:</label>
-                    <input
-                        type="number"
-                        name="name"
-                        min="0"
-                        max="500"
-                        step="2.5"
-                        placeholder='50kg...'
-                        required />
-                </div>
-                <div>
-                    <label htmlFor="name">Sets:</label>
-                    <input
-                        type="number"
-                        name="name"
-                        min="1"
-                        max="10"
-                        step="1"
-                        placeholder='3...'
-                        required />
-                </div>
-                <div>
-                    <label htmlFor="name">Reps:</label>
-                    <input
-                        type="number"
-                        name="name"
-                        min="1"
-                        max="10"
-                        step="1"
-                        placeholder='8...'
-                        required />
-                </div>
-                <div>
+
+                {typeValue === 'strength' ? (
+                    <>
+                        <div>
+                            <label htmlFor="name">Weight:</label>
+                            <input
+                                type="number"
+                                name="name"
+                                min="0"
+                                max="500"
+                                step="2.5"
+                                placeholder='50kg...'
+                                required />
+                        </div>
+                        <div>
+                            <label htmlFor="name">Sets:</label>
+                            <input
+                                type="number"
+                                name="name"
+                                min="1"
+                                max="10"
+                                step="1"
+                                placeholder='3...'
+                                required />
+                        </div>
+                        <div>
+                            <label htmlFor="name">Reps:</label>
+                            <input
+                                type="number"
+                                name="name"
+                                min="1"
+                                max="10"
+                                step="1"
+                                placeholder='8...'
+                                required />
+                        </div>
+                    </>
+                ) : (
+                    <></>
+                )}
+                {typeValue === 'cardio' ? (
+                    <>
+                        <div>
                     <label htmlFor="name">Distance:</label>
                     <input
                         type="number"
@@ -99,24 +108,28 @@ export default function WorkoutForm() {
                         max="1440"
                         step="1"
                         placeholder='45min...'
-                        required/>
+                        required />
                 </div>
                 <div>
                     <label htmlFor="name">Intensity:</label>
-                    <select 
+                    <select
                         name="name"
                         onChange={intensityHandleChange}
                         defaultValue={intensityValue}
                         required >
-                            <option value="default" disabled hidden>
-                                Choose intensity...
-                            </option>
-                            <option value='low'>Low</option>
-                            <option value='moderate'>Moderate</option>
-                            <option value='high'>High</option>
+                        <option value="default" disabled hidden>
+                            Choose intensity...
+                        </option>
+                        <option value='low'>Low</option>
+                        <option value='moderate'>Moderate</option>
+                        <option value='high'>High</option>
                     </select>
                 </div>
-                <div>
+                    </>
+                ) : (
+                    <></>
+                )}
+                < div >
                     <button type="submit">Add</button>
                 </div>
             </StyledForm>
