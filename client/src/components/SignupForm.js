@@ -46,7 +46,7 @@ export default function SignupForm() {
                 <h2>Sign up</h2>
                 <StyledForm onSubmit={handleFormSubmit}>
                     <div>
-                        <label for="username">Username:</label>
+                        <label htmlFor="username">Username:</label>
                         <input
                             type="text"
                             name="username"
@@ -56,7 +56,7 @@ export default function SignupForm() {
                             required />
                     </div>
                     <div >
-                        <label for="email">Email:</label>
+                        <label htmlFor="email">Email:</label>
                         <input
                             type="text"
                             name="email"
@@ -66,7 +66,7 @@ export default function SignupForm() {
                             required />
                     </div>
                     <div>
-                        <label for="password">Password:</label>
+                        <label htmlFor="password">Password:</label>
                         <input
                             type="password"
                             name="password"
