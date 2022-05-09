@@ -3,128 +3,158 @@ import { StyledForm } from './styles/Form.styled';
 
 export default function WorkoutForm() {
 
-    const [typeValue, setTypeValue] = useState('default');
-    const [intensityValue, setIntensityValue] = useState('default');
+    const [exerciseFormState, setExerciseFormState] = useState({
+        name: '',
+        type: 'strength',
+        weight: '',
+        sets: '',
+        reps: '',
+        distance: '',
+        time: '',
+        intensity: '',
+    });
 
-    const typeHandleChange = (e) => {
-        setTypeValue(e.target.value);
-    }
+    const handleExerciseChange = (event) => {
+        const { name, value } = event.target;
+    
+        setExerciseFormState({
+          ...exerciseFormState,
+          [name]: value,
+        });
+    };
 
-    const intensityHandleChange = (e) => {
-        setIntensityValue(e.target.value);
-    }
+    // const exerciseList = [];
 
-    const handleSubmit = (e) => {
+    const handleSubmitExercise = (e) => {
         e.preventDefault();
-        console.log(typeValue, intensityValue)
+        // const list = document.getElementById('addExercise').value;
+        // exerciseList.push(list);
+        // console.log('exerciselist:', list);
+
+        setExerciseFormState({
+            name: '',
+            type: 'strength',
+            weight: '',
+            sets: '',
+            reps: '',
+            distance: '',
+            time: '',
+            intensity: '',
+        });
     }
 
     return (
         <>
             <h3>Add an exercise to your workout:</h3>
-            <StyledForm onSubmit={handleSubmit}>
+            <StyledForm id='addExercise' onSubmit={handleSubmitExercise}>
                 <div>
                     <label htmlFor="name">Name:</label>
                     <input
                         type="text"
                         name="name"
+                        value={exerciseFormState.name}
+                        onChange={handleExerciseChange}
                         placeholder='Benchpress, Running, Swimming...'
                         required />
                 </div>
                 <div>
-                    <label htmlFor="name">Type:</label>
+                    <label htmlFor="type">Type:</label>
                     <select
                         type="text"
-                        name="name"
-                        onChange={typeHandleChange}
-                        defaultValue={typeValue}
+                        name="type"
+                        value={exerciseFormState.type}
+                        onChange={handleExerciseChange}
                         required >
-                        <option value="default" disabled hidden>
-                            Choose type...
-                        </option>
                         <option value='strength'>Strength</option>
                         <option value='cardio'>Cardio</option>
                     </select>
                 </div>
 
-                {typeValue === 'strength' ? (
+                {exerciseFormState.type === 'strength' ? (
                     <>
                         <div>
-                            <label htmlFor="name">Weight:</label>
+                            <label htmlFor="weight">Weight:</label>
                             <input
                                 type="number"
-                                name="name"
+                                name="weight"
                                 min="0"
                                 max="500"
-                                step="2.5"
-                                placeholder='50kg...'
+                                step=".5"
+                                placeholder='50...'
+                                value={exerciseFormState.weight}
+                                onChange={handleExerciseChange}
                                 required />
                         </div>
                         <div>
-                            <label htmlFor="name">Sets:</label>
+                            <label htmlFor="sets">Sets:</label>
                             <input
                                 type="number"
-                                name="name"
+                                name="sets"
                                 min="1"
                                 max="10"
                                 step="1"
                                 placeholder='3...'
+                                value={exerciseFormState.sets}
+                                onChange={handleExerciseChange}
                                 required />
                         </div>
                         <div>
-                            <label htmlFor="name">Reps:</label>
+                            <label htmlFor="reps">Reps:</label>
                             <input
                                 type="number"
-                                name="name"
+                                name="reps"
                                 min="1"
                                 max="10"
                                 step="1"
                                 placeholder='8...'
+                                value={exerciseFormState.reps}
+                                onChange={handleExerciseChange}
                                 required />
                         </div>
                     </>
                 ) : (
                     <></>
                 )}
-                {typeValue === 'cardio' ? (
+                {exerciseFormState.type === 'cardio' ? (
                     <>
                         <div>
-                    <label htmlFor="name">Distance:</label>
-                    <input
-                        type="number"
-                        name="name"
-                        min="1"
-                        max="1000"
-                        step="1"
-                        placeholder='5.4'
-                        required />
-                </div>
-                <div>
-                    <label htmlFor="name">Time:</label>
-                    <input
-                        type="text"
-                        name="number"
-                        min="1"
-                        max="1440"
-                        step="1"
-                        placeholder='45min...'
-                        required />
-                </div>
-                <div>
-                    <label htmlFor="name">Intensity:</label>
-                    <select
-                        name="name"
-                        onChange={intensityHandleChange}
-                        defaultValue={intensityValue}
-                        required >
-                        <option value="default" disabled hidden>
-                            Choose intensity...
-                        </option>
-                        <option value='low'>Low</option>
-                        <option value='moderate'>Moderate</option>
-                        <option value='high'>High</option>
-                    </select>
-                </div>
+                            <label htmlFor="distance">Distance:</label>
+                            <input
+                                type="number"
+                                name="distance"
+                                min="1"
+                                max="1000"
+                                step="1"
+                                placeholder='5.4'
+                                value={exerciseFormState.distance}
+                                onChange={handleExerciseChange}
+                                required />
+                        </div>
+                        <div>
+                            <label htmlFor="time">Time:</label>
+                            <input
+                                type="number"
+                                name="time"
+                                min="1"
+                                max="1440"
+                                step="1"
+                                placeholder='45min...'
+                                value={exerciseFormState.time}
+                                onChange={handleExerciseChange}
+                                required />
+                        </div>
+                        <div>
+                            <label htmlFor="intensity">Intensity:</label>
+                            <select
+                                name="intensity"
+                                value={exerciseFormState.intensity}
+                                onChange={handleExerciseChange}
+                                required >
+                                <option value='low'>Low</option>
+                                <option value='moderate'>Moderate</option>
+                                <option value='high'>High</option>
+                            </select>
+                        </div>
                     </>
                 ) : (
                     <></>
