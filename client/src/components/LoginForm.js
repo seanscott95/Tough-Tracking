@@ -28,6 +28,7 @@ export default function LoginForm() {
             });
 
             Auth.login(data.login.token);
+            window.location.href = "/dashboard";
         } catch (e) {
             console.error(e);
         }
@@ -37,7 +38,6 @@ export default function LoginForm() {
             password: '',
         });
         
-        window.location.href = "/dashboard";
     };
 
     return (
