@@ -45,7 +45,6 @@ const typeDefs = gql`
         login(email: String!, password: String!): Auth
         addWorkout(exercise: String!): Workout
         addExercise(
-            workoutId: ID!
             name: String!
             type: String!
             weight: Float
@@ -54,7 +53,7 @@ const typeDefs = gql`
             distance: Float
             time: Float
             intensity: String
-        ): Workout
+        ): Exercise
         removeWorkout(workoutId: ID!): Workout
         removeExercise(workoutId: ID!, exerciseId: ID!): Workout
     }

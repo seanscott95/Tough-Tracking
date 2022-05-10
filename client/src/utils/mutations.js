@@ -34,3 +34,26 @@ export const ADD_WORKOUT = gql`
     }
   }
 `;
+
+export const ADD_EXERCISE = gql`
+  mutation addExercise(
+      $name: String!,
+      $type: String!,
+      $weight: Number,
+      $sets: Number, 
+      $reps: Number,
+      $distance: Number,
+      $time: Number,
+      $intensity: String) {
+    addWorkout(
+      name: $name,
+      type: $type,
+      weight: $weight,
+      sets: $sets,
+      reps: $reps,
+      distance: $distance,
+      intensity: $intensity) {
+        _id
+    }
+  }
+`;
