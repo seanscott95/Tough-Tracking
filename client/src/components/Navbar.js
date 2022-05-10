@@ -10,28 +10,21 @@ export default function Navbar() {
         event.preventDefault();
         Auth.logout();
     };
-    
+
     const [currentPage, setCurrentPage] = useState('Home');
 
     const navbarPages = [
-        {
-            title: 'Home',
-            link: '/',
-        },
-        {
+                {
             title: 'Dashboard',
             link: '/dashboard',
-            show: false
         },
         {
             title: 'Create Workout',
             link: '/createWorkout',
-            show: false
         },
         {
             title: 'View Workouts',
             link: '/viewWorkouts',
-            show: false
         },
     ];
 
@@ -39,17 +32,23 @@ export default function Navbar() {
         <>
             <StyledNavbar>
                 <ul className='navbarList'>
+                    <li key='login' className={currentPage === 'Home' ? 'navbarLinkActive' : 'navbarLink'}>
+                        <NavLink key='home' to='/' onClick={() => setCurrentPage('Home')}>
+                            Home
+                        </NavLink>
+                    </li>
+
                     {navbarPages.map((page) => (
-                        Auth.loggedIn() === !page.show ? (
+                        Auth.loggedIn() === true ? (
                             <li key={page.link} className={currentPage === page.title ? 'navbarLinkActive' : 'navbarLink'}>
                                 <NavLink key={page.link} to={page.link} onClick={() => setCurrentPage(page.title)} >
                                     {page.title}
                                 </NavLink>
                             </li>
-                            ) : (
-                                <li key={page.link}></li>
-                            )
-                        ))
+                        ) : (
+                            <li key={page.link}></li>
+                        )
+                    ))
                     }
                     <li key='login' className={currentPage === 'login' ? 'navbarLinkActive' : 'navbarLink'}>
                         {Auth.loggedIn() ? (
