@@ -23,3 +23,14 @@ export const LOGIN_USER = gql`
     }
   }
 `;
+
+export const ADD_WORKOUT = gql`
+  mutation addWorkout($exercises: String!) {
+    addWorkout(exercises: $exercises) {
+      _id
+      user
+      exercsies
+      createdAt
+    }
+  }
+`;
