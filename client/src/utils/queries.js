@@ -14,7 +14,17 @@ export const QUERY_WORKOUTS = gql`
   query getWorkouts {
     workouts {
       _id
-      exercises
+      name
+      exercises {
+        name
+        type
+        weights
+        sets
+        reps
+        distance
+        time
+        intensity
+      }
       createdAt
     }
   }

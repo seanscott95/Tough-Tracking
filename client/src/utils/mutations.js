@@ -25,35 +25,21 @@ export const LOGIN_USER = gql`
 `;
 
 export const CREATE_WORKOUT = gql`
-  mutation createWorkout($exercises: String!) {
-    createWorkout(exercises: $exercises) {
+  mutation createWorkout($name: String!, $exercises: String!) {
+    createWorkout(name: $name, exercises: $exercises) {
       _id
-      user
-      exercises
+      name
+      exercises {
+        name
+        type
+        weights
+        sets
+        reps
+        distance
+        time
+        intensity
+      }
       createdAt
-    }
-  }
-`;
-
-export const ADD_EXERCISE = gql`
-  mutation addExercise(
-      $name: String!,
-      $type: String!,
-      $weight: Number,
-      $sets: Number, 
-      $reps: Number,
-      $distance: Number,
-      $time: Number,
-      $intensity: String) {
-    addExercise(
-      name: $name,
-      type: $type,
-      weight: $weight,
-      sets: $sets,
-      reps: $reps,
-      distance: $distance,
-      intensity: $intensity) {
-        _id
     }
   }
 `;

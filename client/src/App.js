@@ -17,6 +17,7 @@ import ViewWorkouts from './components/pages/ViewWorkouts';
 import EditWorkout from './components/pages/EditWorkout'
 import ViewSingle from './components/pages/ViewSingle'
 import GlobalStyles from './components/styles/Global';
+import Auth from './utils/auth';
 
 const httpLink = createHttpLink({
   uri: '/graphql',
@@ -49,13 +50,13 @@ function App() {
         <GlobalStyles />
         <Mainlayout>
           <Routes>
-            <Route path='/' element={<Home />} />
-            <Route path='/login' element={<Login />} />
-            <Route path='/dashboard' element={<Dashboard />} />
-            <Route path='/createWorkout' element={<CreateWorkout />} />
-            <Route path='/editWorkout/:workoutId' element={<EditWorkout />} />
-            <Route path='/viewSingle/:workoutId' element={<ViewSingle />} />
-            <Route path='/viewWorkouts' element={<ViewWorkouts />} />
+            <Route exact path='/' element={<Home />} />
+            <Route exact path='/login' element={<Login />} />
+            <Route exact path='/dashboard' element={Auth.loggedIn() ? <Navigate replace to='/'/> : <Dashboard />} />
+            <Route exact path='/createWorkout' element={Auth.loggedIn() ? <Navigate replace to='/'/> : <CreateWorkout />} />
+            <Route exact path='/editWorkout/:workoutId' element={Auth.loggedIn() ? <Navigate replace to='/'/> : <EditWorkout />} />
+            <Route exact path='/viewSingle/:workoutId' element={Auth.loggedIn() ? <Navigate replace to='/'/> : <ViewSingle />} />
+            <Route exact path='/viewWorkouts' element={Auth.loggedIn() ? <Navigate replace to='/'/> : <ViewWorkouts />} />
           </Routes>
         </Mainlayout>
       </Router>
