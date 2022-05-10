@@ -10,7 +10,7 @@ export default function Navbar() {
         event.preventDefault();
         Auth.logout();
     };
-
+    
     const [currentPage, setCurrentPage] = useState('Home');
 
     const navbarPages = [
@@ -57,7 +57,7 @@ export default function Navbar() {
                                 Logout
                             </NavLink>
                         ) : (
-                            <NavLink key='login' to="/login" onClick={() => setCurrentPage('login')}>
+                            <NavLink key='login' to='/login' onClick={() => setCurrentPage('login')}>
                                 Login/Signup
                             </NavLink>
                         )}
