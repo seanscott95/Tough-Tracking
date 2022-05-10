@@ -45,7 +45,7 @@ export const ADD_EXERCISE = gql`
       $distance: Number,
       $time: Number,
       $intensity: String) {
-    addWorkout(
+    addExercise(
       name: $name,
       type: $type,
       weight: $weight,

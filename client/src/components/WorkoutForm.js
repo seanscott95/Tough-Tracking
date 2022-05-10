@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import { useMutation, useQuery } from '@apollo/client';
-import { useParams } from 'react-router-dom';
+import { useMutation } from '@apollo/client';
 
 import { ADD_WORKOUT } from '../utils/mutations';
 import { QUERY_WORKOUTS } from '../utils/queries';
@@ -33,9 +32,9 @@ export default function WorkoutForm() {
     const handleSubmitExercise = (e) => {
         e.preventDefault();
 
-        const temp = exerciseList;
-        temp.push(exerciseFormState)
-        setExerciseList(temp);
+        const list = exerciseList;
+        list.push(exerciseFormState)
+        setExerciseList(list);
 
         setExerciseFormState({
             name: '',
@@ -65,7 +64,7 @@ export default function WorkoutForm() {
         },
     })
 
-    const handleSaveWorkout = async (e) => {
+    const handleCreateWorkout = async (e) => {
         e.preventDefault();
 
         try {
@@ -210,7 +209,7 @@ export default function WorkoutForm() {
                 )
                 )}
                 <p>Once you have added all your exercises click save workout to finish.</p>
-                <button onSubmit={handleSaveWorkout} >Save Workout</button>
+                <button onClick={handleCreateWorkout} >Save Workout</button>
             </div>
         </>
     )

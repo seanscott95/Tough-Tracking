@@ -8,17 +8,8 @@ const resolvers = {
         myUser: async () => {
             return User.find();
         },
-        workouts: async () => {
-            return Workout.find();
-        },
-        workout: async (parent, { workoutId }) => {
-            return Workout.findOne({ _id: workoutId });
-        },
-        exercises: async () => {
-            return Exercise.find();
-        },
-        exercise: async (parent, { exerciseId }) => {
-            return Exercise.findOne({ _id: exerciseId });
+        getWorkout: async () => {
+            return Workout.findByPk(args.id).populate('exercises');
         },
     },
 
@@ -42,30 +33,16 @@ const resolvers = {
             const token = signToken(user);
             return { token, user };
         },
-        addWorkout: async (parent, { name }) => {
-            return Workout.create({ name });
-        },
-        addExercise: async (parent, { workoutId, name, type, weight, sets, reps, distance, time, intensity }) => {
-            return Workout.findOneAndUpdate(
-                { _id: workoutId },
-                {
-                    $addToSet: { exercise: { name, type, weight, sets, reps, distance, time, intensity } },
-                },
-                {
-                    new: true,
-                    runValidators: true,
-                }
-            );
+        createWorkout: async (parent, args ) => {
+            const exerciseList = await Exercise.insertMany(args.exercises);
+            const workout = await Workout.create(exerciseList)
+            return Workout.create({
+                name: args.name,
+                exercises: exerciseList.map((e) => e._id)
+            });
         },
         removeWorkout: async (parent, { workoutId }) => {
             return Workout.findOneAndDelete({ _id: workoutId });
-        },
-        removeExercise: async (parent, { workoutId, exerciseId }) => {
-            return Workout.findOneAndUpdate(
-                { _id: workoutId },
-                { $pull: { exercise: { _id: exerciseId } } },
-                { new: true }
-            );
         },
     },
 };
