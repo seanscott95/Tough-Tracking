@@ -32,7 +32,7 @@ export default function Navbar() {
         <>
             <StyledNavbar>
                 <ul className='navbarList'>
-                    <li key='login' className={currentPage === 'Home' ? 'navbarLinkActive' : 'navbarLink'}>
+                    <li key='home' className={currentPage === 'Home' ? 'navbarLinkActive' : 'navbarLink'}>
                         <NavLink key='home' to='/' onClick={() => setCurrentPage('Home')}>
                             Home
                         </NavLink>
