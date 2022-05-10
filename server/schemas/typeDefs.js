@@ -9,8 +9,8 @@ const typeDefs = gql`
     
     type Exercise {
         _id: ID
-        name: String!
-        type: String!
+        name: String
+        type: String
         weight: Float
         sets: Int
         reps: Int
@@ -20,8 +20,8 @@ const typeDefs = gql`
     }
 
     input PostExercise {
-        name: String!
-        type: String!
+        name: String
+        type: String
         weight: Float
         sets: Int
         reps: Int
