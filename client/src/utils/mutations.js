@@ -29,7 +29,7 @@ export const ADD_WORKOUT = gql`
     addWorkout(exercises: $exercises) {
       _id
       user
-      exercsies
+      exercises
       createdAt
     }
   }

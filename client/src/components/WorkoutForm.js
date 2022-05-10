@@ -1,11 +1,14 @@
 import React, { useState } from 'react';
+import { useMutation, useQuery } from '@apollo/client';
+import { useParams } from 'react-router-dom';
+
+import { ADD_WORKOUT } from '../utils/mutations';
+import { QUERY_WORKOUTS } from '../utils/queries';
 import { StyledForm } from './styles/Form.styled';
 
 export default function WorkoutForm() {
 
     const [exerciseList, setExerciseList] = useState([]);
-
-    // let exerciseList = [];
 
     const [exerciseFormState, setExerciseFormState] = useState({
         name: '',
@@ -27,7 +30,6 @@ export default function WorkoutForm() {
         });
     };
 
-
     const handleSubmitExercise = (e) => {
         e.preventDefault();
 
@@ -46,6 +48,38 @@ export default function WorkoutForm() {
             intensity: '',
         });
     }
+
+    const [addWorkout, { error }] = useMutation(ADD_WORKOUT, {
+        update(cache, { data: { addWorkout } }) {
+            try {
+                const { workouts } = cache.readQuery({ query: QUERY_WORKOUTS });
+
+                cache.writeQuery({
+                    query: QUERY_WORKOUTS,
+                    data: { workouts: [addWorkout, ...workouts] },
+                });
+            } catch (e) {
+                console.error(e);
+            }
+
+        },
+    })
+
+    const handleSaveWorkout = async (e) => {
+        e.preventDefault();
+
+        try {
+            const { data } = await addWorkout({
+                variables: {
+                    exercises: exerciseList
+                },
+            });
+
+            setExerciseList([]);
+        } catch (err) {
+            console.error(err);
+        }
+    };
 
     return (
         <>
@@ -176,7 +210,7 @@ export default function WorkoutForm() {
                 )
                 )}
                 <p>Once you have added all your exercises click save workout to finish.</p>
-                <button>Save Workout</button>
+                <button onSubmit={handleSaveWorkout} >Save Workout</button>
             </div>
         </>
     )
