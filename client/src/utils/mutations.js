@@ -25,14 +25,14 @@ export const LOGIN_USER = gql`
 `;
 
 export const CREATE_WORKOUT = gql`
-  mutation createWorkout($name: String!, $exercises: String!) {
+  mutation createWorkout($name: String!, $exercises: [PostExercise]) {
     createWorkout(name: $name, exercises: $exercises) {
       _id
       name
       exercises {
         name
         type
-        weights
+        weight
         sets
         reps
         distance

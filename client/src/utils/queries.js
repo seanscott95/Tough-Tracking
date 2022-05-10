@@ -18,7 +18,7 @@ export const QUERY_WORKOUTS = gql`
       exercises {
         name
         type
-        weights
+        weight
         sets
         reps
         distance

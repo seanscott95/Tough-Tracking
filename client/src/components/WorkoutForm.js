@@ -20,6 +20,8 @@ export default function WorkoutForm() {
         intensity: '',
     });
 
+    const [workoutName, setWorkoutName] = useState('');
+
     const handleExerciseChange = (e) => {
         const { name, value } = e.target;
 
@@ -69,15 +71,33 @@ export default function WorkoutForm() {
         try {
             const { data } = await createWorkout({
                 variables: {
-                    name,
-                    exercises: exerciseList
+                    name: workoutName,
+                    exercises: exerciseList.map((item) => {
+                        return {
+                            name: item.name,
+                            type: item.type,
+                            weight: Number(item.weight),
+                            sets: Number(item.sets),
+                            reps: Number(item.reps),
+                            distance: Number(item.distance),
+                            time: Number(item.time),
+                            intensity: item.intensity,
+                        }
+                    })
                 },
             });
 
+            setWorkoutName('')
             setExerciseList([]);
+            set
         } catch (err) {
             console.error(err);
         }
+    };
+
+    const handleNameChange = (e) => {
+        const { value } = e.target;
+        setWorkoutName(value);
     };
 
     return (
@@ -209,6 +229,16 @@ export default function WorkoutForm() {
                 )
                 )}
                 <p>Once you have added all your exercises click save workout to finish.</p>
+                <div>
+                    <label htmlFor="workoutName">Workout Name:</label>
+                    <input
+                        type="text"
+                        name="workoutName"
+                        placeholder='Sunday, Gym, Workout...'
+                        onChange={handleNameChange}
+                        value={workoutName}
+                        required />
+                </div>
                 <button onClick={handleCreateWorkout} >Save Workout</button>
             </div>
         </>

@@ -4,7 +4,6 @@ const dateFormat = require('../utils/dateFormat');
 const workoutSchema = new Schema({
   name: {
     type: String,
-    required: true,
     trim: true
   },
   user: {
