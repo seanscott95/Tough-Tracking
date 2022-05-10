@@ -7,6 +7,7 @@ import {
 } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { Navigate } from 'react-router-dom';
 
 import Home from './components/pages/Home';
 import Mainlayout from './layouts/Mainlayout';
@@ -52,11 +53,11 @@ function App() {
           <Routes>
             <Route exact path='/' element={<Home />} />
             <Route exact path='/login' element={<Login />} />
-            <Route exact path='/dashboard' element={Auth.loggedIn() ? <Navigate replace to='/'/> : <Dashboard />} />
-            <Route exact path='/createWorkout' element={Auth.loggedIn() ? <Navigate replace to='/'/> : <CreateWorkout />} />
-            <Route exact path='/editWorkout/:workoutId' element={Auth.loggedIn() ? <Navigate replace to='/'/> : <EditWorkout />} />
-            <Route exact path='/viewSingle/:workoutId' element={Auth.loggedIn() ? <Navigate replace to='/'/> : <ViewSingle />} />
-            <Route exact path='/viewWorkouts' element={Auth.loggedIn() ? <Navigate replace to='/'/> : <ViewWorkouts />} />
+            <Route exact path='/dashboard' element={Auth.loggedIn() ? <Dashboard /> : <Navigate replace to='/'/>} />
+            <Route exact path='/createWorkout' element={Auth.loggedIn() ? <CreateWorkout /> : <Navigate replace to='/'/>} />
+            <Route exact path='/editWorkout/:workoutId' element={Auth.loggedIn() ? <EditWorkout /> : <Navigate replace to='/'/>} />
+            <Route exact path='/viewSingle/:workoutId' element={Auth.loggedIn() ?   <ViewSingle /> : <Navigate replace to='/'/>} />
+            <Route exact path='/viewWorkouts' element={Auth.loggedIn() ? <ViewWorkouts /> : <Navigate replace to='/'/> } />
           </Routes>
         </Mainlayout>
       </Router>
