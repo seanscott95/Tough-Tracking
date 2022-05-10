@@ -11,7 +11,7 @@ const workoutSchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: 'User',
   },
-  exercise: [
+  exercises: [
     {
     type: Schema.Types.ObjectId,
     ref: 'Exercise',

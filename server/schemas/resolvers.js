@@ -8,8 +8,8 @@ const resolvers = {
         myUser: async () => {
             return User.find();
         },
-        getWorkout: async () => {
-            return Workout.findByPk(args.id).populate('exercises');
+        getWorkout: async (parent, args) => {
+            return Workout.findById(args.workoutId).populate('exercises');
         },
     },
 
@@ -35,7 +35,7 @@ const resolvers = {
         },
         createWorkout: async (parent, args ) => {
             const exerciseList = await Exercise.insertMany(args.exercises);
-            const workout = await Workout.create(exerciseList)
+            console.log(exerciseList);
             return Workout.create({
                 name: args.name,
                 exercises: exerciseList.map((e) => e._id)

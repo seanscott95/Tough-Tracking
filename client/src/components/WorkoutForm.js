@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useMutation } from '@apollo/client';
 
-import { ADD_WORKOUT } from '../utils/mutations';
+import { CREATE_WORKOUT } from '../utils/mutations';
 import { QUERY_WORKOUTS } from '../utils/queries';
 import { StyledForm } from './styles/Form.styled';
 
@@ -48,19 +48,18 @@ export default function WorkoutForm() {
         });
     }
 
-    const [addWorkout, { error }] = useMutation(ADD_WORKOUT, {
-        update(cache, { data: { addWorkout } }) {
+    const [createWorkout, { error }] = useMutation(CREATE_WORKOUT, {
+        update(cache, { data: { createWorkout } }) {
             try {
                 const { workouts } = cache.readQuery({ query: QUERY_WORKOUTS });
 
                 cache.writeQuery({
                     query: QUERY_WORKOUTS,
-                    data: { workouts: [addWorkout, ...workouts] },
+                    data: { workouts: [createWorkout, ...workouts] },
                 });
             } catch (e) {
                 console.error(e);
             }
-
         },
     })
 
@@ -68,8 +67,9 @@ export default function WorkoutForm() {
         e.preventDefault();
 
         try {
-            const { data } = await addWorkout({
+            const { data } = await createWorkout({
                 variables: {
+                    name,
                     exercises: exerciseList
                 },
             });
