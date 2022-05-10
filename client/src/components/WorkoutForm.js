@@ -49,17 +49,6 @@ export default function WorkoutForm() {
 
     return (
         <>
-            <div>
-                <h3>Todays workout:</h3>
-                {exerciseList.map((item) => (
-                    <div key={item.name}>
-                        <p>Exercise - {item.name}</p>
-                    </div>
-                )
-                )}
-                <p>Once you have added all your exercises click save workout to finish.</p>
-                <button>Save Workout</button>
-            </div>
             <h3>Add an exercise to your workout:</h3>
             <StyledForm id='addExercise' onSubmit={handleSubmitExercise}>
                 <div>
@@ -178,6 +167,17 @@ export default function WorkoutForm() {
                     <button type="submit">Add</button>
                 </div>
             </StyledForm>
+            <div>
+                <h3>Todays workout:</h3>
+                {exerciseList.map((item) => (
+                    <div key={item.name}>
+                        <p>Exercise - {item.name}</p>
+                    </div>
+                )
+                )}
+                <p>Once you have added all your exercises click save workout to finish.</p>
+                <button>Save Workout</button>
+            </div>
         </>
     )
 }
