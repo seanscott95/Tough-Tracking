@@ -29,3 +29,16 @@ export const QUERY_WORKOUTS = gql`
     }
   }
 `;
+
+export const QUERY_WORKOUTS_SUMMARY = gql`
+  query getWorkouts {
+    getWorkouts {
+      _id
+      name
+      exercises {
+        name
+      }
+      createdAt
+    }
+  }
+`;

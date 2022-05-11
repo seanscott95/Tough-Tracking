@@ -11,6 +11,9 @@ const resolvers = {
         getWorkout: async (parent, args) => {
             return Workout.findById(args.workoutId).populate('exercises');
         },
+        getWorkouts: async () => {
+            return Workout.findAll({user: context.user._id})
+        },
     },
 
     Mutation: {
@@ -33,11 +36,13 @@ const resolvers = {
             const token = signToken(user);
             return { token, user };
         },
-        createWorkout: async (parent, args ) => {
+        createWorkout: async (parent, args, context ) => {
+            console.log('context:', context.user._id)
             const exerciseList = await Exercise.insertMany(args.exercises);
             console.log(exerciseList);
             return Workout.create({
                 name: args.name,
+                user: context.user._id,
                 exercises: exerciseList.map((e) => e._id)
             });
         },

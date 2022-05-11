@@ -28,18 +28,6 @@ export const CREATE_WORKOUT = gql`
   mutation createWorkout($name: String, $exercises: [PostExercise]) {
     createWorkout(name: $name, exercises: $exercises) {
       _id
-      name
-      exercises {
-        name
-        type
-        weight
-        sets
-        reps
-        distance
-        time
-        intensity
-      }
-      createdAt
     }
   }
 `;
