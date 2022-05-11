@@ -13,7 +13,11 @@ export const QUERY_USER = gql`
 export const QUERY_SINGLE_WORKOUT = gql`
   query getSingleWorkout($workoutId: ID!) {
     workout(workoutId: $workoutId) {
+      _id
+      Name
+      createdAt
       exercises {
+        _id
         name
         type
         weight
