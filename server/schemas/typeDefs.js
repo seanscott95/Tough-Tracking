@@ -53,7 +53,7 @@ const typeDefs = gql`
 
     type Query {
         myUser: User
-        getWorkout(workoutId: ID!): Workout
+        getSingleWorkout(workoutId: ID!): Workout
         getWorkouts: [Workout]
     }
 
