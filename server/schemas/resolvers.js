@@ -11,8 +11,8 @@ const resolvers = {
         getWorkout: async (parent, args) => {
             return Workout.findById(args.workoutId).populate('exercises');
         },
-        getWorkouts: async () => {
-            return Workout.findAll({user: context.user._id})
+        getWorkouts: async (parent, args, context) => {
+            return Workout.find({user: context.user._id})
         },
     },
 
