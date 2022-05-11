@@ -8,7 +8,7 @@ const resolvers = {
         myUser: async () => {
             return User.find();
         },
-        getWorkout: async (parent, args) => {
+        getSingleWorkout: async (parent, args) => {
             return Workout.findById(args.workoutId).populate('exercises');
         },
         getWorkouts: async (parent, args, context) => {
