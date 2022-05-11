@@ -50,28 +50,13 @@ export default function WorkoutForm() {
         });
     }
 
-    const [createWorkout, { error }] = useMutation(CREATE_WORKOUT, {
-        update(cache, { data: { createWorkout } }) {
-            console.log("1", )
-            try {
-                const { workouts } = cache.readQuery({ query: QUERY_WORKOUTS });
-                console.log("2", ...workouts)
-                console.log("2", workouts)
-
-                cache.writeQuery({
-                    query: QUERY_WORKOUTS,
-                    data: { workouts: [createWorkout, ...workouts] },
-                });
-            } catch (e) {
-                console.error(e);
-            }
-        },
-    })
+    const [createWorkout, { error }] = useMutation(CREATE_WORKOUT);
 
     const handleCreateWorkout = async (e) => {
         e.preventDefault();
 
         try {
+            console.log('12', exerciseList)
             const { data } = await createWorkout({
                 variables: {
                     name: workoutName,
@@ -89,10 +74,9 @@ export default function WorkoutForm() {
                     })
                 },
             });
-
+            console.log('13', data)
             setWorkoutName('')
             setExerciseList([]);
-            set
         } catch (err) {
             console.error(err);
         }
