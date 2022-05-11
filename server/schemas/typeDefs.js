@@ -33,7 +33,7 @@ const typeDefs = gql`
     type Workout {
         _id: ID
         name: String
-        user: User
+        user: ID
         exercises: [Exercise]
         createdAt: String
     }
