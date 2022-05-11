@@ -52,8 +52,11 @@ export default function WorkoutForm() {
 
     const [createWorkout, { error }] = useMutation(CREATE_WORKOUT, {
         update(cache, { data: { createWorkout } }) {
+            console.log("1", )
             try {
                 const { workouts } = cache.readQuery({ query: QUERY_WORKOUTS });
+                console.log("2", ...workouts)
+                console.log("2", workouts)
 
                 cache.writeQuery({
                     query: QUERY_WORKOUTS,
