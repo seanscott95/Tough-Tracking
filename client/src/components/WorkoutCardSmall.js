@@ -5,12 +5,10 @@ import { QUERY_WORKOUTS_SUMMARY } from '../utils/queries'
 
 export default function WorkoutCardSmall() {
 
-  const { loading, data } = useQuery(QUERY_WORKOUTS_SUMMARY);
-  const temp = data?.getWorkouts
-  console.log('temp', temp)
-  console.log('data', data)
+  const { loadingSummary, dataSummary } = useQuery(QUERY_WORKOUTS_SUMMARY);
+  const summaryList = dataSummary?.getWorkouts
 
-  if (loading) {
+  if (loadingSummary) {
     return <div>Sorry, still loading</div>
   }
 
@@ -18,7 +16,7 @@ export default function WorkoutCardSmall() {
     <div>  
         <div>
             <h2>Date and Name</h2>
-            {temp.map((item) => (
+            {summaryList.map((item) => (
               <ul>
                 <li key={item.name}>
                   Name of workout - {item.name}
@@ -33,7 +31,3 @@ export default function WorkoutCardSmall() {
     </div>
   )
 }
-
-// <li key='exerciseName'>
-// Name of exercises - {item.exercises.name}
-// </li>
