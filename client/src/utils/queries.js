@@ -10,11 +10,9 @@ export const QUERY_USER = gql`
   }
 `;
 
-export const QUERY_WORKOUTS = gql`
-  query getWorkouts {
-    workouts {
-      _id
-      name
+export const QUERY_SINGLE_WORKOUT = gql`
+  query getSingleWorkout($workoutId: ID!) {
+    workout(workoutId: $workoutId) {
       exercises {
         name
         type
@@ -25,7 +23,6 @@ export const QUERY_WORKOUTS = gql`
         time
         intensity
       }
-      createdAt
     }
   }
 `;
