@@ -36,7 +36,16 @@ export const QUERY_WORKOUTS_SUMMARY = gql`
     getWorkouts {
       _id
       name
-      exercises
+      exercises {
+        name
+        type
+        weight
+        sets
+        reps
+        distance
+        time
+        intensity
+      }
       createdAt
     }
   }

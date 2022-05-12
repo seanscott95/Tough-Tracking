@@ -15,25 +15,31 @@ export default function WorkoutCardSmall() {
   }
 
   return (
-    <div>  
-        <div>
-            <h2>Date and Name</h2>
-            {temp.map((item) => (
+    <>
+      <div>
+        <h2>Date and Name</h2>
+        {temp.map((item) => (
+          <ul>
+            <li key={item.name}>
+              Name of workout - {item.name}
+            </li>
+            <li key={item.createdAt}>
+              Created At - {item.createdAt}
+            </li>
+            <li key={item.exercises.name}>
+              Exercise name - {item.exercises.name}
+            </li>
+            <li>
               <ul>
-                <li key={item.name}>
-                  Name of workout - {item.name}
-                </li>
-                <li key={item.createdAt}>
-                  Name of workout - {item.createdAt}
-                </li>
+                {item.exercises.map((e) => {
+                  return <li key={e._id}>{e.name}</li>
+                })}
               </ul>
-            ))}
-        </div>
-        <button>View</button>
-    </div>
+            </li>
+          </ul>
+        ))}
+      </div>
+      <button>View</button>
+    </>
   )
 }
-
-// <li key='exerciseName'>
-// Name of exercises - {item.exercises.name}
-// </li>

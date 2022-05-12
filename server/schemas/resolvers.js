@@ -12,7 +12,7 @@ const resolvers = {
             return Workout.findById(args.workoutId).populate('exercises');
         },
         getWorkouts: async (parent, args, context) => {
-            return Workout.find({user: context.user._id})
+            return Workout.find({user: context.user._id}).populate('exercises')
         },
     },
 
