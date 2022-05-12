@@ -1,29 +1,51 @@
 import React from 'react'
+import { useQuery } from '@apollo/client';
+
+import { QUERY_WORKOUTS } from '../utils/queries'
 
 export default function WorkoutCard() {
+
+  const { loading, data } = useQuery(QUERY_WORKOUTS);
+  const temp = data?.getWorkouts
+  console.log('temp', temp)
+  console.log('data', data)
+
+  if (loading) {
+    return <div>Sorry, still loading</div>
+  }
+
   return (
     <>
-        {/* Display the workouts name and date
-            If workout has one strength and one cardio exercise,
-            display exercise and next to display exercise name for each*/}
-        <div>
-            <h2>WorkoutName - Date</h2>
-            <div>
-                <div>
-                    <p>Exercise</p>
-                    <p>ExerciseName</p>
-                </div>
-                <div>
-                    <p>Exercise</p>
-                    <p>ExerciseName</p>
-                </div>
-            </div>
-            <button>Edit</button>
-        </div>
-
-        {/* Display exercise activity depending on the exercise type
-            If workout has 1 strength and 1 cardio workout, display one
-            strengthCard and one CardioCard  etc*/}
+      <div>
+        {temp.map((item) => (
+          <ul>
+            <li key={item._id + 'name'}>
+              Name of workout - {item.name}
+            </li>
+            <li key={item.id + 'createdAt'}>
+              Created At - {item.createdAt}
+            </li>
+            <li>
+              <ul>
+                {item.exercises.map((e) => {
+                  return (
+                      <>
+                        <li key={e._id + 'exerciseName'}>exercise name - {e.name}</li>
+                        <li key={e._id + 'type'}>type - {e.type}</li>
+                        <li key={e._id + 'weight'}>{e.weight || ''}</li>
+                        <li key={e._id + 'sets'}>{e.sets || ''}</li>
+                        <li key={e._id + 'reps'}>{e.reps || ''}</li>
+                        <li key={e._id + 'time'}>{e.time || ''}</li>
+                        <li key={e._id + 'intensity'}>{e.intensity || ''}</li>
+                      </>
+                  )
+                })}
+              </ul>
+            </li>
+            <button>View</button>
+          </ul>
+        ))}
+      </div>
     </>
   )
 }

@@ -26,9 +26,6 @@ export default function WorkoutCardSmall() {
             <li key={item.createdAt}>
               Created At - {item.createdAt}
             </li>
-            <li key={item.exercises.name}>
-              Exercise name - {item.exercises.name}
-            </li>
             <li>
               <ul>
                 {item.exercises.map((e) => {
