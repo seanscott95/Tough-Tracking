@@ -1,6 +1,4 @@
 import React from 'react'
-import CardioCard from './CardioCard'
-import StrengthCard from './StrengthCard'
 
 export default function WorkoutCard() {
   return (
@@ -26,10 +24,6 @@ export default function WorkoutCard() {
         {/* Display exercise activity depending on the exercise type
             If workout has 1 strength and 1 cardio workout, display one
             strengthCard and one CardioCard  etc*/}
-        <div>
-            <StrengthCard />
-            <CardioCard />
-        </div>
     </>
   )
 }
