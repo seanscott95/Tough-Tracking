@@ -12,9 +12,9 @@ export const QUERY_USER = gql`
 
 export const QUERY_SINGLE_WORKOUT = gql`
   query getSingleWorkout($workoutId: ID!) {
-    workout(workoutId: $workoutId) {
+    getSingleWorkout(workoutId: $workoutId) {
       _id
-      Name
+      name
       createdAt
       exercises {
         _id
