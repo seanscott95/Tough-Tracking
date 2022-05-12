@@ -31,7 +31,7 @@ export const QUERY_SINGLE_WORKOUT = gql`
   }
 `;
 
-export const QUERY_WORKOUTS_SUMMARY = gql`
+export const QUERY_WORKOUTS = gql`
   query getWorkouts {
     getWorkouts {
       _id

@@ -1,11 +1,11 @@
 import React from 'react'
 import { useQuery } from '@apollo/client';
 
-import { QUERY_WORKOUTS_SUMMARY } from '../utils/queries'
+import { QUERY_WORKOUTS } from '../utils/queries'
 
 export default function WorkoutCardSmall() {
 
-  const { loading, data } = useQuery(QUERY_WORKOUTS_SUMMARY);
+  const { loading, data } = useQuery(QUERY_WORKOUTS);
   const temp = data?.getWorkouts
   console.log('temp', temp)
   console.log('data', data)
@@ -17,7 +17,7 @@ export default function WorkoutCardSmall() {
   return (
     <>
       <div>
-        <h2>Date and Name</h2>
+        <h2>Workout Summary</h2>
         {temp.map((item) => (
           <ul>
             <li key={item.name}>
@@ -36,10 +36,10 @@ export default function WorkoutCardSmall() {
                 })}
               </ul>
             </li>
+            <button>View</button>
           </ul>
         ))}
       </div>
-      <button>View</button>
     </>
   )
 }
