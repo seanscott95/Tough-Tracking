@@ -1,6 +1,6 @@
 import React from 'react'
 
-import WorkoutCard from '../WorkoutCard'
+import WorkoutSingle from '../WorkoutSingle'
 
 export default function ViewSingle() {
   return (
@@ -8,7 +8,7 @@ export default function ViewSingle() {
 
         {/* Views a single workout */}
         <div>
-            <WorkoutCard />
+            <WorkoutSingle />
         </div>
     </>
   )
