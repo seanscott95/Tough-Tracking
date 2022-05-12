@@ -37,17 +37,27 @@ const resolvers = {
             return { token, user };
         },
         createWorkout: async (parent, args, context ) => {
-            console.log('context:', context.user._id)
             const exerciseList = await Exercise.insertMany(args.exercises);
-            console.log(exerciseList);
             return Workout.create({
                 name: args.name,
                 user: context.user._id,
                 exercises: exerciseList.map((e) => e._id)
             });
         },
-        removeWorkout: async (parent, { workoutId }) => {
-            return Workout.findOneAndDelete({ _id: workoutId });
+        editWorkout: async (parent, args) => {
+        
+            const exercisesToUpdate = args.data.exercises.map(async(e) => {
+                return Exercise.findOneAndUpdate({ _id: e._id}, { $set: { ...e }});
+            });
+            await Promise.all(exercisesToUpdate);
+            return Workout.findOneAndUpdate(
+                { _id: args.workoutId},
+                { $set: { name: args.name} },
+                {new: true}
+            )
+        },
+        removeWorkout: async (parent, args) => {
+            return Workout.findOneAndDelete({ _id: args.workoutId });
         },
     },
 };
