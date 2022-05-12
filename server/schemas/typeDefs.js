@@ -20,6 +20,7 @@ const typeDefs = gql`
     }
 
     input PostExercise {
+        _id: ID 
         name: String
         type: String
         weight: Float
@@ -35,6 +36,14 @@ const typeDefs = gql`
         name: String
         user: ID
         exercises: [Exercise]
+        createdAt: String
+    }
+
+    input PostWorkout {
+        _id: ID
+        name: String
+        user: ID
+        exercises: [PostExercise]
         createdAt: String
     }
 
@@ -61,7 +70,7 @@ const typeDefs = gql`
         addUser(username: String!, email: String!, password: String!): Auth
         login(email: String!, password: String!): Auth
         createWorkout(exercises: [PostExercise], name: String): CreatedWorkout
-        editWorkout(data: Workout): CreatedWorkout
+        editWorkout(data: PostWorkout): CreatedWorkout
         removeWorkout(workoutId: ID!): Workout
     }
 `;
