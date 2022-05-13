@@ -2,6 +2,7 @@ import React from 'react'
 import { useQuery } from '@apollo/client';
 import { useNavigate } from "react-router-dom";
 
+import { StyledCard } from './styles/Card.styled';
 import ExerciseReadOnly from './ExerciseReadOnly';
 import { QUERY_WORKOUTS } from '../utils/queries'
 
@@ -26,25 +27,27 @@ export default function WorkoutReadOnly() {
     }
 
     return (
-        <div>
+        <div className='cardContainer'>
             {temp.map((item) => (
-                <ul key={item._id}>
-                    <li>Name of workout - {item.name}</li>
-                    <li>Created At - {item.createdAt}</li>
-                    {item.exercises.map((exercises) => {
-                        <ExerciseReadOnly exercises={exercises} />
-                        { console.log('WRO - exercises', exercises) }
-                        {/*exercises - object */ }
-                    })}
-                    {console.log('item ex:', item.exercises)}
-                    {/* item.exercises - array of objects */}
-                    <button
-                        key={item._id}
-                        id={item._id}
-                        value={item._id}
-                        onClick={handleClick}
-                    >View</button>
-                </ul>
+                <StyledCard>
+                    <ul key={item._id} className='card'>
+                        <li>Name of workout - {item.name}</li>
+                        <li>Created At - {item.createdAt}</li>
+                        {item.exercises.map((exercises) => {
+                            <ExerciseReadOnly exercises={exercises} />
+                            { console.log('WRO - exercises', exercises) }
+                            {/*exercises - object */ }
+                        })}
+                        {console.log('item ex:', item.exercises)}
+                        {/* item.exercises - array of objects */}
+                        <button
+                            key={item._id}
+                            id={item._id}
+                            value={item._id}
+                            onClick={handleClick}
+                        >View</button>
+                    </ul>
+                </StyledCard>
             ))}
         </div>
     )
