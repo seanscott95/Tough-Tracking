@@ -1,11 +1,13 @@
 import React from 'react';
+
 import WorkoutForm from '../WorkoutForm';
+import { WorkoutPagesContainer } from '../styles/WorkoutPagesContainer.styled';
 
 export default function CreateWorkout() {
     return (
-        <div>
+        <WorkoutPagesContainer>
             <h2>Lets Begin!</h2>
             <WorkoutForm />
-        </div>
+        </WorkoutPagesContainer>
     );
 }

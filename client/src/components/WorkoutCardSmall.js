@@ -25,7 +25,7 @@ export default function WorkoutCardSmall() {
   return (
     <>
       <h2>Workout Summary</h2>
-      <div className='cardContainer'>
+      <div className='flexRow'>
         {temp.map((item) => (
           <StyledCard>
             <ul className='card'>

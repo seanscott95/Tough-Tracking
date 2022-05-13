@@ -27,12 +27,11 @@ export default function WorkoutReadOnly() {
     }
 
     return (
-        <div className='cardContainer'>
+        <div className='flexRow'>
             {temp.map((item) => (
                 <StyledCard>
                     <ul key={item._id} className='card'>
-                        <li>Name of workout - {item.name}</li>
-                        <li>Created At - {item.createdAt}</li>
+                        <li>{item.name} - {item.createdAt}</li>
                         {item.exercises.map((exercises) => {
                             <ExerciseReadOnly exercises={exercises} />
                             { console.log('WRO - exercises', exercises) }
