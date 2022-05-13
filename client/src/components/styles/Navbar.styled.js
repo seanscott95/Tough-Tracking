@@ -17,7 +17,7 @@ export const StyledNavbar = styled.nav`
         display: flex;
         flex-direction: row;
         min-width: 100%;
-        justify-content: space-evenly;
+        justify-content: space-around;
         padding: 10px;
     }
 
