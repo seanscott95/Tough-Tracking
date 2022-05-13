@@ -29,12 +29,9 @@ export default function WorkoutCardSmall() {
         {temp.map((item) => (
           <StyledCard>
             <ul className='card'>
-              <li key={item.name}>
-                Name of workout - {item.name}
-              </li>
-              <li key={item.createdAt}>
-                Created At - {item.createdAt}
-              </li>
+              <li>{item.name}</li>
+              <li>{item.createdAt}</li>
+              <br/>
               <li>
                 <ul>
                   {item.exercises.map((e) => {
