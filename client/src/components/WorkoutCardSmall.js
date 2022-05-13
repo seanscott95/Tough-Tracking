@@ -1,15 +1,16 @@
 import React from 'react'
 import { useQuery } from '@apollo/client';
-import { useNavigate  } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
-import { QUERY_WORKOUTS } from '../utils/queries'
+import { StyledCard } from './styles/Card.styled';
+import { QUERY_WORKOUTS } from '../utils/queries';
 
 export default function WorkoutCardSmall() {
 
   const { loading, data } = useQuery(QUERY_WORKOUTS);
   const temp = data?.getWorkouts
 
-  let navigate  = useNavigate();
+  let navigate = useNavigate();
 
   function handleClick(e) {
     e.preventDefault();
@@ -23,30 +24,32 @@ export default function WorkoutCardSmall() {
 
   return (
     <>
-      <div>
-        <h2>Workout Summary</h2>
+      <h2>Workout Summary</h2>
+      <div className='cardContainer'>
         {temp.map((item) => (
-          <ul>
-            <li key={item.name}>
-              Name of workout - {item.name}
-            </li>
-            <li key={item.createdAt}>
-              Created At - {item.createdAt}
-            </li>
-            <li>
-              <ul>
-                {item.exercises.map((e) => {
-                  return <li key={e._id}>{e.name}</li>
-                })}
-              </ul>
-            </li>
-            <button
-              key={item._id}
-              id={item._id}
-              value={item._id}
-              onClick={handleClick}
-            >View</button>
-          </ul>
+          <StyledCard>
+            <ul className='card'>
+              <li key={item.name}>
+                Name of workout - {item.name}
+              </li>
+              <li key={item.createdAt}>
+                Created At - {item.createdAt}
+              </li>
+              <li>
+                <ul>
+                  {item.exercises.map((e) => {
+                    return <li key={e._id}>{e.name}</li>
+                  })}
+                </ul>
+              </li>
+              <button
+                key={item._id}
+                id={item._id}
+                value={item._id}
+                onClick={handleClick}
+              >View</button>
+            </ul>
+          </StyledCard>
         ))}
       </div>
     </>
