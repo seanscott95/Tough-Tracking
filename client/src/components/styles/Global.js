@@ -72,5 +72,9 @@ const GlobalStyles = createGlobalStyle`
     select {
         opacity: 70%;
     }
+
+    .hide {
+        display: none;
+    }
 `;
 export default GlobalStyles;

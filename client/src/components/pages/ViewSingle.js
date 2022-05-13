@@ -5,9 +5,9 @@ import { useQuery, useMutation } from '@apollo/client';
 import { QUERY_SINGLE_WORKOUT } from '../../utils/queries';
 import { EDIT_WORKOUT } from '../../utils/mutations';
 
+import { WorkoutPagesContainer } from '../styles/WorkoutPagesContainer.styled';
 import WorkoutSingle from '../WorkoutSingle';
 import ExerciseReadOnly from '../ExerciseReadOnly';
-import '../styles/ViewSingle.css';
 
 export default function ViewSingle() {
   const [isEditMode, setIsEditMode] = useState(false);
@@ -89,7 +89,7 @@ export default function ViewSingle() {
   }
 
   return (
-    <>
+    <WorkoutPagesContainer>
       {isEditMode ? (
         <div>
           <WorkoutSingle
@@ -102,8 +102,7 @@ export default function ViewSingle() {
         </div>
       ) : (
         <ul>
-          <li>Name of workout - {workout.name}</li>
-          <li>Created At - {workout.createdAt}</li>
+          <li>{workout.name} - {workout.createdAt}</li>
           {workout.exercises.map((exercises) => {
             <ExerciseReadOnly exercises={exercises} />
             { console.log('VSO - exercises', exercises) }
@@ -121,6 +120,6 @@ export default function ViewSingle() {
           {errorMutation.message}
         </div>
       )}
-    </>
+    </WorkoutPagesContainer>
   )
 }
