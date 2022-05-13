@@ -7,8 +7,10 @@ import { PageContainer } from '../styles/PageContainer.styled';
 export default function Login() {
     return (
         <PageContainer>
-            <LoginForm />
-            <SignupForm />
+            <div className='flexRow'>
+                <SignupForm />
+                <LoginForm />
+            </div>
         </PageContainer>
     );
 }
