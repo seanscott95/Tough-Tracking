@@ -16,11 +16,14 @@ export const StyledNavbar = styled.nav`
     .navbarList {
         display: flex;
         flex-direction: row;
+        min-width: 100%;
+        justify-content: space-evenly;
+        padding: 10px;
     }
 
     .navbarLink {
-        padding: 10px;
-        margin: 10px;
+        margin: 5px;
+        padding: 5px;
         transition: transform .3s;
         color: white;
     }
@@ -30,9 +33,8 @@ export const StyledNavbar = styled.nav`
     }
 
     .navbarLinkActive {
-        padding: 10px;
-        margin: 10px;
-        font-size: 20px;
+        margin: 5px;
+        padding: 5px;
         text-decoration: underline;
         text-transform: uppercase;
         transition: transform .2s;
