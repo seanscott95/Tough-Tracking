@@ -9,6 +9,9 @@ export const StyledNavbar = styled.nav`
     list-style: none;
     background: #1e2327;
     margin: 0px;
+    position: fixed;
+    top: 0;
+    min-width: 100%;
     
     .navbarList {
         display: flex;
