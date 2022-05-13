@@ -51,7 +51,7 @@ function App() {
         <GlobalStyles />
         <Mainlayout>
           <Routes>
-            <Route exact path='/' element={<Home />} />
+            <Route exact path='/' element={<Home props/>} />
             <Route exact path='/login' element={<Login />} />
             <Route exact path='/dashboard' element={Auth.loggedIn() ? <Dashboard /> : <Navigate replace to='/'/>} />
             <Route exact path='/createWorkout' element={Auth.loggedIn() ? <CreateWorkout /> : <Navigate replace to='/'/>} />

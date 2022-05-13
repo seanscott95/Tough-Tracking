@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const StyledFooter = styled.nav`
+export const StyledFooter = styled.footer`
     
     display: flex;
     justify-content: center;
@@ -8,6 +8,9 @@ export const StyledFooter = styled.nav`
     flex-direction: column;
     font-size: 12px;
     background: #1e2327;
+    position: fixed;
+    bottom: 0;
+    min-width: 100%;
 
     .footerList {
         display: flex;
