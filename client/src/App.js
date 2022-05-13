@@ -15,8 +15,7 @@ import Login from './components/pages/Login';
 import Dashboard from './components/pages/Dashboard';
 import CreateWorkout from './components/pages/CreateWorkout';
 import ViewWorkouts from './components/pages/ViewWorkouts';
-import EditWorkout from './components/pages/EditWorkout'
-import ViewSingle from './components/pages/ViewSingle'
+import ViewSingle from './components/pages/ViewSingle';
 import GlobalStyles from './components/styles/Global';
 import Auth from './utils/auth';
 
@@ -55,7 +54,6 @@ function App() {
             <Route exact path='/login' element={<Login />} />
             <Route exact path='/dashboard' element={Auth.loggedIn() ? <Dashboard /> : <Navigate replace to='/'/>} />
             <Route exact path='/createWorkout' element={Auth.loggedIn() ? <CreateWorkout /> : <Navigate replace to='/'/>} />
-            <Route exact path='/editWorkout/:workoutId' element={Auth.loggedIn() ? <EditWorkout /> : <Navigate replace to='/'/>} />
             <Route exact path='/viewSingle/:workoutId' element={Auth.loggedIn() ?   <ViewSingle /> : <Navigate replace to='/'/>} />
             <Route exact path='/viewWorkouts' element={Auth.loggedIn() ? <ViewWorkouts /> : <Navigate replace to='/'/> } />
           </Routes>

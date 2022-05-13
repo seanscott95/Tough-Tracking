@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const WorkoutPagesContainer = styled.div`
+export const PageContainer = styled.div`
     padding: 20px;
     font-size: 16px;
     display: flex;

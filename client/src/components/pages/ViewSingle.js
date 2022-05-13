@@ -5,7 +5,7 @@ import { useQuery, useMutation } from '@apollo/client';
 import { QUERY_SINGLE_WORKOUT } from '../../utils/queries';
 import { EDIT_WORKOUT } from '../../utils/mutations';
 
-import { WorkoutPagesContainer } from '../styles/WorkoutPagesContainer.styled';
+import { PageContainer } from '../styles/PageContainer.styled';
 import WorkoutSingle from '../WorkoutSingle';
 import ExerciseReadOnly from '../ExerciseReadOnly';
 
@@ -89,7 +89,7 @@ export default function ViewSingle() {
   }
 
   return (
-    <WorkoutPagesContainer>
+    <PageContainer>
       {isEditMode ? (
         <div>
           <WorkoutSingle
@@ -120,6 +120,6 @@ export default function ViewSingle() {
           {errorMutation.message}
         </div>
       )}
-    </WorkoutPagesContainer>
+    </PageContainer>
   )
 }

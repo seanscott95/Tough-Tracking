@@ -1,12 +1,12 @@
 import React from 'react';
 
 import WorkoutCardSmall from '../WorkoutCardSmall';
-import { WorkoutPagesContainer } from '../styles/WorkoutPagesContainer.styled';
+import { PageContainer } from '../styles/PageContainer.styled';
 
 export default function Dashboard() {
     return (
-        <WorkoutPagesContainer>
+        <PageContainer>
             <WorkoutCardSmall />
-        </WorkoutPagesContainer>
+        </PageContainer>
     );
 }
