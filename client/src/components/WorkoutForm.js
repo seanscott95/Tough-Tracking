@@ -36,7 +36,7 @@ export default function WorkoutForm() {
 
         const list = exerciseList;
         list.push(exerciseFormState)
-        setExerciseList(list);
+        setExerciseList(list); 
 
         setExerciseFormState({
             name: '',

@@ -2,6 +2,7 @@ import React from 'react'
 import { useQuery } from '@apollo/client';
 import { useNavigate } from "react-router-dom";
 
+import ExerciseReadOnly from './ExerciseReadOnly';
 import { QUERY_WORKOUTS } from '../utils/queries'
 
 export default function WorkoutCard() {
@@ -29,21 +30,9 @@ export default function WorkoutCard() {
                         <li>Name of workout - {item.name}</li>
                         <li>Created At - {item.createdAt}</li>
                         <li>
-                            <ul>
-                                {item.exercises.map((e) => {
-                                    return (
-                                        <>
-                                            <li>exercise name - {e.name}</li>
-                                            <li>type - {e.type}</li>
-                                            <li>{e.weight || ''}</li>
-                                            <li>{e.sets || ''}</li>
-                                            <li>{e.reps || ''}</li>
-                                            <li>{e.time || ''}</li>
-                                            <li>{e.intensity || ''}</li>
-                                        </>
-                                    )
-                                })}
-                            </ul>
+                            <ExerciseReadOnly
+                                exercises={item.exercises}
+                            />
                         </li>
                         <button
                             key={item._id}

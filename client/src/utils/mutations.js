@@ -31,3 +31,11 @@ export const CREATE_WORKOUT = gql`
     }
   }
 `;
+
+export const EDIT_WORKOUT = gql`
+  mutation editWorkout($data: CreatedWorkout) {
+    editWorkout(data: $data) {
+      _id
+    }
+  }
+`;
