@@ -1,5 +1,5 @@
 import React from 'react';
-import WorkoutCard from '../WorkoutCard';
+import WorkoutReadOnly from '../WorkoutReadOnly';
 
 
 export default function ViewWorkouts() {
@@ -14,8 +14,8 @@ export default function ViewWorkouts() {
             {/* May leave whole page for further production, display
                 workouts depending on the week, month, etc */}
             <div>
-                {/* One WorkoutCard for every workout*/}
-                <WorkoutCard />
+                {/* One WorkoutReadOnly for every workout*/}
+                <WorkoutReadOnly />
             </div>
         </>
     );

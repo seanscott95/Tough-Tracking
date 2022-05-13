@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import ExerciseReadOnly from './ExerciseReadOnly';
 import { QUERY_WORKOUTS } from '../utils/queries'
 
-export default function WorkoutCard() {
+export default function WorkoutReadOnly() {
 
     const { loading, data } = useQuery(QUERY_WORKOUTS);
     const temp = data?.getWorkouts

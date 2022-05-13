@@ -9,7 +9,7 @@ export default function WorkoutSingle(
   handleExerciseChange, 
   handleNameChange) {
 
-  const exercises2 = [];
+  const exercises2 = [exercises];
 
 
   return (
