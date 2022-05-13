@@ -4,7 +4,7 @@ import { useQuery, useMutation } from '@apollo/client';
 
 import { QUERY_SINGLE_WORKOUT } from '../../utils/queries';
 import { EDIT_WORKOUT } from '../../utils/mutations';
-import { StyledForm } from '../styles/Form.styled';
+
 import WorkoutSingle from '../WorkoutSingle';
 import ExerciseReadOnly from '../ExerciseReadOnly';
 import '../styles/ViewSingle.css';
@@ -13,28 +13,28 @@ export default function ViewSingle() {
   const [isEditMode, setIsEditMode] = useState(false);
 
   const { workoutId } = useParams();
-  
-    const [editWorkout, { errorMutation }] = useMutation(EDIT_WORKOUT);
-    
-    const [exerciseList, setExerciseList] = useState([]);
-    
-    const [workoutName, setWorkoutName] = useState('');
-    
-    const [workoutForm, setWorkoutForm] = useState({
-      name: '',
-      type: 'strength',
-      weight: '',
-      sets: '',
-      reps: '',
-      distance: '',
-      time: '',
-      intensity: '',
-    });
+
+  const [editWorkout, { errorMutation }] = useMutation(EDIT_WORKOUT);
+
+  const [exerciseList, setExerciseList] = useState([]);
+
+  const [workoutName, setWorkoutName] = useState('');
+
+  const [workoutForm, setWorkoutForm] = useState({
+    name: '',
+    type: 'strength',
+    weight: '',
+    sets: '',
+    reps: '',
+    distance: '',
+    time: '',
+    intensity: '',
+  });
 
   const { loading, error, data } = useQuery(QUERY_SINGLE_WORKOUT, {
     variables: { workoutId: workoutId },
-    onCompleted(data){
-      
+    onCompleted(data) {
+
       setWorkoutName(data.getSingleWorkout.name);
     }
   });
@@ -82,18 +82,18 @@ export default function ViewSingle() {
   };
 
   if (error) {
-    return <div>Error...</div>;
+    return <div>Sorry there was an error... - {error.message}</div>;
   }
   if (loading) {
-    return <div>Loading...</div>;
+    return <div>Sorry, still loading...</div>;
   }
 
   return (
     <>
       {isEditMode ? (
         <div>
-          <WorkoutSingle 
-            exercises={exerciseList}
+          <WorkoutSingle
+            exercises={workout.exercises}
             workoutForm={workoutForm}
             workoutName={workoutName}
             handleExerciseChange={handleExerciseChange}
@@ -104,11 +104,14 @@ export default function ViewSingle() {
         <ul>
           <li>Name of workout - {workout.name}</li>
           <li>Created At - {workout.createdAt}</li>
-          <li>
-            <ExerciseReadOnly 
-              exercises={workout.exercises}
-            />
-          </li>
+          {workout.exercises.map((exercises) => {
+            <ExerciseReadOnly exercises={exercises} />
+            { console.log('VSO - exercises', exercises) }
+            {/* exercises - object*/ }
+
+          })}
+          {console.log('VS - workout.exercises', workout.exercises)}
+          {/* workout.exercises - Array of objects */}
         </ul>
       )}
       <button id='editBtn' className={isEditMode ? 'hide' : ''} onClick={editBtnHandler}>Edit</button>
@@ -121,13 +124,3 @@ export default function ViewSingle() {
     </>
   )
 }
-
-// {workouts
-//    map()
-//    exercises
-//    exercises
-//
-//  workoutFormH
-//     for every workout map
-//
-// }

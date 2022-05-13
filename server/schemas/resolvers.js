@@ -12,7 +12,7 @@ const resolvers = {
             return Workout.findById(args.workoutId).populate('exercises');
         },
         getWorkouts: async (parent, args, context) => {
-            return Workout.find({user: context.user._id}).populate('exercises')
+            return Workout.find({ user: context.user._id }).populate('exercises')
         },
     },
 
@@ -27,16 +27,16 @@ const resolvers = {
             if (!user) {
                 throw new AuthenticationError('No user found with this email address');
             }
-            
+
             const correctPw = await user.isCorrectPassword(password);
             if (!correctPw) {
                 throw new AuthenticationError('Incorrect credentials');
             }
-            
+
             const token = signToken(user);
             return { token, user };
         },
-        createWorkout: async (parent, args, context ) => {
+        createWorkout: async (parent, args, context) => {
             const exerciseList = await Exercise.insertMany(args.exercises);
             return Workout.create({
                 name: args.name,
@@ -45,16 +45,22 @@ const resolvers = {
             });
         },
         editWorkout: async (parent, args) => {
-        
-            const exercisesToUpdate = args.data.exercises.map(async(e) => {
-                return Exercise.findOneAndUpdate({ _id: e._id}, { $set: { ...e }});
+
+            const exercisesToUpdate = args.data.exercises.map(async (e) => {
+                return Exercise.findOneAndUpdate({ _id: e._id }, { $set: { ...e } });
             });
             await Promise.all(exercisesToUpdate);
             return Workout.findOneAndUpdate(
-                { _id: args.workoutId},
-                { $set: { name: args.name} },
-                {new: true}
+                { _id: args.workoutId },
+                { $set: { name: args.name } },
+                { new: true }
             )
+        },
+        editExercise: async (parent, args) => {
+            return Exercise.findOneAndUpdate(
+                { _id: args.data._id },
+                { $set: { ...args.data.exercise } }
+            );
         },
         removeWorkout: async (parent, args) => {
             return Workout.findOneAndDelete({ _id: args.workoutId });

@@ -7,7 +7,7 @@ import { QUERY_WORKOUTS } from '../utils/queries'
 
 export default function WorkoutReadOnly() {
 
-    const { loading, data } = useQuery(QUERY_WORKOUTS);
+    const { loading, error, data } = useQuery(QUERY_WORKOUTS);
     const temp = data?.getWorkouts
 
     let navigate = useNavigate();
@@ -18,32 +18,34 @@ export default function WorkoutReadOnly() {
         navigate(`/viewSingle/${id}`);
     }
 
+    if (error) {
+        return <div>Sorry there was an error... - {error.message}</div>;
+    }
     if (loading) {
-        return <div>Sorry, still loading</div>
+        return <div>Sorry, still loading...</div>
     }
 
     return (
-        <>
-            <div>
-                {temp.map((item) => (
-                    <ul key={item._id}>
-                        <li>Name of workout - {item.name}</li>
-                        <li>Created At - {item.createdAt}</li>
-                        <li>
-                            <ExerciseReadOnly
-                                exercises={item.exercises}
-                            />
-                        </li>
-                        <button
-                            key={item._id}
-                            id={item._id}
-                            value={item._id}
-                            onClick={handleClick}
-                        >View</button>
-                    </ul>
-                ))}
-            </div>
-        </>
-
+        <div>
+            {temp.map((item) => (
+                <ul key={item._id}>
+                    <li>Name of workout - {item.name}</li>
+                    <li>Created At - {item.createdAt}</li>
+                    {item.exercises.map((exercises) => {
+                        <ExerciseReadOnly exercises={exercises} />
+                        { console.log('WRO - exercises', exercises) }
+                        {/*exercises - object */ }
+                    })}
+                    {console.log('item ex:', item.exercises)}
+                    {/* item.exercises - array of objects */}
+                    <button
+                        key={item._id}
+                        id={item._id}
+                        value={item._id}
+                        onClick={handleClick}
+                    >View</button>
+                </ul>
+            ))}
+        </div>
     )
 }

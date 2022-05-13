@@ -1,5 +1,7 @@
 import React from 'react'
 
+import { StyledForm } from './styles/Form.styled'
+
 export default function ExerciseSingle(exercises, workoutForm, handleExerciseChange) {
     return (
         <div>
@@ -14,7 +16,7 @@ export default function ExerciseSingle(exercises, workoutForm, handleExerciseCha
                                     type="text"
                                     name="name"
                                     value={workoutForm.name}
-                                    onChange={handleExerciseChange}
+                                    onBlur={handleExerciseChange}
                                     placeholder='Benchpress, Running, Swimming...'
                                     required />
                             </div>
@@ -24,7 +26,7 @@ export default function ExerciseSingle(exercises, workoutForm, handleExerciseCha
                                     type="text"
                                     name="type"
                                     value={item.type}
-                                    onChange={handleExerciseChange}
+                                    onBlur={handleExerciseChange}
                                     required >
                                     <option value='strength'>Strength</option>
                                     <option value='cardio'>Cardio</option>
@@ -43,7 +45,7 @@ export default function ExerciseSingle(exercises, workoutForm, handleExerciseCha
                                             step=".5"
                                             placeholder='50...'
                                             value={item.weight}
-                                            onChange={handleExerciseChange}
+                                            onBlur={handleExerciseChange}
                                             required />
                                     </div>
                                     <div>
@@ -56,7 +58,7 @@ export default function ExerciseSingle(exercises, workoutForm, handleExerciseCha
                                             step="1"
                                             placeholder='3...'
                                             value={item.sets}
-                                            onChange={handleExerciseChange}
+                                            onBlur={handleExerciseChange}
                                             required />
                                     </div>
                                     <div>
@@ -69,7 +71,7 @@ export default function ExerciseSingle(exercises, workoutForm, handleExerciseCha
                                             step="1"
                                             placeholder='8...'
                                             value={item.reps}
-                                            onChange={handleExerciseChange}
+                                            onBlur={handleExerciseChange}
                                             required />
                                     </div>
                                 </>
@@ -89,7 +91,7 @@ export default function ExerciseSingle(exercises, workoutForm, handleExerciseCha
                                             step="1"
                                             placeholder='5.4'
                                             value={item.distance}
-                                            onChange={handleExerciseChange}
+                                            onBlur={handleExerciseChange}
                                             required />
                                     </div>
                                     <div>
@@ -102,7 +104,7 @@ export default function ExerciseSingle(exercises, workoutForm, handleExerciseCha
                                             step="1"
                                             placeholder='45min...'
                                             value={item.time}
-                                            onChange={handleExerciseChange}
+                                            onBlur={handleExerciseChange}
                                             required />
                                     </div>
                                     <div>
@@ -110,7 +112,7 @@ export default function ExerciseSingle(exercises, workoutForm, handleExerciseCha
                                         <select
                                             name="intensity"
                                             value={item.intensity}
-                                            onChange={handleExerciseChange}
+                                            onBlur={handleExerciseChange}
                                             required >
                                             <option value='low'>Low</option>
                                             <option value='moderate'>Moderate</option>

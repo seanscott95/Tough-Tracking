@@ -39,3 +39,11 @@ export const EDIT_WORKOUT = gql`
     }
   }
 `;
+
+export const EDIT_EXERCISE = gql`
+  mutation editExercise($data: Exercise) {
+    editExercise(data: $data) {
+      _id
+    }
+  }
+`;
