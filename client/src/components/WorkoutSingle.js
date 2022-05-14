@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react';
 
 import ExerciseSingle from './ExerciseSingle';
 
@@ -8,10 +8,6 @@ export default function WorkoutSingle({
   workoutName,
   handleExerciseChange,
   handleNameChange }) {
-
-
-  console.log('Workout SIngle ', exercises);
-
 
   return (
     <div>
