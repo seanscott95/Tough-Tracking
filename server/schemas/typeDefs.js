@@ -71,7 +71,7 @@ const typeDefs = gql`
         login(email: String!, password: String!): Auth
         createWorkout(exercises: [PostExercise], name: String): CreatedWorkout
         editWorkout(data: PostWorkout): CreatedWorkout
-        removeWorkout(workoutId: ID!): Workout
+        deleteWorkout(workoutId: ID!): Workout
     }
 `;
 

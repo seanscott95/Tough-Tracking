@@ -56,7 +56,7 @@ const resolvers = {
                 { new: true }
             )
         },
-        removeWorkout: async (parent, args) => {
+        deleteWorkout: async (parent, args) => {
             return Workout.findOneAndDelete({ _id: args.workoutId });
         },
     },
