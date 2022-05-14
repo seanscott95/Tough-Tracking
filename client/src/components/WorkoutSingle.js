@@ -1,15 +1,16 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 import ExerciseSingle from './ExerciseSingle';
 
-export default function WorkoutSingle(
+export default function WorkoutSingle({
   exercises,
   workoutForm,
   workoutName,
   handleExerciseChange,
-  handleNameChange) {
+  handleNameChange }) {
 
-  console.log(exercises);
+
+  console.log('Workout SIngle ', exercises);
 
 
   return (
@@ -23,7 +24,7 @@ export default function WorkoutSingle(
             type="text"
             name="workoutName"
             placeholder='Sunday, Gym, Workout...'
-            onBlur={handleNameChange}
+            onChange={handleNameChange}
             value={workoutName}
             required />
         </div>

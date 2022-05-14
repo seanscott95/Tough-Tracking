@@ -32,11 +32,9 @@ export default function WorkoutReadOnly() {
                 <StyledCard>
                     <ul key={item._id} className='card'>
                         <li>{item.name} - {item.createdAt}</li>
-                        {item.exercises.map((exercises) => {
+                        {item.exercises.map((exercises) => (
                             <ExerciseReadOnly exercises={exercises} />
-                            { console.log('WRO - exercises', exercises) }
-                            {/*exercises - object */ }
-                        })}
+                        ))}
                         {console.log('item ex:', item.exercises)}
                         {/* item.exercises - array of objects */}
                         <button

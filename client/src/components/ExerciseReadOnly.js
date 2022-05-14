@@ -1,6 +1,7 @@
 import React from 'react'
 
-export default function ExerciseReadOnly(exercises) {
+export default function ExerciseReadOnly({exercises}) {
+   
     return (
         <li>
             {console.log('ERO - exercises', exercises)}

@@ -51,16 +51,10 @@ const resolvers = {
             });
             await Promise.all(exercisesToUpdate);
             return Workout.findOneAndUpdate(
-                { _id: args.workoutId },
-                { $set: { name: args.name } },
+                { _id: args.data._id },
+                { $set: { name: args.data.name } },
                 { new: true }
             )
-        },
-        editExercise: async (parent, args) => {
-            return Exercise.findOneAndUpdate(
-                { _id: args.data._id },
-                { $set: { ...args.data.exercise } }
-            );
         },
         removeWorkout: async (parent, args) => {
             return Workout.findOneAndDelete({ _id: args.workoutId });

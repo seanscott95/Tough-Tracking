@@ -60,24 +60,54 @@ export default function ViewSingle() {
 
   const saveBtnHandler = async () => {
 
-    // await editWorkout({
-    //   variables: {
-    //     data: {
-    //       exercises: workoutForm,
-    //       name: workoutName
-    //     }
-    //   }
-    // })
+    await editWorkout({
+      variables: {
+        data: {
+          _id: workout._id,
+          exercises: workoutForm.exercises.map((item) => {
+            return {
+                _id: item._id,
+                name: item.name,
+                type: item.type,
+                weight: Number(item.weight),
+                sets: Number(item.sets),
+                reps: Number(item.reps),
+                distance: Number(item.distance),
+                time: Number(item.time),
+                intensity: item.intensity,
+            }
+          }),
+          createdAt: workoutForm.createdAt,
+          name: workoutName
+        }
+      }
+    })
 
     setIsEditMode(false);
+    window.location.reload();
   }
 
-  const handleExerciseChange = (e) => {
+  const handleExerciseChange = (e, id) => {
     const { name, value } = e.target;
 
+    let currentExercises = workoutForm.exercises;
+    const newExercises = currentExercises.map((ex) => {
+      if (ex._id === id ) {
+
+        return {
+          ...ex,
+          [name]: value,
+        } 
+      } else {
+        return {
+          ...ex
+        }
+      }
+    });
+    console.log("newExercises = ", newExercises);
     setWorkoutForm({
       ...workoutForm,
-      [name]: value,
+      exercises: newExercises,
     });
   };
 
@@ -93,7 +123,7 @@ export default function ViewSingle() {
       {isEditMode ? (
         <div>
           <WorkoutSingle
-            exercises={workout.exercises}
+            exercises={workoutForm.exercises}
             workoutForm={workoutForm}
             workoutName={workoutName}
             handleExerciseChange={handleExerciseChange}
@@ -104,7 +134,7 @@ export default function ViewSingle() {
         <ul>
           <li>{workout.name} - {workout.createdAt}</li>
           {workout.exercises.map((exercises) => {
-            <ExerciseReadOnly exercises={exercises} />
+            return (<ExerciseReadOnly exercises={exercises} />)
             { console.log('VSO - exercises', exercises) }
             {/* exercises - object*/ }
 
