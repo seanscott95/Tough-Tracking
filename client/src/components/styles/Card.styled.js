@@ -6,7 +6,6 @@ export const StyledCard = styled.div`
     border-radius: 10px;
     border: 1px solid black;
     width: fit-content;
-    padding: 1px;
     
     
 
@@ -15,7 +14,6 @@ export const StyledCard = styled.div`
         border-radius: 5px;
         padding: 20px;
         margin: 5px;
-        padding: 10px;
         border: 1px solid black;
         display: flex;
         flex-direction: column;

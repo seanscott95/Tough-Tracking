@@ -32,11 +32,13 @@ export default function WorkoutReadOnly() {
                 <StyledCard>
                     <ul key={item._id} className='card'>
                         <li>{item.name} - {item.createdAt}</li>
-                        {item.exercises.map((exercises) => (
-                            <StyledCard>
-                                <ExerciseReadOnly exercises={exercises} />
-                            </StyledCard>
-                        ))}
+                        <div className='flexRow'>
+                            {item.exercises.map((exercises) => (
+                                <StyledCard>
+                                    <ExerciseReadOnly exercises={exercises} />
+                                </StyledCard>
+                            ))}
+                        </div>
                         <button
                             key={item._id}
                             id={item._id}
