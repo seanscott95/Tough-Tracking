@@ -31,7 +31,7 @@ export default function ViewSingle() {
     intensity: '',
   });
 
-  const { loading, error, data } = useQuery(QUERY_SINGLE_WORKOUT, {
+  const { loading, error, data, refetch: refetchWorkout } = useQuery(QUERY_SINGLE_WORKOUT, {
     variables: { workoutId: workoutId },
     onCompleted(data) {
 
@@ -90,8 +90,8 @@ export default function ViewSingle() {
       }
     })
 
+    await refetchWorkout();
     setIsEditMode(false);
-    window.location.reload();
   }
 
   const handleExerciseChange = (e, id) => {
@@ -140,12 +140,14 @@ export default function ViewSingle() {
         <StyledCard>
           <ul className='card'>
             <li>{workout.name} - {workout.createdAt}</li>
-            {workout.exercises.map((exercises) => (
-                <StyledCard>
-                  <ExerciseReadOnly exercises={exercises} />
-                </StyledCard>
-              )
-            )}
+            <div className='flexRow'>
+              {workout.exercises.map((exercises) => (
+                  <StyledCard>
+                    <ExerciseReadOnly exercises={exercises} />
+                  </StyledCard>
+                )
+              )}
+            </div>
           </ul>
         </StyledCard>
       )}
