@@ -13,13 +13,9 @@ export default function ViewSingle() {
   const [isEditMode, setIsEditMode] = useState(false);
 
   const { workoutId } = useParams();
-
   const [editWorkout, { errorMutation }] = useMutation(EDIT_WORKOUT);
 
-  const [exerciseList, setExerciseList] = useState([]);
-
   const [workoutName, setWorkoutName] = useState('');
-
   const [workoutForm, setWorkoutForm] = useState({
     name: '',
     type: 'strength',
@@ -40,9 +36,7 @@ export default function ViewSingle() {
   });
   const workout = data?.getSingleWorkout || {};
 
-
   useEffect(() => {
-    console.log(data);
     if (!data) {
       return;
     }
@@ -59,22 +53,21 @@ export default function ViewSingle() {
   }
 
   const saveBtnHandler = async () => {
-
     await editWorkout({
       variables: {
         data: {
           _id: workout._id,
           exercises: workoutForm.exercises.map((item) => {
             return {
-                _id: item._id,
-                name: item.name,
-                type: item.type,
-                weight: Number(item.weight),
-                sets: Number(item.sets),
-                reps: Number(item.reps),
-                distance: Number(item.distance),
-                time: Number(item.time),
-                intensity: item.intensity,
+              _id: item._id,
+              name: item.name,
+              type: item.type,
+              weight: Number(item.weight),
+              sets: Number(item.sets),
+              reps: Number(item.reps),
+              distance: Number(item.distance),
+              time: Number(item.time),
+              intensity: item.intensity,
             }
           }),
           createdAt: workoutForm.createdAt,
@@ -92,19 +85,18 @@ export default function ViewSingle() {
 
     let currentExercises = workoutForm.exercises;
     const newExercises = currentExercises.map((ex) => {
-      if (ex._id === id ) {
-
+      if (ex._id === id) {
+        
         return {
           ...ex,
           [name]: value,
-        } 
+        }
       } else {
         return {
           ...ex
         }
       }
     });
-    console.log("newExercises = ", newExercises);
     setWorkoutForm({
       ...workoutForm,
       exercises: newExercises,
@@ -135,12 +127,7 @@ export default function ViewSingle() {
           <li>{workout.name} - {workout.createdAt}</li>
           {workout.exercises.map((exercises) => {
             return (<ExerciseReadOnly exercises={exercises} />)
-            { console.log('VSO - exercises', exercises) }
-            {/* exercises - object*/ }
-
           })}
-          {console.log('VS - workout.exercises', workout.exercises)}
-          {/* workout.exercises - Array of objects */}
         </ul>
       )}
       <button id='editBtn' className={isEditMode ? 'hide' : ''} onClick={editBtnHandler}>Edit</button>

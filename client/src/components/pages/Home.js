@@ -5,12 +5,12 @@ import { HomeStyle } from '../styles/Home.styled'
 export default function Home() {
     return (
         <HomeStyle>
-            <div className={'leftContainer'}>
+            <div className='leftContainer'>
                 <div className='catchPhrase'>
                     <p className='lessThinking'>" Less Thinking.</p>
                     <p className="moreTraining">More Training "</p>
                 </div>
-                <div className={'dotpoints'}>
+                <div className='dotpoints'>
                     <div>
                         <p>&rarr;</p>
                         <p> Visualise and plan your workout ahead.</p>

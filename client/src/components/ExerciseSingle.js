@@ -4,9 +4,7 @@ import { StyledForm } from './styles/Form.styled'
 
 export default function ExerciseSingle({
     exercises,
-    workoutForm,
-    handleExerciseChange}) {
-        console.log("ES = ", exercises);
+    handleExerciseChange }) {
 
     return (
         <div>
