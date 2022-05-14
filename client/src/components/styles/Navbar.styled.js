@@ -12,6 +12,7 @@ export const StyledNavbar = styled.nav`
     position: fixed;
     top: 0;
     min-width: 100%;
+    z-index: 10;
     
     .navbarList {
         display: flex;

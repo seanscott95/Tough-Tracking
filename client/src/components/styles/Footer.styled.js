@@ -11,6 +11,7 @@ export const StyledFooter = styled.footer`
     position: fixed;
     bottom: 0;
     min-width: 100%;
+    z-index: 10;
 
     .footerList {
         display: flex;
