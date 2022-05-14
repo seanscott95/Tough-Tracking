@@ -56,7 +56,6 @@ export default function WorkoutForm() {
         e.preventDefault();
 
         try {
-            console.log('12', exerciseList)
             const { data } = await createWorkout({
                 variables: {
                     name: workoutName,
@@ -74,7 +73,6 @@ export default function WorkoutForm() {
                     })
                 },
             });
-            console.log('13', data)
             setWorkoutName('')
             setExerciseList([]);
         } catch (err) {
