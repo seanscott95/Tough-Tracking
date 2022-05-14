@@ -52,6 +52,10 @@ export default function ViewSingle() {
     setIsEditMode(true);
   }
 
+  const deleteBtnHandler = () => {
+    setIsEditMode(true);
+  }
+
   const saveBtnHandler = async () => {
     await editWorkout({
       variables: {
@@ -86,7 +90,7 @@ export default function ViewSingle() {
     let currentExercises = workoutForm.exercises;
     const newExercises = currentExercises.map((ex) => {
       if (ex._id === id) {
-        
+
         return {
           ...ex,
           [name]: value,
@@ -130,8 +134,9 @@ export default function ViewSingle() {
           })}
         </ul>
       )}
-      <button id='editBtn' className={isEditMode ? 'hide' : ''} onClick={editBtnHandler}>Edit</button>
-      <button id='saveBtn' className={isEditMode ? '' : 'hide'} onClick={saveBtnHandler}>Save</button>
+      <button className={isEditMode ? 'hide' : ''} onClick={editBtnHandler}>Edit</button>
+      <button className={isEditMode ? '' : 'hide'} onClick={saveBtnHandler}>Save</button>
+      <button className={isEditMode ? '' : 'hide'} onClick={deleteBtnHandler}>Delete</button>
       {errorMutation && (
         <div>
           {errorMutation.message}
