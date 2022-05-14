@@ -33,10 +33,10 @@ export default function WorkoutReadOnly() {
                     <ul key={item._id} className='card'>
                         <li>{item.name} - {item.createdAt}</li>
                         {item.exercises.map((exercises) => (
-                            <ExerciseReadOnly exercises={exercises} />
+                            <StyledCard>
+                                <ExerciseReadOnly exercises={exercises} />
+                            </StyledCard>
                         ))}
-                        {console.log('item ex:', item.exercises)}
-                        {/* item.exercises - array of objects */}
                         <button
                             key={item._id}
                             id={item._id}

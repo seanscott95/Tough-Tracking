@@ -6,4 +6,5 @@ export const StyledForm = styled.form`
     font-size: 12px;
     padding: 5px;
     margin: 5px;
+    border: 3px solid rgb(30, 35, 39, .9);
 `;

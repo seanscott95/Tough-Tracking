@@ -3,7 +3,7 @@ import React from 'react'
 export default function ExerciseReadOnly({ exercises }) {
 
     return (
-        <li>
+        <li className='cardInner'>
             <ul>
                 <li>{exercises.name}</li>
                 <li>{exercises.type}</li>
