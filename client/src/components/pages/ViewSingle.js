@@ -9,6 +9,7 @@ import { EDIT_WORKOUT, DELETE_WORKOUT } from '../../utils/mutations';
 import { PageContainer } from '../styles/PageContainer.styled';
 import WorkoutSingle from '../WorkoutSingle';
 import ExerciseReadOnly from '../ExerciseReadOnly';
+import { StyledCard } from '../styles/Card.styled';
 
 export default function ViewSingle() {
   const [isEditMode, setIsEditMode] = useState(false);
@@ -136,12 +137,17 @@ export default function ViewSingle() {
           />
         </div>
       ) : (
-        <ul>
-          <li>{workout.name} - {workout.createdAt}</li>
-          {workout.exercises.map((exercises) => {
-            return (<ExerciseReadOnly exercises={exercises} />)
-          })}
-        </ul>
+        <StyledCard>
+          <ul className='card'>
+            <li>{workout.name} - {workout.createdAt}</li>
+            {workout.exercises.map((exercises) => (
+                <StyledCard>
+                  <ExerciseReadOnly exercises={exercises} />
+                </StyledCard>
+              )
+            )}
+          </ul>
+        </StyledCard>
       )}
       <button className={isEditMode ? 'hide' : ''} onClick={editBtnHandler}>Edit</button>
       <button className={isEditMode ? '' : 'hide'} onClick={saveBtnHandler}>Save</button>
