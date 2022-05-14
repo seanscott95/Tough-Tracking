@@ -40,9 +40,9 @@ export const EDIT_WORKOUT = gql`
   }
 `;
 
-export const EDIT_EXERCISE = gql`
-  mutation editExercise($data: Exercise) {
-    editExercise(data: $data) {
+export const DELETE_WORKOUT = gql`
+  mutation deleteWorkout($workoutId: ID!) {
+    deleteWorkout(workoutId: $workoutId) {
       _id
     }
   }

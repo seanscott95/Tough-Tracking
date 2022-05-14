@@ -1,19 +1,22 @@
 import React, { useState, useEffect } from 'react'
+
 import { useParams } from 'react-router-dom';
 import { useQuery, useMutation } from '@apollo/client';
+import { useNavigate } from "react-router-dom";
 
 import { QUERY_SINGLE_WORKOUT } from '../../utils/queries';
-import { EDIT_WORKOUT } from '../../utils/mutations';
-
+import { EDIT_WORKOUT, DELETE_WORKOUT } from '../../utils/mutations';
 import { PageContainer } from '../styles/PageContainer.styled';
 import WorkoutSingle from '../WorkoutSingle';
 import ExerciseReadOnly from '../ExerciseReadOnly';
 
 export default function ViewSingle() {
   const [isEditMode, setIsEditMode] = useState(false);
+  let navigate = useNavigate();
 
   const { workoutId } = useParams();
-  const [editWorkout, { errorMutation }] = useMutation(EDIT_WORKOUT);
+  const [editWorkout, { errorEditMutation }] = useMutation(EDIT_WORKOUT);
+  const [deleteWorkout, { errorDeleteMutation }] = useMutation(DELETE_WORKOUT);
 
   const [workoutName, setWorkoutName] = useState('');
   const [workoutForm, setWorkoutForm] = useState({
@@ -52,8 +55,14 @@ export default function ViewSingle() {
     setIsEditMode(true);
   }
 
-  const deleteBtnHandler = () => {
+  const deleteBtnHandler = async () => {
+    await deleteWorkout({
+      variables: {
+        workoutId: workout._id,
+      }
+    })
     setIsEditMode(true);
+    navigate('/dashboard');
   }
 
   const saveBtnHandler = async () => {
@@ -137,9 +146,14 @@ export default function ViewSingle() {
       <button className={isEditMode ? 'hide' : ''} onClick={editBtnHandler}>Edit</button>
       <button className={isEditMode ? '' : 'hide'} onClick={saveBtnHandler}>Save</button>
       <button className={isEditMode ? '' : 'hide'} onClick={deleteBtnHandler}>Delete</button>
-      {errorMutation && (
+      {errorEditMutation && (
         <div>
-          {errorMutation.message}
+          {errorEditMutation.message}
+        </div>
+      )}
+      {errorDeleteMutation && (
+        <div>
+          {errorDeleteMutation.message}
         </div>
       )}
     </PageContainer>
