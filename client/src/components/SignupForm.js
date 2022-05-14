@@ -26,7 +26,6 @@ export default function SignupForm() {
 
     const handleFormSubmit = async (event) => {
         event.preventDefault();
-        console.log(formState);
 
         try {
             const { data } = await addUser({
