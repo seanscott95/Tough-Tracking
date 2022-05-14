@@ -70,8 +70,8 @@ const GlobalStyles = createGlobalStyle`
         font-size: 12px;
     }
 
-    select {
-        opacity: 70%;
+    select, input {
+        color: black;
     }
 
     .hide {
