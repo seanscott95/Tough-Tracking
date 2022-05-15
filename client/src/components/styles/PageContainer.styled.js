@@ -28,7 +28,7 @@ export const PageContainer = styled.div`
         }
     }
 
-    @media screen and (max-width: 768px) {
+    @media screen and (max-width: 776px) {
         * {
             font-size: 1rem;
         }
@@ -46,5 +46,14 @@ export const PageContainer = styled.div`
             align-items: center;
             justify-content: center;
         }
-    }   
+    }
+    
+    @media screen and (max-width: 634px) {
+        .flexRowTop {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+    }
 `

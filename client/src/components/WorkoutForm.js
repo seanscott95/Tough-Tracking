@@ -98,7 +98,7 @@ export default function WorkoutForm() {
 
     return (
         <>
-            <div className='flexRowTop editContainer'>
+            <div className='flexRowTop'>
                 <div className='flexColumn editContainer'>
 
                     <h3>Add an exercise:</h3>
