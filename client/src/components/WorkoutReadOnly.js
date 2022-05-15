@@ -45,29 +45,31 @@ export default function WorkoutReadOnly() {
     }
 
     return (
-        <div className='flexRow'>
+        <div className='flexColumn'>
             <h2>Your Workouts</h2>
             <p>Here's a detailed version of all your workouts in one place!</p>
-            {exercisesDB.map((item) => (
-                <StyledCard>
-                    <ul key={item._id} className='card'>
-                        <li>{item.name} - {item.createdAt}</li>
-                        <div className='flexRow'>
-                            {item.exercises.map((exercises) => (
-                                <StyledCard>
-                                    <ExerciseReadOnly exercises={exercises} />
-                                </StyledCard>
-                            ))}
-                        </div>
-                        <button
-                            key={item._id}
-                            id={item._id}
-                            value={item._id}
-                            onClick={handleViewClick}
-                        >View</button>
-                    </ul>
-                </StyledCard>
-            ))}
+            <div className='flexRow'>
+                {exercisesDB.map((item) => (
+                    <StyledCard>
+                        <ul key={item._id} className='card'>
+                            <li>{item.name} - {item.createdAt}</li>
+                            <div className='flexRow'>
+                                {item.exercises.map((exercises) => (
+                                    <StyledCard>
+                                        <ExerciseReadOnly exercises={exercises} />
+                                    </StyledCard>
+                                ))}
+                            </div>
+                            <button
+                                key={item._id}
+                                id={item._id}
+                                value={item._id}
+                                onClick={handleViewClick}
+                            >View</button>
+                        </ul>
+                    </StyledCard>
+                ))}
+            </div>
         </div>
     )
 }
