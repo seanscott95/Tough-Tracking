@@ -98,8 +98,8 @@ export default function WorkoutForm() {
 
     return (
         <>
-            <div className='flexRowTop'>
-                <div className='flexColumn'>
+            <div className='flexRowTop editContainer'>
+                <div className='flexColumn editContainer'>
 
                     <h3>Add an exercise:</h3>
                     <StyledForm onSubmit={handleSubmitExercise}>
@@ -220,9 +220,9 @@ export default function WorkoutForm() {
                         </div>
                     </StyledForm>
                 </div>
-                <div className='flexColumn'>
+                <div className='flexColumn editContainer'>
                     <h3>Exercise List:</h3>
-                    <div className='exerciseContainer'>
+                    <div className='exerciseContainer editContainer'>
                         {exerciseList.map((item) => (
                             <StyledCard>
                                 <ul className='card' key={item.name}>
