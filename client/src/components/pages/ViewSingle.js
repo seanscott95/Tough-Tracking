@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom';
 import { useQuery, useMutation } from '@apollo/client';
 import { useNavigate } from "react-router-dom";
 
-import { QUERY_SINGLE_WORKOUT } from '../../utils/queries';
+import { QUERY_SINGLE_WORKOUT, QUERY_WORKOUTS } from '../../utils/queries';
 import { EDIT_WORKOUT, DELETE_WORKOUT } from '../../utils/mutations';
 import { PageContainer } from '../styles/PageContainer.styled';
 import WorkoutSingle from '../WorkoutSingle';
@@ -17,7 +17,12 @@ export default function ViewSingle() {
 
   const { workoutId } = useParams();
   const [editWorkout, { errorEditMutation }] = useMutation(EDIT_WORKOUT);
-  const [deleteWorkout, { errorDeleteMutation }] = useMutation(DELETE_WORKOUT);
+  const [deleteWorkout, { errorDeleteMutation }] = useMutation(DELETE_WORKOUT, {
+    refetchQueries: [
+      QUERY_WORKOUTS,
+      'getWorkouts'
+    ],
+  });
 
   const [workoutName, setWorkoutName] = useState('');
   const [workoutForm, setWorkoutForm] = useState({
@@ -34,7 +39,6 @@ export default function ViewSingle() {
   const { loading, error, data, refetch: refetchWorkout } = useQuery(QUERY_SINGLE_WORKOUT, {
     variables: { workoutId: workoutId },
     onCompleted(data) {
-
       setWorkoutName(data.getSingleWorkout.name);
     }
   });

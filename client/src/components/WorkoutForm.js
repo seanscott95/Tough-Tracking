@@ -1,11 +1,15 @@
 import React, { useState } from 'react';
-import { useMutation } from '@apollo/client';
+import { useNavigate } from "react-router-dom";
 
+import { useMutation } from '@apollo/client';
 import { CREATE_WORKOUT } from '../utils/mutations';
+import { QUERY_WORKOUTS } from '../utils/queries';
 import { StyledForm } from './styles/Form.styled';
 import { StyledCard } from './styles/Card.styled';
 
 export default function WorkoutForm() {
+
+    let navigate = useNavigate();
 
     const [exerciseList, setExerciseList] = useState([]);
 
@@ -50,7 +54,12 @@ export default function WorkoutForm() {
         });
     }
 
-    const [createWorkout, { error }] = useMutation(CREATE_WORKOUT);
+    const [createWorkout, { error }] = useMutation(CREATE_WORKOUT, {
+        refetchQueries: [
+            QUERY_WORKOUTS,
+            'getWorkouts'
+        ],
+    });
 
     const handleCreateWorkout = async (e) => {
         e.preventDefault();
@@ -75,6 +84,8 @@ export default function WorkoutForm() {
             });
             setWorkoutName('')
             setExerciseList([]);
+            navigate('/dashboard');
+
         } catch (err) {
             console.error(err);
         }
