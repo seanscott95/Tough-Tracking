@@ -1,7 +1,7 @@
 import React from 'react'
 
 export default function ExerciseReadOnly({ exercises }) {
-
+    console.log('ERO', exercises)
     return (
         <li className='cardInner'>
             <ul>
@@ -16,6 +16,7 @@ export default function ExerciseReadOnly({ exercises }) {
                     : ''}
                 {exercises.type === 'cardio' ?
                     <>
+                        <li>{`${exercises.distance} km's`}</li>
                         <li>{`${exercises.time} min`}</li>
                         <li>{exercises.intensity}</li>
                     </>
