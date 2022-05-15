@@ -75,6 +75,11 @@ export const HomeStyle = styled.div`
     @media screen and (max-width: 610px) {
         flex-direction: column;
     }
+    @media screen and (max-width: 481px) {
+        .screenshot {
+            display: none;
+        }
+    }
     @media screen and (max-width: 410px) {
         .moreTraining {
             margin: 0;

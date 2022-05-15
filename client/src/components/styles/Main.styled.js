@@ -14,4 +14,9 @@ export const MainStyle = styled.div`
     background-position: center;
     background-size: cover;
     min-height: calc(100vh - 138px);
+
+    @media screen and (max-width: 450px) {
+        margin-top: 55px;
+        margin-bottom: 80px;
+    }
 `

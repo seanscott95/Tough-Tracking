@@ -44,4 +44,8 @@ export const StyledNavbar = styled.nav`
     .navbarLinkActive:hover {
         transform: scale(1.1);
     }
+
+    @media screen and (max-width: 450px) {
+        font-size: .8rem;
+    }
 `
