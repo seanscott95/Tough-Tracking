@@ -11,21 +11,20 @@ export const HomeStyle = styled.div`
 
     .lessThinking {
         font-size: 50px;
+        font-weight: bold;
     }
 
     .moreTraining {
         font-size: 50px;
         margin-left: 50px;
-    }
-
-    .catchPhrase {
-        padding-bottom: 50px;
+        font-weight: bold;
     }
 
     .dotpoints {
         display: flex;
         flex-direction: column;
         justify-content: center;
+        font-weight: bold;
     }
 
     .dotpoints div {
@@ -37,11 +36,6 @@ export const HomeStyle = styled.div`
         
     }
 
-    .dotpoints p span {
-        font-size: 30px;
-        margin-right: 20px;
-    }
-
     .screenshot {
         width: 225px;
         height: 225px;
@@ -49,7 +43,7 @@ export const HomeStyle = styled.div`
         margin-top: 20px;
     }
 
-    .rightContainer {
+    .homeContainer {
         display: flex;
         flex-direction: column;
         justify-content: space-around;
