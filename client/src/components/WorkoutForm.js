@@ -87,7 +87,7 @@ export default function WorkoutForm() {
 
     return (
         <>
-            <div className='createExercise'>
+            <div className='flexRowTop'>
                 <div className='flexColumn'>
 
                     <h3>Add an exercise:</h3>

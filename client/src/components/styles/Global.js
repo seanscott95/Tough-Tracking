@@ -50,6 +50,14 @@ const GlobalStyles = createGlobalStyle`
         align-items: center;
     }
 
+    .flexColumn {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
     .exerciseContainer {
         display: flex;
         flex-wrap: wrap;
@@ -59,20 +67,12 @@ const GlobalStyles = createGlobalStyle`
         width: 400px;
     }
 
-    .createExercise {
+    .flexRowTop {
         display: flex;
         flex-wrap: wrap;
         flex-direction: row;
         justify-content: top;
         align-items: start;
-    }
-
-    .flexColumn {
-        display: flex;
-        flex-wrap: wrap;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
     }
 
     input, select {
