@@ -50,6 +50,23 @@ const GlobalStyles = createGlobalStyle`
         align-items: center;
     }
 
+    .exerciseContainer {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        width: 400px;
+    }
+
+    .createExercise {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        justify-content: top;
+        align-items: start;
+    }
+
     .flexColumn {
         display: flex;
         flex-wrap: wrap;
