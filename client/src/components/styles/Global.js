@@ -32,7 +32,7 @@ const GlobalStyles = createGlobalStyle`
 
     button {
         padding: 1px 5px;
-        margin: 5px 0px;
+        margin: 5px;
         background: #1e2327;
         color: white;
         font-weight: bold;
@@ -67,6 +67,15 @@ const GlobalStyles = createGlobalStyle`
         width: 400px;
     }
 
+    .editContainer {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        width: fit-content;
+    }
+
     .flexRowTop {
         display: flex;
         flex-wrap: wrap;
@@ -93,6 +102,10 @@ const GlobalStyles = createGlobalStyle`
 
     .hide {
         display: none;
+    }
+
+    .white {
+        color: white;
     }
 `;
 export default GlobalStyles;

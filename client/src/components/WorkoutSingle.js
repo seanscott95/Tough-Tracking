@@ -11,12 +11,12 @@ export default function WorkoutSingle({
 
   return (
     <div>
-      <div className='card'>
+      <div className='flexColumn'>
         <h3>Edit your workout:</h3>
         <div>
           <p>Once you have edited all your exercises click save workout to finish.</p>
           <div>
-            <label htmlFor="workoutName">Workout Name:</label>
+            <label htmlFor="workoutName" className='white'>Workout Name:</label>
             <input
               type="text"
               name="workoutName"
@@ -26,7 +26,7 @@ export default function WorkoutSingle({
               required />
           </div>
         </div>
-
+        
         <ExerciseSingle
           exercises={exercises}
           workoutForm={workoutForm}

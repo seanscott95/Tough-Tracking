@@ -127,7 +127,7 @@ export default function ViewSingle() {
   return (
     <PageContainer>
       <StyledCard>
-        <div className='cardInner'>
+        <div className='card'>
           {isEditMode ? (
             <>
               <WorkoutSingle
