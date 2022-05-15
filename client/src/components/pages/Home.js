@@ -36,7 +36,7 @@ export default function Home() {
                     </div>
                 </StyledCard>
             </div>
-            <div className='homeContainer'>
+            <div className='homeContainer rightContainer'>
                 <StyledCard>
                     <div className='card'>
                         {!Auth.loggedIn() ? 

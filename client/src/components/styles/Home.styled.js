@@ -49,4 +49,35 @@ export const HomeStyle = styled.div`
         justify-content: space-around;
         align-items: center;
     }
+
+    @media screen and (max-width: 769px) {
+        .homeContainer, .dotpoints {
+            font-size: .9rem;
+        }
+
+        .lessThinking, .moreTraining {
+            font-size: 2rem;
+        }
+
+        .dotpoints p {
+            padding: 10px;
+        }
+
+        .rightContainer p {
+            font-size: .9rem;
+        }
+
+        .screenshot {
+            width: 200px;
+            height: 200px;
+        }
+    }
+    @media screen and (max-width: 610px) {
+        flex-direction: column;
+    }
+    @media screen and (max-width: 410px) {
+        .moreTraining {
+            margin: 0;
+        }
+    }
 `
