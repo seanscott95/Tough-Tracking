@@ -1,17 +1,20 @@
 import React from 'react'
 
 import { StyledForm } from './styles/Form.styled'
+import { StyledCard } from './styles/Card.styled'
 
 export default function ExerciseSingle({
     exercises,
     handleExerciseChange }) {
 
     return (
-        <div>
-            <StyledForm id='addExercise'>
+        <StyledCard>
+            <div id='addExercise' className='card'>
                 {exercises.map((item) => {
                     return (
                         <div key={item._id}>
+                            <div className='card'>
+
                             <div>
                                 <label htmlFor="name">Name:</label>
                                 <input
@@ -126,10 +129,11 @@ export default function ExerciseSingle({
                             ) : (
                                 <></>
                             )}
+                            </div>
                         </div>
                     )
                 })}
-            </StyledForm>
-        </div>
+            </div>
+        </StyledCard>
     )
 }

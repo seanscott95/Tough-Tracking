@@ -11,26 +11,28 @@ export default function WorkoutSingle({
 
   return (
     <div>
-      <h3>Edit your workout:</h3>
-      <div>
-        <p>Once you have edited all your exercises click save workout to finish.</p>
+      <div className='card'>
+        <h3>Edit your workout:</h3>
         <div>
-          <label htmlFor="workoutName">Workout Name:</label>
-          <input
-            type="text"
-            name="workoutName"
-            placeholder='Sunday, Gym, Workout...'
-            onChange={handleNameChange}
-            value={workoutName}
-            required />
+          <p>Once you have edited all your exercises click save workout to finish.</p>
+          <div>
+            <label htmlFor="workoutName">Workout Name:</label>
+            <input
+              type="text"
+              name="workoutName"
+              placeholder='Sunday, Gym, Workout...'
+              onChange={handleNameChange}
+              value={workoutName}
+              required />
+          </div>
         </div>
-      </div>
 
-      <ExerciseSingle
-        exercises={exercises}
-        workoutForm={workoutForm}
-        handleExerciseChange={handleExerciseChange}>
-      </ExerciseSingle>
+        <ExerciseSingle
+          exercises={exercises}
+          workoutForm={workoutForm}
+          handleExerciseChange={handleExerciseChange}>
+        </ExerciseSingle>
+      </div>
     </div>
   )
 }

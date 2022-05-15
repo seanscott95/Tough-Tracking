@@ -126,44 +126,50 @@ export default function ViewSingle() {
 
   return (
     <PageContainer>
-      {isEditMode ? (
-        <div>
-          <WorkoutSingle
-            exercises={workoutForm.exercises}
-            workoutForm={workoutForm}
-            workoutName={workoutName}
-            handleExerciseChange={handleExerciseChange}
-            handleNameChange={handleNameChange}
-          />
-        </div>
-      ) : (
-        <StyledCard>
-          <ul className='card'>
-            <li>{workout.name} - {workout.createdAt}</li>
-            <div className='flexRow'>
-              {workout.exercises.map((exercises) => (
-                  <StyledCard>
-                    <ExerciseReadOnly exercises={exercises} />
-                  </StyledCard>
-                )
-              )}
+      <StyledCard>
+        <div className='cardInner'>
+          {isEditMode ? (
+            <>
+              <WorkoutSingle
+                exercises={workoutForm.exercises}
+                workoutForm={workoutForm}
+                workoutName={workoutName}
+                handleExerciseChange={handleExerciseChange}
+                handleNameChange={handleNameChange}
+              />
+            </>
+          ) : (
+            <StyledCard>
+              <ul className='card'>
+                <li>{workout.name} - {workout.createdAt}</li>
+                <div className='flexRow'>
+                  {workout.exercises.map((exercises) => (
+                    <StyledCard>
+                      <ExerciseReadOnly exercises={exercises} />
+                    </StyledCard>
+                  )
+                  )}
+                </div>
+              </ul>
+            </StyledCard>
+          )}
+          <div className='flexRow'>
+            <button className={isEditMode ? 'hide' : ''} onClick={editBtnHandler}>Edit</button>
+            <button className={isEditMode ? '' : 'hide'} onClick={saveBtnHandler}>Save</button>
+            <button className={isEditMode ? '' : 'hide'} onClick={deleteBtnHandler}>Delete</button>
+          </div>
+          {errorEditMutation && (
+            <div>
+              {errorEditMutation.message}
             </div>
-          </ul>
-        </StyledCard>
-      )}
-      <button className={isEditMode ? 'hide' : ''} onClick={editBtnHandler}>Edit</button>
-      <button className={isEditMode ? '' : 'hide'} onClick={saveBtnHandler}>Save</button>
-      <button className={isEditMode ? '' : 'hide'} onClick={deleteBtnHandler}>Delete</button>
-      {errorEditMutation && (
-        <div>
-          {errorEditMutation.message}
+          )}
+          {errorDeleteMutation && (
+            <div>
+              {errorDeleteMutation.message}
+            </div>
+          )}
         </div>
-      )}
-      {errorDeleteMutation && (
-        <div>
-          {errorDeleteMutation.message}
-        </div>
-      )}
+      </StyledCard>
     </PageContainer>
   )
 }
