@@ -48,7 +48,7 @@ export default function WorkoutReadOnly() {
         <div className='flexRow'>
             <h2>Your Workouts</h2>
             <p>Here's a detailed version of all your workouts in one place!</p>
-            {temp.map((item) => (
+            {exercisesDB.map((item) => (
                 <StyledCard>
                     <ul key={item._id} className='card'>
                         <li>{item.name} - {item.createdAt}</li>
