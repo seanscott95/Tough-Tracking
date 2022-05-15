@@ -39,7 +39,7 @@ export default function Navbar() {
                     </li>
 
                     {navbarPages.map((page) => (
-                        Auth.loggedIn() === true ? (
+                        Auth.loggedIn() ? (
                             <li key={page.link} className={currentPage === page.title ? 'navbarLinkActive' : 'navbarLink'}>
                                 <NavLink key={page.link} to={page.link} onClick={() => setCurrentPage(page.title)} >
                                     {page.title}

@@ -2,6 +2,7 @@ import React from 'react';
 
 import { HomeStyle } from '../styles/Home.styled';
 import { StyledCard } from '../styles/Card.styled';
+import Auth from '../../utils/auth';
 
 export default function Home() {
     return (
@@ -38,7 +39,11 @@ export default function Home() {
             <div className='homeContainer'>
                 <StyledCard>
                     <div className='card'>
+                        {!Auth.loggedIn() ? 
                         <p>Login or signup for free to access full benefits!</p>
+                        :
+                        <p>Enjoy the site!</p>
+                        }
                     </div>
                 </StyledCard>
                 <p className="screenshot">Screenshot of app</p>
