@@ -83,7 +83,7 @@ const GlobalStyles = createGlobalStyle`
         box-sizing: border-box;
         padding: 2px;
         margin: 5px 0px;
-        font-size: 12px;
+        font-size: 15px;
         color: black;
     }
 
