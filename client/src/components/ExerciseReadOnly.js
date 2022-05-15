@@ -7,11 +7,19 @@ export default function ExerciseReadOnly({ exercises }) {
             <ul>
                 <li>{exercises.name}</li>
                 <li>{exercises.type}</li>
-                <li>{exercises.weight || ''}</li>
-                <li>{exercises.sets || ''}</li>
-                <li>{exercises.reps || ''}</li>
-                <li>{exercises.time || ''}</li>
-                <li>{exercises.intensity || ''}</li>
+                {exercises.type === 'strength' ?
+                    <>
+                        <li>{`${exercises.weight} kg's`}</li>
+                        <li>{`${exercises.sets} sets`}</li>
+                        <li>{`${exercises.reps} reps`}</li>
+                    </>
+                    : ''}
+                {exercises.type === 'cardio' ?
+                    <>
+                        <li>{`${exercises.time} min`}</li>
+                        <li>{exercises.intensity}</li>
+                    </>
+                    : ''}
             </ul>
         </li>
     )
