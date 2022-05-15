@@ -27,7 +27,7 @@ export default function Home() {
                         </div>
                         <div>
                             <p>&rarr;</p>
-                            <p> Log Strength and cardio workouts.</p>
+                            <p> Log Strength and Cardio workouts.</p>
                         </div>
                         <div>
                             <p>&rarr;</p>

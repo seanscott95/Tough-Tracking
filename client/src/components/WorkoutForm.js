@@ -15,13 +15,13 @@ export default function WorkoutForm() {
 
     const [exerciseFormState, setExerciseFormState] = useState({
         name: '',
-        type: 'strength',
+        type: 'Strength',
         weight: '',
         sets: '',
         reps: '',
         distance: '',
         time: '',
-        intensity: '',
+        intensity: 'Low',
     });
 
     const [workoutName, setWorkoutName] = useState('');
@@ -44,13 +44,13 @@ export default function WorkoutForm() {
 
         setExerciseFormState({
             name: '',
-            type: 'strength',
+            type: 'Strength',
             weight: '',
             sets: '',
             reps: '',
             distance: '',
             time: '',
-            intensity: '',
+            intensity: 'Low',
         });
     }
 
@@ -121,12 +121,12 @@ export default function WorkoutForm() {
                                 value={exerciseFormState.type}
                                 onChange={handleExerciseChange}
                                 required >
-                                <option value='strength'>Strength</option>
-                                <option value='cardio'>Cardio</option>
+                                <option value='Strength'>Strength</option>
+                                <option value='Cardio'>Cardio</option>
                             </select>
                         </div>
 
-                        {exerciseFormState.type === 'strength' ? (
+                        {exerciseFormState.type === 'Strength' ? (
                             <>
                                 <div>
                                     <label htmlFor="weight">Weight:</label>
@@ -171,7 +171,7 @@ export default function WorkoutForm() {
                         ) : (
                             <></>
                         )}
-                        {exerciseFormState.type === 'cardio' ? (
+                        {exerciseFormState.type === 'Cardio' ? (
                             <>
                                 <div>
                                     <label htmlFor="distance">Distance:</label>

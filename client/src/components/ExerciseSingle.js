@@ -36,12 +36,12 @@ export default function ExerciseSingle({
                                         value={item.type}
                                         onChange={(e) => handleExerciseChange(e, item._id)}
                                         required >
-                                        <option value='strength'>Strength</option>
-                                        <option value='cardio'>Cardio</option>
+                                        <option value='Strength'>Strength</option>
+                                        <option value='Cardio'>Cardio</option>
                                     </select>
                                 </div>
 
-                                {item.type === 'strength' ? (
+                                {item.type === 'Strength' ? (
                                     <>
                                         <div>
                                             <label htmlFor="weight">Weight:</label>
@@ -87,7 +87,7 @@ export default function ExerciseSingle({
                                     <></>
                                 )}
 
-                                {item.type === 'cardio' ? (
+                                {item.type === 'Cardio' ? (
                                     <>
                                         <div>
                                             <label htmlFor="distance">Distance:</label>

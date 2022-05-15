@@ -7,14 +7,14 @@ export default function ExerciseReadOnly({ exercises }) {
             <ul>
                 <li>{exercises.name}</li>
                 <li>{exercises.type}</li>
-                {exercises.type === 'strength' ?
+                {exercises.type === 'Strength' ?
                     <>
                         <li>{`${exercises.weight} kg's`}</li>
                         <li>{`${exercises.sets} sets`}</li>
                         <li>{`${exercises.reps} reps`}</li>
                     </>
                     : ''}
-                {exercises.type === 'cardio' ?
+                {exercises.type === 'Cardio' ?
                     <>
                         <li>{`${exercises.distance} km's`}</li>
                         <li>{`${exercises.time} min`}</li>
