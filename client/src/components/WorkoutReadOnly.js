@@ -9,14 +9,19 @@ import { QUERY_WORKOUTS } from '../utils/queries'
 export default function WorkoutReadOnly() {
 
     const { loading, error, data } = useQuery(QUERY_WORKOUTS);
-    const temp = data?.getWorkouts
+    const exercisesDB = data?.getWorkouts || [];
 
     let navigate = useNavigate();
 
-    function handleClick(e) {
+    const handleViewClick = (e) => {
         e.preventDefault();
         const id = e.target.value;
         navigate(`/viewSingle/${id}`);
+    }
+
+    const handleCreateClick = (e) => {
+        e.preventDefault();
+        navigate(`/createWorkout`);
     }
 
     if (error) {
@@ -25,9 +30,24 @@ export default function WorkoutReadOnly() {
     if (loading) {
         return <div>Sorry, still loading...</div>
     }
+    
+    if (!exercisesDB.length) {
+        return (
+            <StyledCard>
+                <div className='card'>
+                    <p>No Workouts Yet.</p>
+                    <p>Click the button to create a workout.</p>
+                    <p>Lets Get Started!</p>
+                    <button onClick={handleCreateClick}>Create Workout</button>
+                </div>
+            </StyledCard>
+        )
+    }
 
     return (
         <div className='flexRow'>
+            <h2>Your Workouts</h2>
+            <p>Here's a detailed version of all your workouts in one place!</p>
             {temp.map((item) => (
                 <StyledCard>
                     <ul key={item._id} className='card'>
@@ -43,7 +63,7 @@ export default function WorkoutReadOnly() {
                             key={item._id}
                             id={item._id}
                             value={item._id}
-                            onClick={handleClick}
+                            onClick={handleViewClick}
                         >View</button>
                     </ul>
                 </StyledCard>
