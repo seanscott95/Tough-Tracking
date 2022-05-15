@@ -36,10 +36,9 @@ export const HomeStyle = styled.div`
         
     }
 
-    .screenshot {
-        width: 225px;
-        height: 225px;
-        background-color: black;
+    img {
+        width: 300px;
+        height: 300px;
         margin-top: 20px;
     }
 
@@ -67,7 +66,7 @@ export const HomeStyle = styled.div`
             font-size: .9rem;
         }
 
-        .screenshot {
+        img {
             width: 200px;
             height: 200px;
         }
@@ -76,7 +75,7 @@ export const HomeStyle = styled.div`
         flex-direction: column;
     }
     @media screen and (max-width: 481px) {
-        .screenshot {
+        img {
             display: none;
         }
     }
