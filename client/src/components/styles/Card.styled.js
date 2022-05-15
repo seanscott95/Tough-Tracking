@@ -12,7 +12,7 @@ export const StyledCard = styled.div`
     .card {
         background: rgb(30, 35, 39, .9);
         border-radius: 5px;
-        padding: 20px;
+        padding: 10px;
         margin: 5px;
         border: 1px solid black;
         display: flex;

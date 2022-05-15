@@ -90,7 +90,7 @@ const GlobalStyles = createGlobalStyle`
         border: 1px solid #ccc;
         border-radius: 5px;
         box-sizing: border-box;
-        padding: 2px;
+        padding: 1px 5px;
         margin: 5px 0px;
         font-size: 15px;
         color: black;

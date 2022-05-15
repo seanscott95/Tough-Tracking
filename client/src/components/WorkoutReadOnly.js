@@ -30,7 +30,7 @@ export default function WorkoutReadOnly() {
     if (loading) {
         return <div>Sorry, still loading...</div>
     }
-    
+
     if (!exercisesDB.length) {
         return (
             <StyledCard>
@@ -46,8 +46,13 @@ export default function WorkoutReadOnly() {
 
     return (
         <div className='flexColumn'>
-            <h2>Your Workouts</h2>
-            <p>Here's a detailed version of all your workouts in one place!</p>
+            <StyledCard>
+                <div className='card'>
+                    <h2>Your Workouts</h2>
+                    <p>Here's a detailed version of all your workouts in one place!</p>
+                </div>
+            </StyledCard>
+
             <div className='flexRow'>
                 {exercisesDB.map((item) => (
                     <StyledCard>

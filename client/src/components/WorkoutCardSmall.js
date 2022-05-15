@@ -45,7 +45,11 @@ export default function WorkoutCardSmall() {
 
   return (
     <>
-      <h2>Workout Summary</h2>
+    <StyledCard>
+      <div className='card'>
+        <h2>Workout Summary</h2>
+      </div>
+    </StyledCard>
       <div className='flexRow'>
         {exercisesDB.map((item) => (
           <StyledCard>

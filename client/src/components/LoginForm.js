@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { useMutation } from '@apollo/client';
 import { LOGIN_USER } from '../utils/mutations';
 import { StyledForm } from './styles/Form.styled';
+import { StyledCard } from './styles/Card.styled';
 import Auth from '../utils/auth';
 
 export default function LoginForm() {
@@ -39,8 +40,13 @@ export default function LoginForm() {
 
     return (
         <>
-            <div>
-                <h2>Login</h2>
+            <div className='flexColumn'>
+                <StyledCard>
+                    <div className='card'>
+                        <h2>Login</h2>
+                    </div>
+                </StyledCard>
+
                 <StyledForm onSubmit={handleFormSubmit}>
                     <div>
                         <label htmlFor="email">Email:</label>
