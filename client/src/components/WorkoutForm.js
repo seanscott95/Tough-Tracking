@@ -220,17 +220,19 @@ export default function WorkoutForm() {
                             </StyledCard>
                         ))}
                     </div>
-                    <div >
-                        <label htmlFor="workoutName">Workout Name:</label>
-                        <input
-                            type="text"
-                            name="workoutName"
-                            placeholder='Sunday, Gym, Workout...'
-                            onChange={handleNameChange}
-                            value={workoutName}
-                            required />
-                    </div>
-                    <button onClick={handleCreateWorkout} >Save Workout</button>
+                    <StyledForm>
+                        <div >
+                            <label htmlFor="workoutName">Workout Name:</label>
+                            <input
+                                type="text"
+                                name="workoutName"
+                                placeholder='Sunday, Gym, Workout...'
+                                onChange={handleNameChange}
+                                value={workoutName}
+                                required />
+                        </div>
+                        <button onClick={handleCreateWorkout} >Save Workout</button>
+                    </StyledForm>
                 </div>
             </div>
         </>

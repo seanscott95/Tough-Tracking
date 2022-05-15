@@ -5,7 +5,6 @@ const GlobalStyles = createGlobalStyle`
         padding: 0;
         margin: 0;
         box-sizing: border-box;
-        color: white;
     }
   
     html {
@@ -68,14 +67,15 @@ const GlobalStyles = createGlobalStyle`
         padding: 2px;
         margin: 5px 0px;
         font-size: 12px;
-    }
-
-    select, input {
         color: black;
     }
 
     .hide {
         display: none;
+    }
+
+    label {
+        color: black;
     }
 `;
 export default GlobalStyles;

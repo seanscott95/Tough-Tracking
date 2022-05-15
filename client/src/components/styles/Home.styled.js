@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const HomeStyle = styled.div`
-    color: black;
+    color: white;
     display: flex;
     flex-direction: row;
     justify-content: space-around;

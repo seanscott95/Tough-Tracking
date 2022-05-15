@@ -6,8 +6,7 @@ export const StyledCard = styled.div`
     border-radius: 10px;
     border: 1px solid black;
     width: fit-content;
-    
-    
+    color: white;
 
     .card {
         background: rgb(30, 35, 39, .9);
