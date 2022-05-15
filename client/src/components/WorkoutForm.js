@@ -125,7 +125,7 @@ export default function WorkoutForm() {
                                         min="0"
                                         max="500"
                                         step=".5"
-                                        placeholder='50...'
+                                        placeholder="50 (kg's)"
                                         value={exerciseFormState.weight}
                                         onChange={handleExerciseChange}
                                         required />
@@ -170,7 +170,7 @@ export default function WorkoutForm() {
                                         min="1"
                                         max="1000"
                                         step="1"
-                                        placeholder='5.4'
+                                        placeholder="5 (km's)"
                                         value={exerciseFormState.distance}
                                         onChange={handleExerciseChange}
                                         required />
@@ -183,7 +183,7 @@ export default function WorkoutForm() {
                                         min="1"
                                         max="1440"
                                         step="1"
-                                        placeholder='45min...'
+                                        placeholder="45 (min)"
                                         value={exerciseFormState.time}
                                         onChange={handleExerciseChange}
                                         required />
