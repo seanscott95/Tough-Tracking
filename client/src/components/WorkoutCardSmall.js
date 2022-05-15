@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { useQuery } from '@apollo/client';
 import { useNavigate } from "react-router-dom";
 
@@ -22,8 +22,6 @@ export default function WorkoutCardSmall() {
     e.preventDefault();
     navigate(`/createWorkout`);
   }
-
-
 
   if (error) {
     return <div>Sorry there was an error... - {error.message}</div>;

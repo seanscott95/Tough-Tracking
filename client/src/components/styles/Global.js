@@ -87,12 +87,12 @@ const GlobalStyles = createGlobalStyle`
         color: black;
     }
 
-    .hide {
-        display: none;
-    }
-
     label {
         color: black;
+    }
+
+    .hide {
+        display: none;
     }
 `;
 export default GlobalStyles;
