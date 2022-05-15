@@ -19,6 +19,7 @@ export const StyledFooter = styled.footer`
         text-align: center;
         margin: 0px;
         padding: 0px;
+        font-size: 15px;
     }
 
     .footerItem {

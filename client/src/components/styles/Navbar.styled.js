@@ -5,7 +5,7 @@ export const StyledNavbar = styled.nav`
     display: flex;
     justify-content: center;
     text-align: center;
-    font-size: 16px;
+    font-size: 20px;
     list-style: none;
     background: #1e2327;
     margin: 0px;

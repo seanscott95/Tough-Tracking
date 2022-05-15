@@ -10,11 +10,11 @@ export const HomeStyle = styled.div`
     font-size: 20px;
 
     .lessThinking {
-        font-size: 30px;
+        font-size: 50px;
     }
 
     .moreTraining {
-        font-size: 30px;
+        font-size: 50px;
         margin-left: 50px;
     }
 

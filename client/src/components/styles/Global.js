@@ -8,7 +8,6 @@ const GlobalStyles = createGlobalStyle`
     }
   
     html {
-        font-size: 10px;
         font-family: 'Roboto Mono';
         background-color: #fff;
         background-repeat: no-repeat;
@@ -40,6 +39,7 @@ const GlobalStyles = createGlobalStyle`
         border-radius: 10px;
         outline: none;
         cursor: pointer;
+        font-size: 20px;
     }
 
     .flexRow {

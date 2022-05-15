@@ -7,6 +7,7 @@ export const StyledCard = styled.div`
     border: 1px solid black;
     width: fit-content;
     color: white;
+    font-size: 20px;
 
     .card {
         background: rgb(30, 35, 39, .9);
