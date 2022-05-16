@@ -6,6 +6,7 @@ import { StyledNavbar } from './styles/Navbar.styled';
 
 export default function Navbar() {
 
+    // Handler for when logout button is clicked, deletes the JWT token stored in local
     const logout = (event) => {
         event.preventDefault();
         Auth.logout();

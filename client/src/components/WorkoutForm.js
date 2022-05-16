@@ -8,7 +8,8 @@ import { StyledForm } from './styles/Form.styled';
 import { StyledCard } from './styles/Card.styled';
 
 export default function WorkoutForm() {
-
+    
+    // Navigate hook allows app to navigate to a different page without refreshing
     let navigate = useNavigate();
 
     const [exerciseList, setExerciseList] = useState([]);
@@ -26,6 +27,7 @@ export default function WorkoutForm() {
 
     const [workoutName, setWorkoutName] = useState('');
 
+    // Sets the inputted values to the exerciseForm state variable
     const handleExerciseChange = (e) => {
         const { name, value } = e.target;
 
@@ -35,6 +37,7 @@ export default function WorkoutForm() {
         });
     };
 
+    // Adds an exercise submitted in the form to the exerciseList array and resets the state
     const handleSubmitExercise = (e) => {
         e.preventDefault();
 
@@ -54,6 +57,7 @@ export default function WorkoutForm() {
         });
     }
 
+    // Mutation to create a workout in the mongo db, refetches queries when updated
     const [createWorkout, { error }] = useMutation(CREATE_WORKOUT, {
         refetchQueries: [
             QUERY_WORKOUTS,
@@ -61,6 +65,8 @@ export default function WorkoutForm() {
         ],
     });
 
+    // Creates a workout in the db using the workout name and exercise list variables
+    // then resets those state variables and navigates to the dashboard page
     const handleCreateWorkout = async (e) => {
         e.preventDefault();
 
@@ -91,6 +97,7 @@ export default function WorkoutForm() {
         }
     };
 
+    // Sets the inputted values to the workout name state variable
     const handleNameChange = (e) => {
         const { value } = e.target;
         setWorkoutName(value);

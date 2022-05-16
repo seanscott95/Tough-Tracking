@@ -12,10 +12,16 @@ import ExerciseReadOnly from '../ExerciseReadOnly';
 import { StyledCard } from '../styles/Card.styled';
 
 export default function ViewSingle() {
+  
   const [isEditMode, setIsEditMode] = useState(false);
+
+  // Navigate hook allows app to navigate to a different page without refreshing
   let navigate = useNavigate();
 
+  // Creates a variables using the id in the parameters with the useParams hook
   const { workoutId } = useParams();
+
+  // Mutations for creating and deleting a workout in the mongo db
   const [editWorkout, { errorEditMutation }] = useMutation(EDIT_WORKOUT);
   const [deleteWorkout, { errorDeleteMutation }] = useMutation(DELETE_WORKOUT, {
     refetchQueries: [
@@ -24,6 +30,7 @@ export default function ViewSingle() {
     ],
   });
 
+  // State variables that holds the workout name and the workout exercises from the form
   const [workoutName, setWorkoutName] = useState('');
   const [workoutForm, setWorkoutForm] = useState({
     name: '',
@@ -36,6 +43,7 @@ export default function ViewSingle() {
     intensity: '',
   });
 
+  // Queries a single workout depending on the id in the url params
   const { loading, error, data, refetch: refetchWorkout } = useQuery(QUERY_SINGLE_WORKOUT, {
     variables: { workoutId: workoutId },
     onCompleted(data) {
@@ -44,6 +52,7 @@ export default function ViewSingle() {
   });
   const workout = data?.getSingleWorkout || {};
 
+  // Sets the workout form state variable values being used in the form from the queried workout
   useEffect(() => {
     if (!data) {
       return;
@@ -51,15 +60,19 @@ export default function ViewSingle() {
     setWorkoutForm(data.getSingleWorkout);
   }, [data])
 
+  // Sets the workout name state variable value to the workout name inputted in the form
   const handleNameChange = (e) => {
     const { value } = e.target;
     setWorkoutName(value);
   };
 
+  // Changes the is edit mode state variable to true
   const editBtnHandler = () => {
     setIsEditMode(true);
   }
 
+  // Delete handler for deleting a workout using the workout id, sets is edit mode to true and 
+  // navigates to the dashboard
   const deleteBtnHandler = async () => {
     await deleteWorkout({
       variables: {
@@ -70,6 +83,8 @@ export default function ViewSingle() {
     navigate('/dashboard');
   }
 
+  // Save handler that edits a workout using the values inputted in the form, updates the workouts
+  // and sets the is edit mode state to false
   const saveBtnHandler = async () => {
     await editWorkout({
       variables: {
@@ -98,6 +113,8 @@ export default function ViewSingle() {
     setIsEditMode(false);
   }
 
+  // Changes the exercises in the db with the new inputted values depending if the exercise has the
+  // same id as the one in the db, if there is no match in id the value remains
   const handleExerciseChange = (e, id) => {
     const { name, value } = e.target;
 

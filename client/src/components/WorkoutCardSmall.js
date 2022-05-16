@@ -6,18 +6,22 @@ import { StyledCard } from './styles/Card.styled';
 import { QUERY_WORKOUTS } from '../utils/queries';
 
 export default function WorkoutCardSmall() {
-
+  
+  // Queries all workouts and returns them and sets them as exercisesDB variable if they exist
   const { loading, error, data } = useQuery(QUERY_WORKOUTS);
   const exercisesDB = data?.getWorkouts || [];
 
+  // Navigate hook allows app to navigate to a different page without refreshing
   let navigate = useNavigate();
 
+  // Navigates using the id of the button, which is set to the workout id, to the single view page
   const handleViewClick = (e) => {
     e.preventDefault();
     const id = e.target.value;
     navigate(`/viewSingle/${id}`);
   }
 
+  // Navigates to the create workout page
   const handleCreateClick = (e) => {
     e.preventDefault();
     navigate(`/createWorkout`);

@@ -14,8 +14,11 @@ export default function SignupForm() {
         email: '',
         password: '',
     });
+
+    // Mutations for creating and deleting a workout in the mongo db
     const [addUser, { error, data }] = useMutation(ADD_USER);
 
+    // Sets the inputted values to the formState state variable
     const handleChange = (event) => {
         const { name, value } = event.target;
 
@@ -25,6 +28,8 @@ export default function SignupForm() {
         });
     };
 
+    // Creates a new user with the form state variables value then sets a JWT auth
+    // token in local and resets the formState
     const handleFormSubmit = async (event) => {
         event.preventDefault();
 

@@ -1,7 +1,6 @@
 import React from 'react'
 
 export default function ExerciseReadOnly({ exercises }) {
-    console.log('ERO', exercises)
     return (
         <li className='cardInner'>
             <ul>
