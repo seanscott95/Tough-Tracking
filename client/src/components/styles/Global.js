@@ -42,22 +42,6 @@ const GlobalStyles = createGlobalStyle`
         font-size: 20px;
     }
 
-    .flexRow {
-        display: flex;
-        flex-wrap: wrap;
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .flexColumn {
-        display: flex;
-        flex-wrap: wrap;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    }
-
     .exerciseContainer {
         display: flex;
         flex-wrap: wrap;
