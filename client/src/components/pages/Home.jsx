@@ -21,20 +21,11 @@ export default function Home() {
 
 
                 <StyledCard>
-                    <div className='dotpoints card'>
-                        <div>
-                            <p>&rarr;</p>
-                            <p> Visualise and plan your workout ahead.</p>
-                        </div>
-                        <div>
-                            <p>&rarr;</p>
-                            <p> Log Strength and Cardio workouts.</p>
-                        </div>
-                        <div>
-                            <p>&rarr;</p>
-                            <p> Edit and delete past workouts.</p>
-                        </div>
-                    </div>
+                    <CardInner className='dotpoints'>
+                        <p>&rarr; Visualise and plan your workout ahead.</p>
+                        <p>&rarr; Log Strength and Cardio workouts.</p>
+                        <p>&rarr; Edit and delete past workouts.</p>
+                    </CardInner>
                 </StyledCard>
             </div>
             <div className='homeContainer rightContainer'>
