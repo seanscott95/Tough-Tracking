@@ -1,5 +1,5 @@
 import React from 'react'
-import { CardInner} from '../components/styles/Card.styled';
+import { CardInner } from '../components/styles/Card.styled';
 
 export default function ExerciseReadOnly({ exercises }) {
     return (
