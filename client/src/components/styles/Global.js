@@ -67,14 +67,6 @@ const GlobalStyles = createGlobalStyle`
         width: 400px;
     }
 
-    .flexRowTop {
-        display: flex;
-        flex-wrap: wrap;
-        flex-direction: row;
-        justify-content: top;
-        align-items: start;
-    }
-
     input, select {
         width: 100%;
         line-height: 1.5;

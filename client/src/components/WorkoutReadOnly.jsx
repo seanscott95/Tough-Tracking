@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { StyledCard } from './styles/Card.styled';
 import ExerciseReadOnly from './ExerciseReadOnly';
 import { QUERY_WORKOUTS } from '../utils/queries';
-import { Flex } from '../components/styles/Flex.styled';
+import { Flex, FlexColumn } from '../components/styles/Flex.styled';
 
 export default function WorkoutReadOnly() {
     
@@ -50,7 +50,7 @@ export default function WorkoutReadOnly() {
     }
 
     return (
-        <div className='flexColumn'>
+        <FlexColumn>
             <StyledCard>
                 <div className='card'>
                     <h2>Your Workouts</h2>
@@ -80,6 +80,6 @@ export default function WorkoutReadOnly() {
                     </StyledCard>
                 ))}
             </Flex>
-        </div>
+        </FlexColumn>
     )
 }

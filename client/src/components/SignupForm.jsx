@@ -6,6 +6,7 @@ import { ADD_USER } from '../utils/mutations';
 import Auth from '../utils/auth';
 import { StyledForm } from './styles/Form.styled';
 import { StyledCard } from './styles/Card.styled';
+import { FlexColumn } from '../components/styles/Flex.styled';
 
 export default function SignupForm() {
 
@@ -47,7 +48,7 @@ export default function SignupForm() {
 
     return (
         <>
-            <div className='flexColumn'>
+            <FlexColumn>
                 <StyledCard>
                     <div className='card'>
                         <h2>Sign up</h2>
@@ -88,7 +89,7 @@ export default function SignupForm() {
                         <button type="submit">Sign Up</button>
                     </div>
                 </StyledForm>
-            </div>
+            </FlexColumn>
             {error && (
                 <div>
                     {error.message}

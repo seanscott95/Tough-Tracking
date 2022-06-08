@@ -1,6 +1,7 @@
 import React from 'react';
 
 import ExerciseSingle from './ExerciseSingle';
+import { FlexColumn } from '../components/styles/Flex.styled';
 
 export default function WorkoutSingle({
   exercises,
@@ -11,7 +12,7 @@ export default function WorkoutSingle({
 
   return (
     <div>
-      <div className='flexColumn'>
+      <FlexColumn>
         <h3>Edit your workout:</h3>
         <div>
           <p>Once you have edited all your exercises click save workout to finish.</p>
@@ -32,7 +33,7 @@ export default function WorkoutSingle({
           workoutForm={workoutForm}
           handleExerciseChange={handleExerciseChange}>
         </ExerciseSingle>
-      </div>
+      </FlexColumn>
     </div>
   )
 }

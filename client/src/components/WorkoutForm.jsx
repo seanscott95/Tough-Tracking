@@ -228,7 +228,7 @@ export default function WorkoutForm() {
                         </div>
                     </StyledForm>
                 </FlexColumn>
-                <div className='flexColumn editContainer'>
+                <FlexColumn className='editContainer'>
                     <h3>Exercise List:</h3>
                     <div className='exerciseContainer editContainer'>
                         {exerciseList.map((item) => (
@@ -252,7 +252,7 @@ export default function WorkoutForm() {
                         </div>
                         <button onClick={handleCreateWorkout} >Save Workout</button>
                     </StyledForm>
-                </div>
+                </FlexColumn>
             </FlexTop>
         </>
     )
