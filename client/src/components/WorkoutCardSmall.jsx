@@ -2,8 +2,9 @@ import React from 'react'
 import { useQuery } from '@apollo/client';
 import { useNavigate } from "react-router-dom";
 
-import { StyledCard } from './styles/Card.styled';
 import { QUERY_WORKOUTS } from '../utils/queries';
+import { StyledCard } from './styles/Card.styled';
+import { Flex } from '../components/styles/Flex.styled';
 
 export default function WorkoutCardSmall() {
   
@@ -54,7 +55,7 @@ export default function WorkoutCardSmall() {
         <h2>Workout Summary</h2>
       </div>
     </StyledCard>
-      <div className='flexRow'>
+      <Flex>
         {exercisesDB.map((item) => (
           <StyledCard>
             <ul className='card'>
@@ -77,7 +78,7 @@ export default function WorkoutCardSmall() {
             </ul>
           </StyledCard>
         ))}
-      </div>
+      </Flex>
     </>
   )
 }

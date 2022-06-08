@@ -6,10 +6,11 @@ import { useNavigate } from "react-router-dom";
 
 import { QUERY_SINGLE_WORKOUT, QUERY_WORKOUTS } from '../../utils/queries';
 import { EDIT_WORKOUT, DELETE_WORKOUT } from '../../utils/mutations';
-import { PageContainer } from '../styles/PageContainer.styled';
 import WorkoutSingle from '../WorkoutSingle';
 import ExerciseReadOnly from '../ExerciseReadOnly';
+import { PageContainer } from '../styles/PageContainer.styled';
 import { StyledCard } from '../styles/Card.styled';
+import { Flex } from '../styles/Flex.styled';
 
 export default function ViewSingle() {
   
@@ -163,22 +164,22 @@ export default function ViewSingle() {
             <StyledCard>
               <ul className='card'>
                 <li>{workout.name} - {workout.createdAt}</li>
-                <div className='flexRow'>
+                <Flex>
                   {workout.exercises.map((exercises) => (
                     <StyledCard>
                       <ExerciseReadOnly exercises={exercises} />
                     </StyledCard>
                   )
                   )}
-                </div>
+                </Flex>
               </ul>
             </StyledCard>
           )}
-          <div className='flexRow'>
+          <Flex>
             <button className={isEditMode ? 'hide' : ''} onClick={editBtnHandler}>Edit</button>
             <button className={isEditMode ? '' : 'hide'} onClick={saveBtnHandler}>Save</button>
             <button className={isEditMode ? '' : 'hide'} onClick={deleteBtnHandler}>Delete</button>
-          </div>
+          </Flex>
           {errorEditMutation && (
             <div>
               {errorEditMutation.message}

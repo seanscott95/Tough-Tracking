@@ -6,6 +6,7 @@ import { CREATE_WORKOUT } from '../utils/mutations';
 import { QUERY_WORKOUTS } from '../utils/queries';
 import { StyledForm } from './styles/Form.styled';
 import { StyledCard } from './styles/Card.styled';
+import { FlexTop, FlexColumn } from '../components/styles/Flex.styled';
 
 export default function WorkoutForm() {
     
@@ -105,8 +106,8 @@ export default function WorkoutForm() {
 
     return (
         <>
-            <div className='flexRowTop'>
-                <div className='flexColumn editContainer'>
+            <FlexTop>
+                <FlexColumn className='editContainer'>
 
                     <h3>Add an exercise:</h3>
                     <StyledForm onSubmit={handleSubmitExercise}>
@@ -226,7 +227,7 @@ export default function WorkoutForm() {
                             <button type="submit">Add</button>
                         </div>
                     </StyledForm>
-                </div>
+                </FlexColumn>
                 <div className='flexColumn editContainer'>
                     <h3>Exercise List:</h3>
                     <div className='exerciseContainer editContainer'>
@@ -252,7 +253,7 @@ export default function WorkoutForm() {
                         <button onClick={handleCreateWorkout} >Save Workout</button>
                     </StyledForm>
                 </div>
-            </div>
+            </FlexTop>
         </>
     )
 }

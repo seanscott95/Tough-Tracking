@@ -4,7 +4,8 @@ import { useNavigate } from "react-router-dom";
 
 import { StyledCard } from './styles/Card.styled';
 import ExerciseReadOnly from './ExerciseReadOnly';
-import { QUERY_WORKOUTS } from '../utils/queries'
+import { QUERY_WORKOUTS } from '../utils/queries';
+import { Flex } from '../components/styles/Flex.styled';
 
 export default function WorkoutReadOnly() {
     
@@ -57,18 +58,18 @@ export default function WorkoutReadOnly() {
                 </div>
             </StyledCard>
 
-            <div className='flexRow'>
+            <Flex>
                 {exercisesDB.map((item) => (
                     <StyledCard>
                         <ul key={item._id} className='card'>
                             <li>{item.name} - {item.createdAt}</li>
-                            <div className='flexRow'>
+                            <Flex>
                                 {item.exercises.map((exercises) => (
                                     <StyledCard>
                                         <ExerciseReadOnly exercises={exercises} />
                                     </StyledCard>
                                 ))}
-                            </div>
+                            </Flex>
                             <button
                                 key={item._id}
                                 id={item._id}
@@ -78,7 +79,7 @@ export default function WorkoutReadOnly() {
                         </ul>
                     </StyledCard>
                 ))}
-            </div>
+            </Flex>
         </div>
     )
 }
