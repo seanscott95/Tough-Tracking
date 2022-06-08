@@ -1,8 +1,9 @@
 import React from 'react'
+import { CardInner} from '../components/styles/Card.styled';
 
 export default function ExerciseReadOnly({ exercises }) {
     return (
-        <li className='cardInner'>
+        <CardInner as="li">
             <ul>
                 <li>{exercises.name}</li>
                 <li>{exercises.type}</li>
@@ -21,6 +22,6 @@ export default function ExerciseReadOnly({ exercises }) {
                     </>
                     : ''}
             </ul>
-        </li>
+        </CardInner>
     )
 }

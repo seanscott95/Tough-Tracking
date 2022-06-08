@@ -1,8 +1,8 @@
 import React from 'react';
 
-import { HomeStyle } from '../styles/Home.styled';
-import { StyledCard } from '../styles/Card.styled';
 import Auth from '../../utils/auth';
+import { HomeStyle } from '../styles/Home.styled';
+import { StyledCard, CardInner } from '../styles/Card.styled';
 import SummaryImg from '../../assets/images/summaryPage.png';
 
 export default function Home() {
@@ -11,12 +11,12 @@ export default function Home() {
             <div className='homeContainer'>
 
                 <StyledCard>
-                    <div className='card'>
+                    <CardInner>
                         <div className='catchPhrase'>
                             <p className='lessThinking'>" Less Thinking.</p>
                             <p className="moreTraining">More Training "</p>
                         </div>
-                    </div>
+                    </CardInner>
                 </StyledCard>
 
 
@@ -39,13 +39,13 @@ export default function Home() {
             </div>
             <div className='homeContainer rightContainer'>
                 <StyledCard>
-                    <div className='card'>
+                    <CardInner>
                         {!Auth.loggedIn() ? 
                         <p>Login or signup for free to access full benefits!</p>
                         :
                         <p>Enjoy the site!</p>
                         }
-                    </div>
+                    </CardInner>
                 </StyledCard>
                 <img src={SummaryImg} alt='Photo of app'/>
             </div>

@@ -4,7 +4,7 @@ import { useMutation } from '@apollo/client';
 import { LOGIN_USER } from '../utils/mutations';
 import Auth from '../utils/auth';
 import { StyledForm } from './styles/Form.styled';
-import { StyledCard } from './styles/Card.styled';
+import { StyledCard, CardInner } from './styles/Card.styled';
 import { FlexColumn } from '../components/styles/Flex.styled';
 
 export default function LoginForm() {
@@ -47,9 +47,9 @@ export default function LoginForm() {
         <>
             <FlexColumn>
                 <StyledCard>
-                    <div className='card'>
+                    <CardInner>
                         <h2>Login</h2>
-                    </div>
+                    </CardInner>
                 </StyledCard>
 
                 <StyledForm onSubmit={handleFormSubmit}>

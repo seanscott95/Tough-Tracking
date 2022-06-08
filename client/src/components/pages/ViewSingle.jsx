@@ -9,7 +9,7 @@ import { EDIT_WORKOUT, DELETE_WORKOUT } from '../../utils/mutations';
 import WorkoutSingle from '../WorkoutSingle';
 import ExerciseReadOnly from '../ExerciseReadOnly';
 import { PageContainer } from '../styles/PageContainer.styled';
-import { StyledCard } from '../styles/Card.styled';
+import { StyledCard, CardInner } from '../styles/Card.styled';
 import { Flex } from '../styles/Flex.styled';
 
 export default function ViewSingle() {
@@ -149,7 +149,7 @@ export default function ViewSingle() {
   return (
     <PageContainer>
       <StyledCard>
-        <div className='card'>
+        <CardInner>
           {isEditMode ? (
             <>
               <WorkoutSingle
@@ -162,7 +162,7 @@ export default function ViewSingle() {
             </>
           ) : (
             <StyledCard>
-              <ul className='card'>
+              <CardInner as='ul'>
                 <li>{workout.name} - {workout.createdAt}</li>
                 <Flex>
                   {workout.exercises.map((exercises) => (
@@ -172,7 +172,7 @@ export default function ViewSingle() {
                   )
                   )}
                 </Flex>
-              </ul>
+              </CardInner>
             </StyledCard>
           )}
           <Flex>
@@ -190,7 +190,7 @@ export default function ViewSingle() {
               {errorDeleteMutation.message}
             </div>
           )}
-        </div>
+        </CardInner>
       </StyledCard>
     </PageContainer>
   )

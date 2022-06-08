@@ -2,7 +2,7 @@ import React from 'react'
 import { useQuery } from '@apollo/client';
 import { useNavigate } from "react-router-dom";
 
-import { StyledCard } from './styles/Card.styled';
+import { StyledCard, CardInner } from './styles/Card.styled';
 import ExerciseReadOnly from './ExerciseReadOnly';
 import { QUERY_WORKOUTS } from '../utils/queries';
 import { Flex, FlexColumn } from '../components/styles/Flex.styled';
@@ -39,12 +39,12 @@ export default function WorkoutReadOnly() {
     if (!exercisesDB.length) {
         return (
             <StyledCard>
-                <div className='card'>
+                <CardInner>
                     <p>No Workouts Yet.</p>
                     <p>Click the button to create a workout.</p>
                     <p>Lets Get Started!</p>
                     <button onClick={handleCreateClick}>Create Workout</button>
-                </div>
+                </CardInner>
             </StyledCard>
         )
     }
@@ -52,16 +52,16 @@ export default function WorkoutReadOnly() {
     return (
         <FlexColumn>
             <StyledCard>
-                <div className='card'>
+                <CardInner>
                     <h2>Your Workouts</h2>
                     <p>Here's a detailed version of all your workouts in one place!</p>
-                </div>
+                </CardInner>
             </StyledCard>
 
             <Flex>
                 {exercisesDB.map((item) => (
                     <StyledCard>
-                        <ul key={item._id} className='card'>
+                        <CardInner as='ul' key={item._id}>
                             <li>{item.name} - {item.createdAt}</li>
                             <Flex>
                                 {item.exercises.map((exercises) => (
@@ -76,7 +76,7 @@ export default function WorkoutReadOnly() {
                                 value={item._id}
                                 onClick={handleViewClick}
                             >View</button>
-                        </ul>
+                        </CardInner>
                     </StyledCard>
                 ))}
             </Flex>

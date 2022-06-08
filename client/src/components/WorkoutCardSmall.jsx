@@ -3,7 +3,7 @@ import { useQuery } from '@apollo/client';
 import { useNavigate } from "react-router-dom";
 
 import { QUERY_WORKOUTS } from '../utils/queries';
-import { StyledCard } from './styles/Card.styled';
+import { StyledCard, CardInner } from './styles/Card.styled';
 import { Flex } from '../components/styles/Flex.styled';
 
 export default function WorkoutCardSmall() {
@@ -38,12 +38,12 @@ export default function WorkoutCardSmall() {
   if (!exercisesDB.length) {
     return (
       <StyledCard>
-        <div className='card'>
+        <CardInner>
           <p>No Workouts Yet.</p>
           <p>Click the button to create a workout.</p>
           <p>Lets Get Started!</p>                    
           <button onClick={handleCreateClick}>Create Workout</button>
-        </div>
+        </CardInner>
       </StyledCard>
     )
   }
@@ -51,14 +51,14 @@ export default function WorkoutCardSmall() {
   return (
     <>
     <StyledCard>
-      <div className='card'>
+      <CardInner>
         <h2>Workout Summary</h2>
-      </div>
+      </CardInner>
     </StyledCard>
       <Flex>
         {exercisesDB.map((item) => (
           <StyledCard>
-            <ul className='card'>
+            <CardInner as="ul">
               <li>{item.name}</li>
               <li>{item.createdAt}</li>
               <br />
@@ -75,7 +75,7 @@ export default function WorkoutCardSmall() {
                 value={item._id}
                 onClick={handleViewClick}
               >View</button>
-            </ul>
+            </CardInner>
           </StyledCard>
         ))}
       </Flex>

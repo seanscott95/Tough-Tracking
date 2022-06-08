@@ -5,7 +5,7 @@ import { useMutation } from '@apollo/client';
 import { CREATE_WORKOUT } from '../utils/mutations';
 import { QUERY_WORKOUTS } from '../utils/queries';
 import { StyledForm } from './styles/Form.styled';
-import { StyledCard } from './styles/Card.styled';
+import { StyledCard, CardInner } from './styles/Card.styled';
 import { FlexTop, FlexColumn } from '../components/styles/Flex.styled';
 
 export default function WorkoutForm() {
@@ -233,9 +233,9 @@ export default function WorkoutForm() {
                     <div className='exerciseContainer editContainer'>
                         {exerciseList.map((item) => (
                             <StyledCard>
-                                <ul className='card' key={item.name}>
+                                <CardInner as="ul" key={item.name}>
                                     <li>{item.name}</li>
-                                </ul>
+                                </CardInner>
                             </StyledCard>
                         ))}
                     </div>
