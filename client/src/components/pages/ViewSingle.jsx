@@ -176,9 +176,9 @@ export default function ViewSingle() {
             </StyledCard>
           )}
           <Flex>
-            <button className={isEditMode ? 'hide' : ''} onClick={editBtnHandler}>Edit</button>
-            <button className={isEditMode ? '' : 'hide'} onClick={saveBtnHandler}>Save</button>
-            <button className={isEditMode ? '' : 'hide'} onClick={deleteBtnHandler}>Delete</button>
+            {!isEditMode && (<button onClick={editBtnHandler}>Edit</button>)}
+            {isEditMode && (<button onClick={saveBtnHandler}>Save</button>)}
+            {isEditMode && (<button onClick={deleteBtnHandler}>Delete</button>)}
           </Flex>
           {errorEditMutation && (
             <div>

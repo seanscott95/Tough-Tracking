@@ -66,9 +66,5 @@ const GlobalStyles = createGlobalStyle`
     label {
         color: black;
     }
-
-    .hide {
-        display: none;
-    }
 `;
 export default GlobalStyles;
