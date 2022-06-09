@@ -42,15 +42,6 @@ const GlobalStyles = createGlobalStyle`
         font-size: 20px;
     }
 
-    .exerciseContainer {
-        display: flex;
-        flex-wrap: wrap;
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
-        width: 400px;
-    }
-
     input, select {
         width: 100%;
         line-height: 1.5;
