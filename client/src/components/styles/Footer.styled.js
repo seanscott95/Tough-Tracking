@@ -13,7 +13,7 @@ export const StyledFooter = styled.footer`
     min-width: 100%;
     z-index: 10;
 
-    .footerList {
+    ul {
         display: flex;
         justify-content: center;
         text-align: center;
@@ -22,7 +22,7 @@ export const StyledFooter = styled.footer`
         font-size: 15px;
     }
 
-    .footerItem {
+    li {
         padding: 10px 20px;
         margin-top: 5px;
         transition: transform .2s;
@@ -30,13 +30,13 @@ export const StyledFooter = styled.footer`
         list-style: none;
     }
 
-    .footerItem:hover {
+    li:hover {
         transform: scale(1.4);
         color: grey;
         cursor: pointer;
     }
 
-    .footerCaption {
+    p {
         color: white;
         margin: 5px;
         margin-bottom: 10px;

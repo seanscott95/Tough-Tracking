@@ -23,16 +23,16 @@ export default function FooterLayout() {
 
     return (
         <StyledFooter>
-            <ul className='footerList'>
+            <ul>
                 {footerLinks.map((item) => (
-                    <li key={item.link} className='footerItem'>
+                    <li key={item.link}>
                         <a href={item.link} target='_blank' rel='noreferrer'>
                             <FontAwesomeIcon icon={item.icon} size='2x' />
                         </a>
                     </li>
                 ))}
             </ul>
-            <p className="footerCaption">Tough Tracking - Powered by Sean Scott</p>
+            <p>Tough Tracking - Powered by Sean Scott</p>
         </StyledFooter>
     );
 }
