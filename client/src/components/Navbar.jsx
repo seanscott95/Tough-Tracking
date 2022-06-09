@@ -12,7 +12,7 @@ export default function Navbar() {
         Auth.logout();
     };
 
-    const [currentPage, setCurrentPage] = useState('Home');
+    const [currentPage, setCurrentPage] = useState();
 
     const navbarPages = [
                 {
