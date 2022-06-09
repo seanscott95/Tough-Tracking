@@ -70,9 +70,5 @@ const GlobalStyles = createGlobalStyle`
     .hide {
         display: none;
     }
-
-    .white {
-        color: white;
-    }
 `;
 export default GlobalStyles;

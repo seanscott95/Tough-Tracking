@@ -17,7 +17,7 @@ export default function WorkoutSingle({
         <div>
           <p>Once you have edited all your exercises click save workout to finish.</p>
           <div>
-            <label htmlFor="workoutName" className='white'>Workout Name:</label>
+            <p>Workout Name:</p>
             <input
               type="text"
               name="workoutName"
