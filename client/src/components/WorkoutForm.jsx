@@ -9,7 +9,7 @@ import { StyledCard, CardInner } from './styles/Card.styled';
 import { FlexTop, FlexColumn } from '../components/styles/Flex.styled';
 
 export default function WorkoutForm() {
-    
+
     // Navigate hook allows app to navigate to a different page without refreshing
     let navigate = useNavigate();
 
@@ -108,7 +108,7 @@ export default function WorkoutForm() {
         <>
             <FlexTop>
                 <FlexColumn className='editContainer'>
-
+                    <h3>Lets Begin!</h3>
                     <h3>Add an exercise:</h3>
                     <StyledForm onSubmit={handleSubmitExercise}>
                         <div>
@@ -228,9 +228,9 @@ export default function WorkoutForm() {
                         </div>
                     </StyledForm>
                 </FlexColumn>
-                <FlexColumn className='editContainer'>
+                <FlexColumn className=''>
                     <h3>Exercise List:</h3>
-                    <div className='exerciseContainer editContainer'>
+                    <div>
                         {exerciseList.map((item) => (
                             <StyledCard>
                                 <CardInner as="ul" key={item.name}>

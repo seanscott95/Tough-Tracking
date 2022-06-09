@@ -9,7 +9,6 @@ export default function CreateWorkout() {
         <PageContainer>
             <StyledCard>
                 <CardInner>
-                    <h2>Lets Begin!</h2>
                     <WorkoutForm />
                 </CardInner>
             </StyledCard>
