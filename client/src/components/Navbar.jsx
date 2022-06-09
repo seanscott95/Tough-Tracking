@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 
 import Auth from '../utils/auth';
@@ -12,7 +12,7 @@ export default function Navbar() {
         Auth.logout();
     };
 
-    const [currentPage, setCurrentPage] = useState();
+    const [currentPage, setCurrentPage] = useState('Home');
 
     const navbarPages = [
                 {
@@ -33,8 +33,8 @@ export default function Navbar() {
         <>
             <StyledNavbar>
                 <ul>
-                    <li key='home' className={currentPage === 'Home' ? 'active' : ''}>
-                        <NavLink key='home' to='/' onClick={() => setCurrentPage('Home')}>
+                    <li className={currentPage === 'home' ? 'active' : ''}>
+                        <NavLink to='/' onClick={() => setCurrentPage('Home')}>
                             Home
                         </NavLink>
                     </li>
@@ -51,13 +51,13 @@ export default function Navbar() {
                         )
                     ))
                     }
-                    <li key='login' className={currentPage === 'login' ? 'active' : ''}>
+                    <li className={currentPage === 'login' ? 'active' : ''}>
                         {Auth.loggedIn() ? (
                             <NavLink to='/' onClick={logout}>
                                 Logout
                             </NavLink>
                         ) : (
-                            <NavLink key='login' to='/login' onClick={() => setCurrentPage('login')}>
+                            <NavLink to='/login' onClick={() => setCurrentPage('Login')}>
                                 Login/Signup
                             </NavLink>
                         )}
