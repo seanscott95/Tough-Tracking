@@ -32,8 +32,8 @@ export default function Navbar() {
     return (
         <>
             <StyledNavbar>
-                <ul className='navbarList'>
-                    <li key='home' className={currentPage === 'Home' ? 'navbarLinkActive' : 'navbarLink'}>
+                <ul>
+                    <li key='home' className={currentPage === 'Home' ? 'active' : ''}>
                         <NavLink key='home' to='/' onClick={() => setCurrentPage('Home')}>
                             Home
                         </NavLink>
@@ -41,7 +41,7 @@ export default function Navbar() {
 
                     {navbarPages.map((page) => (
                         Auth.loggedIn() ? (
-                            <li key={page.link} className={currentPage === page.title ? 'navbarLinkActive' : 'navbarLink'}>
+                            <li key={page.link} className={currentPage === page.title ? 'active' : ''}>
                                 <NavLink key={page.link} to={page.link} onClick={() => setCurrentPage(page.title)} >
                                     {page.title}
                                 </NavLink>
@@ -51,7 +51,7 @@ export default function Navbar() {
                         )
                     ))
                     }
-                    <li key='login' className={currentPage === 'login' ? 'navbarLinkActive' : 'navbarLink'}>
+                    <li key='login' className={currentPage === 'login' ? 'active' : ''}>
                         {Auth.loggedIn() ? (
                             <NavLink to='/' onClick={logout}>
                                 Logout

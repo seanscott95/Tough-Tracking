@@ -14,7 +14,7 @@ export const StyledNavbar = styled.nav`
     min-width: 100%;
     z-index: 10;
     
-    .navbarList {
+    ul {
         display: flex;
         flex-direction: row;
         min-width: 100%;
@@ -22,18 +22,18 @@ export const StyledNavbar = styled.nav`
         padding: 10px;
     }
 
-    .navbarLink {
+    li {
         margin: 5px;
         padding: 5px;
         transition: transform .3s;
         color: white;
     }
 
-    .navbarLink:hover {
+    li:hover {
         transform: scale(1.2);
     }
 
-    .navbarLinkActive {
+    .active {
         margin: 5px;
         padding: 5px;
         text-decoration: underline;
@@ -41,7 +41,7 @@ export const StyledNavbar = styled.nav`
         transition: transform .2s;
     }
 
-    .navbarLinkActive:hover {
+    .active:hover {
         transform: scale(1.1);
     }
 
