@@ -47,13 +47,4 @@ export const PageContainer = styled.div`
             justify-content: center;
         }
     }
-    
-    @media screen and (max-width: 634px) {
-        .flexRowTop {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-        }
-    }
 `
