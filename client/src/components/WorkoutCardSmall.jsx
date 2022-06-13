@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { QUERY_WORKOUTS } from '../utils/queries';
 import { StyledCard, CardInner } from './styles/Card.styled';
 import { Flex } from '../components/styles/Flex.styled';
+import { format_date } from '../utils/dateHelper';
 
 export default function WorkoutCardSmall() {
   
@@ -60,7 +61,7 @@ export default function WorkoutCardSmall() {
           <StyledCard>
             <CardInner as="ul">
               <li>{item.name}</li>
-              <li>{item.createdAt}</li>
+              <li>{format_date(item.createdAt)}</li>
               <br />
               <li>
                 <ul>
