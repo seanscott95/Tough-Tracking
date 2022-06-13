@@ -11,6 +11,7 @@ import ExerciseReadOnly from '../ExerciseReadOnly';
 import { PageContainer } from '../styles/PageContainer.styled';
 import { StyledCard, CardInner } from '../styles/Card.styled';
 import { Flex } from '../styles/Flex.styled';
+import { Button, SaveButton, DeleteButton } from '../styles/Button.styled';
 
 export default function ViewSingle() {
   
@@ -176,9 +177,9 @@ export default function ViewSingle() {
             </StyledCard>
           )}
           <Flex>
-            {!isEditMode && (<button onClick={editBtnHandler}>Edit</button>)}
-            {isEditMode && (<button onClick={saveBtnHandler}>Save</button>)}
-            {isEditMode && (<button onClick={deleteBtnHandler}>Delete</button>)}
+            {!isEditMode && (<Button onClick={editBtnHandler}>Edit</Button>)}
+            {isEditMode && (<SaveButton onClick={saveBtnHandler}>Save</SaveButton>)}
+            {isEditMode && (<DeleteButton onClick={deleteBtnHandler}>Delete</DeleteButton>)}
           </Flex>
           {errorEditMutation && (
             <div>
