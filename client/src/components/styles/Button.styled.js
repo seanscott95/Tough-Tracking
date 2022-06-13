@@ -10,10 +10,10 @@ export const Button = styled.button`
     outline: none;
     cursor: pointer;
     font-size: 20px;
+    box-shadow: rgba(0, 0, 0, .3) 0 5px 15px;
 `
 
 export const DeleteButton = styled(Button)`
-    color: black;
     background: red;
 `
 
