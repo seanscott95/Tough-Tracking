@@ -77,13 +77,15 @@ export default function LoginForm() {
                     <div>
                         <button type="submit">Log In</button>
                     </div>
+                    <div>
+                        {error && (
+                            <div>
+                                {error.message}
+                            </div>
+                        )}
+                    </div>
                 </StyledLoginForm>
             </FlexColumn>
-            {error && (
-                <div>
-                    {error.message}
-                </div>
-            )}
         </>
     )
 };
