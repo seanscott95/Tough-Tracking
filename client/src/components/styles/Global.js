@@ -8,7 +8,7 @@ const GlobalStyles = createGlobalStyle`
     }
   
     html {
-        font-family: 'Roboto Mono';
+        font-family: 'Calibri';
         background-color: #fff;
         background-repeat: no-repeat;
         background-position: center;
