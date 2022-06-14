@@ -6,6 +6,7 @@ import Auth from '../utils/auth';
 import { StyledForm } from './styles/Form.styled';
 import { StyledCard, CardInner } from './styles/Card.styled';
 import { FlexColumn } from '../components/styles/Flex.styled';
+import { StyledLoginForm } from './styles/Form.styled';
 
 export default function LoginForm() {
 
@@ -52,7 +53,7 @@ export default function LoginForm() {
                     </CardInner>
                 </StyledCard>
 
-                <StyledForm onSubmit={handleFormSubmit}>
+                <StyledLoginForm onSubmit={handleFormSubmit}>
                     <div>
                         <label htmlFor="email">Email:</label>
                         <input
@@ -76,7 +77,7 @@ export default function LoginForm() {
                     <div>
                         <button type="submit">Log In</button>
                     </div>
-                </StyledForm>
+                </StyledLoginForm>
             </FlexColumn>
             {error && (
                 <div>

@@ -4,9 +4,9 @@ import { Link } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
 import { ADD_USER } from '../utils/mutations';
 import Auth from '../utils/auth';
-import { StyledForm } from './styles/Form.styled';
 import { StyledCard, CardInner } from './styles/Card.styled';
 import { FlexColumn } from '../components/styles/Flex.styled';
+import { StyledLoginForm } from './styles/Form.styled';
 
 export default function SignupForm() {
 
@@ -54,7 +54,7 @@ export default function SignupForm() {
                         <h2>Sign up</h2>
                     </CardInner>
                 </StyledCard>
-                <StyledForm onSubmit={handleFormSubmit}>
+                <StyledLoginForm onSubmit={handleFormSubmit}>
                     <div>
                         <label htmlFor="username">Username:</label>
                         <input
@@ -88,7 +88,7 @@ export default function SignupForm() {
                     <div>
                         <button type="submit">Sign Up</button>
                     </div>
-                </StyledForm>
+                </StyledLoginForm>
             </FlexColumn>
             {error && (
                 <div>

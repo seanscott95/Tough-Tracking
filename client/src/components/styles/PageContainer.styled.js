@@ -32,10 +32,7 @@ export const PageContainer = styled.div`
         * {
             font-size: 1rem;
         }
-        .login {
-            display: flex;
-            flex-direction: column-reverse;
-        }
+        
     }
 
     @media screen and (max-width: 768px) {
