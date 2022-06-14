@@ -8,7 +8,7 @@ import { FlexTop } from '../styles/Flex.styled';
 export default function Login() {
     return (
         <PageContainer>
-            <FlexTop className='login'>
+            <FlexTop>
                 <SignupForm />
                 <LoginForm />
             </FlexTop>
