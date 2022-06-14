@@ -58,7 +58,7 @@ export default function LoginForm() {
                         <input
                             type="text"
                             name="email"
-                            placeholder="Enter your email"
+                            placeholder="Email"
                             value={formState.email}
                             onChange={handleChange}
                             required />
@@ -68,7 +68,7 @@ export default function LoginForm() {
                         <input
                             type="password"
                             name="password"
-                            placeholder="Your password should be longer than 5 characters"
+                            placeholder="Password"
                             value={formState.password}
                             onChange={handleChange}
                             required />

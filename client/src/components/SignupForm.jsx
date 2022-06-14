@@ -60,7 +60,7 @@ export default function SignupForm() {
                         <input
                             type="text"
                             name="username"
-                            placeholder="Enter your username"
+                            placeholder="Username"
                             value={formState.username}
                             onChange={handleChange}
                             required />
@@ -70,7 +70,7 @@ export default function SignupForm() {
                         <input
                             type="text"
                             name="email"
-                            placeholder="Enter your email"
+                            placeholder="Email"
                             value={formState.email}
                             onChange={handleChange}
                             required />
@@ -80,7 +80,7 @@ export default function SignupForm() {
                         <input
                             type="password"
                             name="password"
-                            placeholder="Password has to be longer than 8 characters"
+                            placeholder="Password"
                             value={formState.password}
                             onChange={handleChange}
                             required />
