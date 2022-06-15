@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 
 import { QUERY_WORKOUTS } from '../utils/queries';
 import { StyledCard, CardInner } from './styles/Card.styled';
-import { Flex } from '../components/styles/Flex.styled';
+import { FlexTop } from '../components/styles/Flex.styled';
 import { date_month } from '../utils/dateHelper';
 import { faCalendarDays } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -59,7 +59,7 @@ export default function WorkoutCardSmall() {
         <h2>Workout Summary</h2>
       </CardInner>
     </StyledCard>
-      <Flex>
+      <FlexTop>
         {exercisesDB.map((item) => (
           <StyledCard>
             <CardInner as="ul">
@@ -85,7 +85,7 @@ export default function WorkoutCardSmall() {
             </CardInner>
           </StyledCard>
         ))}
-      </Flex>
+      </FlexTop>
     </>
   )
 }
