@@ -19,7 +19,7 @@ export default function ExerciseReadOnly({ exercises }) {
                             </li>
                             <li>
                                 <FontAwesomeIcon icon={faDumbbell} />
-                                <p>Strength</p>
+                                <p><span>Strength</span></p>
                             </li>
                         </IconContainer>
                         <li>{`${exercises.weight} kg's`}</li>

@@ -24,6 +24,10 @@ export const IconContainer = styled.div`
     }
 
     li:last-child p {
-        margin-left: 30px;
+        margin-left: 35px;
+    }
+
+    li:last-child span {
+        margin-left: -7px;
     }
 `
