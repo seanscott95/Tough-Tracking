@@ -6,7 +6,7 @@ import { QUERY_WORKOUTS } from '../utils/queries';
 import { StyledCard, CardInner } from './styles/Card.styled';
 import { FlexTop } from '../components/styles/Flex.styled';
 import { date_month } from '../utils/dateHelper';
-import { faCalendarDays, faDumbbell } from '@fortawesome/free-solid-svg-icons';
+import { faCalendarDays, faT } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { IconContainer } from './styles/FontIcon.styled';
 
@@ -65,7 +65,8 @@ export default function WorkoutCardSmall() {
             <CardInner as="ul">
               <IconContainer>
                 <li>
-                  <FontAwesomeIcon icon={faDumbbell} />
+                  <FontAwesomeIcon icon={faT} />
+                  <FontAwesomeIcon icon={faT} />
                   <p>{item.name}</p>
                 </li>
                 <li>
