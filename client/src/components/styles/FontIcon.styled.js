@@ -6,6 +6,7 @@ export const IconContainer = styled.div`
     align-items: start;
     justify-content: start;
     margin-bottom: 15px;
+    color: white;
 
     li {
         display: flex;
