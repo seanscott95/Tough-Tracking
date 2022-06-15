@@ -14,7 +14,7 @@ import { Flex } from '../styles/Flex.styled';
 import { Button, SaveButton, DeleteButton } from '../styles/Button.styled';
 
 export default function ViewSingle() {
-  
+
   const [isEditMode, setIsEditMode] = useState(false);
 
   // Navigate hook allows app to navigate to a different page without refreshing
@@ -152,29 +152,24 @@ export default function ViewSingle() {
       <StyledCard>
         <CardInner>
           {isEditMode ? (
-            <>
-              <WorkoutSingle
-                exercises={workoutForm.exercises}
-                workoutForm={workoutForm}
-                workoutName={workoutName}
-                handleExerciseChange={handleExerciseChange}
-                handleNameChange={handleNameChange}
-              />
-            </>
+            <WorkoutSingle
+              exercises={workoutForm.exercises}
+              workoutForm={workoutForm}
+              workoutName={workoutName}
+              handleExerciseChange={handleExerciseChange}
+              handleNameChange={handleNameChange}
+            />
           ) : (
-            <StyledCard>
-              <CardInner as='ul'>
-                <li>{workout.name} - {workout.createdAt}</li>
-                <Flex>
-                  {workout.exercises.map((exercises) => (
-                    <StyledCard>
-                      <ExerciseReadOnly exercises={exercises} />
-                    </StyledCard>
-                  )
-                  )}
-                </Flex>
-              </CardInner>
-            </StyledCard>
+            <ul>
+              <li>{workout.name} - {workout.createdAt}</li>
+              <Flex>
+                {workout.exercises.map((exercises) => (
+                  <StyledCard>
+                    <ExerciseReadOnly exercises={exercises} />
+                  </StyledCard>
+                ))}
+              </Flex>
+            </ul>
           )}
           <Flex>
             {!isEditMode && (<Button onClick={editBtnHandler}>Edit</Button>)}
