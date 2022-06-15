@@ -70,11 +70,11 @@ export default function WorkoutCardSmall() {
               </li>
               <br />
               <li>
-                <ul>
+                <ol>
                   {item.exercises.map((e) => {
                     return <li key={e._id}>{e.name}</li>
                   })}
-                </ul>
+                </ol>
               </li>
               <button
                 key={item._id}

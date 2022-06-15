@@ -15,8 +15,53 @@ const GlobalStyles = createGlobalStyle`
         background-size: cover;
     }
 
-    ul, li {
+    ul {
         list-style: none;
+    }
+
+    ol {
+        color: black;
+        counter-reset: li; /* Initiates a counter */
+        margin-left: 0;
+        padding-left: 0;
+    }
+
+    ol > li {
+        position: relative;
+        margin: 0 0 6px 2em;
+        padding: 4px 8px;
+        list-style: none;
+        background: #f6f6f6;
+    }
+
+    ol > li:before {
+        content: counter(li); /* Displays the counter as content */
+        counter-increment: li; /* Increments the counter by 1 for each li */
+        position: absolute;
+        top: 0px;
+        left: -2em;
+        -moz-box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        width: 2em;
+        height: 1.6em;
+        margin-right: 8px;
+        padding: 4px;
+        border-right: 2px solid black;
+        color: #fff;
+        background: #666;
+        font-weight: bold;
+        font-family: "Helvetica Neue", Arial, sans-serif;
+        text-align: center;
+    }
+    
+    li ol,
+    li ul {
+        margin-top:6px;
+    }
+
+    ol ol li:last-child {
+        margin-bottom:0;
     }
 
     a {
