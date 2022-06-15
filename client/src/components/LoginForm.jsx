@@ -3,10 +3,10 @@ import React, { useState } from 'react';
 import { useMutation } from '@apollo/client';
 import { LOGIN_USER } from '../utils/mutations';
 import Auth from '../utils/auth';
-import { StyledForm } from './styles/Form.styled';
 import { StyledCard, CardInner } from './styles/Card.styled';
 import { FlexColumn } from '../components/styles/Flex.styled';
 import { StyledLoginForm } from './styles/Form.styled';
+import { Button } from './styles/Button.styled';
 
 export default function LoginForm() {
 
@@ -75,7 +75,7 @@ export default function LoginForm() {
                             required />
                     </div>
                     <div>
-                        <button type="submit">Log In</button>
+                        <Button type="submit">Log In</Button>
                     </div>
                     <div>
                         {error && (

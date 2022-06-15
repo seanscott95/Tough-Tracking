@@ -7,6 +7,7 @@ import ExerciseReadOnly from './ExerciseReadOnly';
 import { QUERY_WORKOUTS } from '../utils/queries';
 import { Flex, FlexColumn } from '../components/styles/Flex.styled';
 import { date_year } from '../utils/dateHelper';
+import { Button } from './styles/Button.styled';
 
 export default function WorkoutReadOnly() {
     
@@ -44,7 +45,7 @@ export default function WorkoutReadOnly() {
                     <p>No Workouts Yet.</p>
                     <p>Click the button to create a workout.</p>
                     <p>Lets Get Started!</p>
-                    <button onClick={handleCreateClick}>Create Workout</button>
+                    <Button onClick={handleCreateClick}>Create Workout</Button>
                 </CardInner>
             </StyledCard>
         )
@@ -71,12 +72,12 @@ export default function WorkoutReadOnly() {
                                     </StyledCard>
                                 ))}
                             </Flex>
-                            <button
+                            <Button
                                 key={item._id}
                                 id={item._id}
                                 value={item._id}
                                 onClick={handleViewClick}
-                            >View</button>
+                            >View</Button>
                         </CardInner>
                     </StyledCard>
                 ))}

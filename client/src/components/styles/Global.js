@@ -75,18 +75,6 @@ const GlobalStyles = createGlobalStyle`
         object-fit: cover;
     }
 
-    button {
-        padding: 1px 5px;
-        margin: 5px;
-        background: #1e2327;
-        color: white;
-        font-weight: bold;
-        border-radius: 10px;
-        outline: none;
-        cursor: pointer;
-        font-size: 20px;
-    }
-
     input, select {
         width: 100%;
         line-height: 1.5;

@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
 
 import { useMutation } from '@apollo/client';
 import { ADD_USER } from '../utils/mutations';
@@ -7,6 +6,7 @@ import Auth from '../utils/auth';
 import { StyledCard, CardInner } from './styles/Card.styled';
 import { FlexColumn } from '../components/styles/Flex.styled';
 import { StyledLoginForm } from './styles/Form.styled';
+import { Button } from './styles/Button.styled';
 
 export default function SignupForm() {
 
@@ -86,7 +86,7 @@ export default function SignupForm() {
                             required />
                     </div>
                     <div>
-                        <button type="submit">Sign Up</button>
+                        <Button type="submit">Sign Up</Button>
                     </div>
                 </StyledLoginForm>
             </FlexColumn>

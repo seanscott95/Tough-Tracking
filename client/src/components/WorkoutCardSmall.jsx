@@ -9,6 +9,7 @@ import { date_month } from '../utils/dateHelper';
 import { faCalendarDays, faT } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { IconContainer } from './styles/FontIcon.styled';
+import { Button } from './styles/Button.styled';
 
 export default function WorkoutCardSmall() {
 
@@ -46,7 +47,7 @@ export default function WorkoutCardSmall() {
           <p>No Workouts Yet.</p>
           <p>Click the button to create a workout.</p>
           <p>Lets Get Started!</p>
-          <button onClick={handleCreateClick}>Create Workout</button>
+          <Button onClick={handleCreateClick}>Create Workout</Button>
         </CardInner>
       </StyledCard>
     )
@@ -82,12 +83,12 @@ export default function WorkoutCardSmall() {
                   })}
                 </ol>
               </li>
-              <button
+              <Button
                 key={item._id}
                 id={item._id}
                 value={item._id}
                 onClick={handleViewClick}
-              >View</button>
+              >View</Button>
             </CardInner>
           </StyledCard>
         ))}
