@@ -6,12 +6,12 @@ import { QUERY_WORKOUTS } from '../utils/queries';
 import { StyledCard, CardInner } from './styles/Card.styled';
 import { FlexTop } from '../components/styles/Flex.styled';
 import { date_month } from '../utils/dateHelper';
-import { faCalendarDays } from '@fortawesome/free-solid-svg-icons';
+import { faCalendarDays, faDumbbell } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-
+import { IconContainer } from './styles/FontIcon.styled';
 
 export default function WorkoutCardSmall() {
-  
+
   // Queries all workouts and returns them and sets them as exercisesDB variable if they exist
   const { loading, error, data } = useQuery(QUERY_WORKOUTS);
   const exercisesDB = data?.getWorkouts || [];
@@ -45,7 +45,7 @@ export default function WorkoutCardSmall() {
         <CardInner>
           <p>No Workouts Yet.</p>
           <p>Click the button to create a workout.</p>
-          <p>Lets Get Started!</p>                    
+          <p>Lets Get Started!</p>
           <button onClick={handleCreateClick}>Create Workout</button>
         </CardInner>
       </StyledCard>
@@ -54,21 +54,26 @@ export default function WorkoutCardSmall() {
 
   return (
     <>
-    <StyledCard>
-      <CardInner>
-        <h2>Workout Summary</h2>
-      </CardInner>
-    </StyledCard>
+      <StyledCard>
+        <CardInner>
+          <h2>Workout Summary</h2>
+        </CardInner>
+      </StyledCard>
       <FlexTop>
         {exercisesDB.map((item) => (
           <StyledCard>
             <CardInner as="ul">
-              <li>{item.name}</li>
-              <li>
-                <FontAwesomeIcon icon={faCalendarDays} />
-                {date_month(item.createdAt)}
-              </li>
-              <br />
+              <IconContainer>
+                <li>
+                  <FontAwesomeIcon icon={faDumbbell} />
+                  <p>{item.name}</p>
+                </li>
+                <li>
+                  <FontAwesomeIcon icon={faCalendarDays} />
+                  <p>{date_month(item.createdAt)}</p>
+                </li>
+              </IconContainer>
+
               <li>
                 <ol>
                   {item.exercises.map((e) => {
