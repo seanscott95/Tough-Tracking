@@ -3,14 +3,15 @@ import { useQuery } from '@apollo/client';
 import { useNavigate } from "react-router-dom";
 
 import { StyledCard, CardInner } from './styles/Card.styled';
-import ExerciseReadOnly from './ExerciseReadOnly';
 import { QUERY_WORKOUTS } from '../utils/queries';
 import { Flex, FlexColumn } from '../components/styles/Flex.styled';
 import { date_year } from '../utils/dateHelper';
 import { Button } from './styles/Button.styled';
 
+import SwiperContainer from './SwiperContainer'
+
 export default function WorkoutReadOnly() {
-    
+
     // Queries all workouts and returns them and sets them as exercisesDB variable if they exist
     const { loading, error, data } = useQuery(QUERY_WORKOUTS);
     const exercisesDB = data?.getWorkouts || [];
@@ -65,13 +66,7 @@ export default function WorkoutReadOnly() {
                     <StyledCard>
                         <CardInner as='ul' key={item._id}>
                             <li>{item.name} - {date_year(item.createdAt)}</li>
-                            <Flex>
-                                {item.exercises.map((exercises) => (
-                                    <StyledCard>
-                                        <ExerciseReadOnly exercises={exercises} />
-                                    </StyledCard>
-                                ))}
-                            </Flex>
+                            <SwiperContainer item={item} />
                             <Button
                                 key={item._id}
                                 id={item._id}
