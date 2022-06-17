@@ -4,49 +4,35 @@ export const HomeStyle = styled.div`
     color: white;
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
-    align-items: center;
+    justify-content: space-between;
     padding: 20px;
     font-size: 20px;
 
-    .lessThinking {
+    ul {
         font-size: 50px;
         font-weight: bold;
     }
 
-    .moreTraining {
-        font-size: 50px;
+    li span {
         margin-left: 50px;
-        font-weight: bold;
     }
 
-    .dotpoints {
+    div {
         display: flex;
         flex-direction: column;
-        justify-content: center;
         font-weight: bold;
+        justify-content: space-around;
+        align-items: center;
     }
 
-    .dotpoints div {
-        display: flex;
-    }
-
-    .dotpoints p {
-        padding: 20px;
-        
+    p {
+        padding: 10px;
     }
 
     img {
         width: 300px;
         height: 300px;
         margin-top: 20px;
-    }
-
-    .homeContainer {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-around;
-        align-items: center;
     }
 
     @media screen and (max-width: 769px) {
@@ -71,14 +57,17 @@ export const HomeStyle = styled.div`
             height: 200px;
         }
     }
+
     @media screen and (max-width: 610px) {
         flex-direction: column;
     }
+
     @media screen and (max-width: 481px) {
         img {
             display: none;
         }
     }
+
     @media screen and (max-width: 410px) {
         .moreTraining {
             margin: 0;

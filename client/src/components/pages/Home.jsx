@@ -8,27 +8,25 @@ import SummaryImg from '../../assets/images/summaryPage.png';
 export default function Home() {
     return (
         <HomeStyle>
-            <div className='homeContainer'>
-
+            <div>
                 <StyledCard>
                     <CardInner>
-                        <div className='catchPhrase'>
-                            <p className='lessThinking'>" Less Thinking.</p>
-                            <p className="moreTraining">More Training "</p>
-                        </div>
+                        <ul>
+                            <li>" Less Thinking.</li>
+                            <li><span>More Training "</span></li>
+                        </ul>
                     </CardInner>
                 </StyledCard>
 
-
                 <StyledCard>
-                    <CardInner className='dotpoints'>
+                    <CardInner>
                         <p>&rarr; Visualise and plan your workout ahead.</p>
                         <p>&rarr; Log Strength and Cardio workouts.</p>
                         <p>&rarr; Edit and delete past workouts.</p>
                     </CardInner>
                 </StyledCard>
             </div>
-            <div className='homeContainer rightContainer'>
+            <div>
                 <StyledCard>
                     <CardInner>
                         {!Auth.loggedIn() ? 
