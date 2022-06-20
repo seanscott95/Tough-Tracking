@@ -8,7 +8,7 @@ import { Flex, FlexColumn } from '../components/styles/Flex.styled';
 import { date_year } from '../utils/dateHelper';
 import { Button } from './styles/Button.styled';
 
-import SwiperContainer from './SwiperContainer'
+import SwiperView from './SwiperView'
 
 export default function WorkoutReadOnly() {
 
@@ -66,7 +66,7 @@ export default function WorkoutReadOnly() {
                     <StyledCard>
                         <CardInner as='ul' key={item._id}>
                             <li>{item.name} - {date_year(item.createdAt)}</li>
-                            <SwiperContainer item={item} />
+                            <SwiperView item={item} />
                             <Button
                                 key={item._id}
                                 id={item._id}

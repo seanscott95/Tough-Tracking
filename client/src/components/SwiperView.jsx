@@ -9,7 +9,7 @@ import 'swiper/swiper.min.css';
 import { Slider } from './styles/Slider.styled';
 import { StyledCard } from './styles/Card.styled';
 
-export default function SwiperContainer({ item }) {
+export default function SwiperView({ item }) {
     return (
 
         <Slider
