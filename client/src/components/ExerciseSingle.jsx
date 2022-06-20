@@ -10,14 +10,10 @@ export default function ExerciseSingle({
     return (
         <StyledCard>
             <div className='editContainer'>
-                <>
-                    {exercises.map((item) => {
-                        return (
-                            <StyledForm>
-
+                {exercises.map((item) => {
+                    return (
+                        <StyledForm>
                             <div key={item._id}>
-                                <div className=''>
-
                                 <div>
                                     <label htmlFor="name">Name:</label>
                                     <input
@@ -131,12 +127,10 @@ export default function ExerciseSingle({
                                 ) : (
                                     <></>
                                 )}
-                                </div>
                             </div>
-                            </StyledForm>
-                        )
-                    })}
-                </>
+                        </StyledForm>
+                    )
+                })}
             </div>
         </StyledCard>
     )
