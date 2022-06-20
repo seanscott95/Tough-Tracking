@@ -3,7 +3,7 @@ import React from 'react';
 import Auth from '../../utils/auth';
 import { HomeStyle } from '../styles/Home.styled';
 import { StyledCard, CardInner } from '../styles/Card.styled';
-import SummaryImg from '../../assets/images/summaryPage.png';
+import Logo from '../../assets/images/logo.png';
 
 export default function Home() {
     return (
@@ -36,7 +36,7 @@ export default function Home() {
                         }
                     </CardInner>
                 </StyledCard>
-                <img src={SummaryImg} alt='Photo of app'/>
+                <img src={Logo} alt='Photo of app'/>
             </div>
         </HomeStyle>
     );
