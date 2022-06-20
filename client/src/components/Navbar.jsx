@@ -4,6 +4,8 @@ import { NavLink } from 'react-router-dom';
 import Auth from '../utils/auth';
 import { StyledNavbar } from './styles/Navbar.styled';
 
+import Logo from '../assets/images/logo.png';
+
 export default function Navbar() {
 
     // Handler for when logout button is clicked, deletes the JWT token stored in local
@@ -33,9 +35,9 @@ export default function Navbar() {
         <>
             <StyledNavbar>
                 <ul>
-                    <li className={currentPage === 'home' ? 'active' : ''}>
+                    <li>
                         <NavLink to='/' onClick={() => setCurrentPage('Home')}>
-                            Home
+                            <img src={Logo} />
                         </NavLink>
                     </li>
 
@@ -51,7 +53,7 @@ export default function Navbar() {
                         )
                     ))
                     }
-                    <li className={currentPage === 'login' ? 'active' : ''}>
+                    <li className={currentPage === 'Login' ? 'active' : ''}>
                         {Auth.loggedIn() ? (
                             <NavLink to='/' onClick={logout}>
                                 Logout
