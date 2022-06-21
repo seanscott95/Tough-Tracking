@@ -29,6 +29,13 @@ export const HomeStyle = styled.div`
         padding: 10px;
     }
 
+    q {
+        width: 300px;
+        font-weight: normal;
+        font-style: italic;
+        text-align: center;
+    }
+
     img {
         width: 300px;
         height: 300px;
