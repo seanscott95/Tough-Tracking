@@ -6,7 +6,7 @@ const { signToken } = require('../utils/auth');
 const resolvers = {
     Query: {
         myUser: async () => {
-            return User.find();
+            return User.findOne();
         },
         getSingleWorkout: async (parent, args) => {
             return Workout.findById(args.workoutId).populate('exercises');
