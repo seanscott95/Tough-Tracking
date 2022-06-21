@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 
 import { StyledCard, CardInner } from './styles/Card.styled';
 import { QUERY_WORKOUTS } from '../utils/queries';
-import { Flex, FlexColumn } from '../components/styles/Flex.styled';
+import { FlexTop, FlexColumn } from '../components/styles/Flex.styled';
 import { date_year } from '../utils/dateHelper';
 import { Button } from './styles/Button.styled';
 
@@ -61,7 +61,7 @@ export default function WorkoutReadOnly() {
                 </CardInner>
             </StyledCard>
 
-            <Flex>
+            <FlexTop>
                 {exercisesDB.map((item) => (
                     <StyledCard>
                         <CardInner as='ul' key={item._id}>
@@ -76,7 +76,7 @@ export default function WorkoutReadOnly() {
                         </CardInner>
                     </StyledCard>
                 ))}
-            </Flex>
+            </FlexTop>
         </FlexColumn>
     )
 }
