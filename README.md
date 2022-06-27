@@ -27,6 +27,8 @@
 - [concurrently](https://www.npmjs.com/package/concurrently)
 
 - [apollo-client](https://www.npmjs.com/package/@apollo/client)
+
+- [swiper](https://www.npmjs.com/package/swiper)
     
 ## Table of Contents 
 - [Screenshots](#Screenshots)
@@ -75,20 +77,22 @@
 ## Installation
 <p> To use this app online please click on the link at the bottom of the page</p>
 
-<p>If you would like to download the CODE used to create the application please follow these instructions:
+<p>If you would like to download the application please follow these instructions:
 </p>
 
-- Please have node and npm installed.
+- Please have Node.js and npm installed.
 
-- The application will be invoked by using the following command:
+- To start, clone this repository by using the following command:
 
  ```
   git clone git@github.com:seanscott95/tough-tracking.git
  ```
 
-- To start, make sure your are in the root repository and run ```npm run install``` to install the node modules needed for this application.
+- In your terminal navigate to the cloned repository and run ```npm run install``` to install the node modules needed for this application.
 
-- Then run ```npm run develop``` to start the application.
+- Then enter ```npm run develop``` to start the application.
+
+- If your browser doesn't open straight away you can search for it using the url ```http//:localhost:3001```
 
 ## Usage 
 - When creating a workout fill in the exercise form and click add. This will add a exercise to your workout. You can add as many as you want. When you're done add a workout name and click the create button. You can edit and delete the workout by viewing a single workout.
@@ -107,10 +111,10 @@
 ## Questions 
 <p> To reach me with additional questions please contact me via one of the following methods: </p>
 
-- GitHub: [GitHub](https://github.com/seanscott95)
-- Email: [Email](mailto:seanms418@gmail.com)
-- LinkedIn: [LinkedIn](https://www.linkedin.com/in/sean-scott-18ba07225/)
+- [GitHub](https://github.com/seanscott95)
+- [Email](mailto:seanms418@gmail.com)
+- [LinkedIn](https://www.linkedin.com/in/sean-scott-18ba07225/)
 
 ## Links
-- GitHub: [GitHub-Link](https://github.com/seanscott95/tough-tracking)
-- Heroku: [Heroku-Link](https://tough-tracking.herokuapp.com/)
+- [GitHub](https://github.com/seanscott95/tough-tracking)
+- [Heroku](https://tough-tracking.herokuapp.com/)
