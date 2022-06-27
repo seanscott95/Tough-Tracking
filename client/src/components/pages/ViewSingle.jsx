@@ -141,10 +141,18 @@ export default function ViewSingle() {
   };
 
   if (error) {
-    return <div>Sorry there was an error... - {error.message}</div>;
+    return (
+      <PageContainer>
+        <div>Sorry there was an error... - {error.message}</div>
+      </PageContainer>
+    )
   }
   if (loading) {
-    return <div>Sorry, still loading...</div>;
+    return (
+      <PageContainer>
+        <div>Sorry, still loading...</div>
+      </PageContainer>
+    )
   }
 
   return (
