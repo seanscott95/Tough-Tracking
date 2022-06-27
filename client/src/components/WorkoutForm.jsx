@@ -106,159 +106,157 @@ export default function WorkoutForm() {
     };
 
     return (
-        <>
-            <FlexTop>
-                <FlexColumn className='editContainer'>
-                    <h3>Lets Begin!</h3>
-                    <h3>Add an exercise:</h3>
-                    <StyledCard>
-                        <StyledForm onSubmit={handleSubmitExercise}>
-                            <div>
-                                <label htmlFor="name">Name:</label>
-                                <input
-                                    type="text"
-                                    name="name"
-                                    value={exerciseFormState.name}
-                                    onChange={handleExerciseChange}
-                                    placeholder='Benchpress, Running, Swimming...'
-                                    required />
-                            </div>
-                            <div>
-                                <label htmlFor="type">Type:</label>
-                                <select
-                                    type="text"
-                                    name="type"
-                                    value={exerciseFormState.type}
-                                    onChange={handleExerciseChange}
-                                    required >
-                                    <option value='Strength'>Strength</option>
-                                    <option value='Cardio'>Cardio</option>
-                                </select>
-                            </div>
+        <FlexTop>
+            <FlexColumn>
+                <h3>Lets Begin!</h3>
+                <h3>Add an exercise:</h3>
+                <StyledCard>
+                    <StyledForm onSubmit={handleSubmitExercise}>
+                        <div>
+                            <label htmlFor="name">Name:</label>
+                            <input
+                                type="text"
+                                name="name"
+                                value={exerciseFormState.name}
+                                onChange={handleExerciseChange}
+                                placeholder='Benchpress, Running, Swimming...'
+                                required />
+                        </div>
+                        <div>
+                            <label htmlFor="type">Type:</label>
+                            <select
+                                type="text"
+                                name="type"
+                                value={exerciseFormState.type}
+                                onChange={handleExerciseChange}
+                                required >
+                                <option value='Strength'>Strength</option>
+                                <option value='Cardio'>Cardio</option>
+                            </select>
+                        </div>
 
-                            {exerciseFormState.type === 'Strength' ? (
-                                <>
-                                    <div>
-                                        <label htmlFor="weight">Weight:</label>
-                                        <input
-                                            type="number"
-                                            name="weight"
-                                            min="0"
-                                            max="500"
-                                            step=".5"
-                                            placeholder="50 (kg's)"
-                                            value={exerciseFormState.weight}
-                                            onChange={handleExerciseChange}
-                                            required />
-                                    </div>
-                                    <div>
-                                        <label htmlFor="sets">Sets:</label>
-                                        <input
-                                            type="number"
-                                            name="sets"
-                                            min="1"
-                                            max="10"
-                                            step="1"
-                                            placeholder='3...'
-                                            value={exerciseFormState.sets}
-                                            onChange={handleExerciseChange}
-                                            required />
-                                    </div>
-                                    <div>
-                                        <label htmlFor="reps">Reps:</label>
-                                        <input
-                                            type="number"
-                                            name="reps"
-                                            min="1"
-                                            max="10"
-                                            step="1"
-                                            placeholder='8...'
-                                            value={exerciseFormState.reps}
-                                            onChange={handleExerciseChange}
-                                            required />
-                                    </div>
-                                </>
-                            ) : (
-                                <></>
-                            )}
-                            {exerciseFormState.type === 'Cardio' ? (
-                                <>
-                                    <div>
-                                        <label htmlFor="distance">Distance:</label>
-                                        <input
-                                            type="number"
-                                            name="distance"
-                                            min="1"
-                                            max="1000"
-                                            step="1"
-                                            placeholder="5 (km's)"
-                                            value={exerciseFormState.distance}
-                                            onChange={handleExerciseChange}
-                                            required />
-                                    </div>
-                                    <div>
-                                        <label htmlFor="time">Time:</label>
-                                        <input
-                                            type="number"
-                                            name="time"
-                                            min="1"
-                                            max="1440"
-                                            step="1"
-                                            placeholder="45 (min)"
-                                            value={exerciseFormState.time}
-                                            onChange={handleExerciseChange}
-                                            required />
-                                    </div>
-                                    <div>
-                                        <label htmlFor="intensity">Intensity:</label>
-                                        <select
-                                            name="intensity"
-                                            value={exerciseFormState.intensity}
-                                            onChange={handleExerciseChange}
-                                            required >
-                                            <option value='low'>Low</option>
-                                            <option value='moderate'>Moderate</option>
-                                            <option value='high'>High</option>
-                                        </select>
-                                    </div>
-                                </>
-                            ) : (
-                                <></>
-                            )}
-                            < div >
-                                <Button type="submit">Add</Button>
-                            </div>
-                        </StyledForm>
-                    </StyledCard>
-                </FlexColumn>
-                <FlexColumn className=''>
-                    <h3>Exercise List:</h3>
-                    <div>
-                        {exerciseList.map((item) => (
-                            <StyledCard>
-                                <CardInner as="ul" key={item.name}>
-                                    <li>{item.name}</li>
-                                </CardInner>
-                            </StyledCard>
-                        ))}
-                    </div>
-                    <StyledCard>
-                        <StyledForm>
-                            <div >
-                                <label htmlFor="workoutName">Workout Name:</label>
-                                <input
-                                    type="text"
-                                    name="workoutName"
-                                    placeholder='Sunday, Gym, Workout...'
-                                    onChange={handleNameChange}
-                                    value={workoutName}
-                                    required />
-                            </div>
-                            <Button onClick={handleCreateWorkout} >Save Workout</Button>
-                        </StyledForm>
-                    </StyledCard>
-                </FlexColumn>
-            </FlexTop>
-        </>
+                        {exerciseFormState.type === 'Strength' ? (
+                            <>
+                                <div>
+                                    <label htmlFor="weight">Weight:</label>
+                                    <input
+                                        type="number"
+                                        name="weight"
+                                        min="0"
+                                        max="500"
+                                        step=".5"
+                                        placeholder="50 (kg's)"
+                                        value={exerciseFormState.weight}
+                                        onChange={handleExerciseChange}
+                                        required />
+                                </div>
+                                <div>
+                                    <label htmlFor="sets">Sets:</label>
+                                    <input
+                                        type="number"
+                                        name="sets"
+                                        min="1"
+                                        max="10"
+                                        step="1"
+                                        placeholder='3...'
+                                        value={exerciseFormState.sets}
+                                        onChange={handleExerciseChange}
+                                        required />
+                                </div>
+                                <div>
+                                    <label htmlFor="reps">Reps:</label>
+                                    <input
+                                        type="number"
+                                        name="reps"
+                                        min="1"
+                                        max="10"
+                                        step="1"
+                                        placeholder='8...'
+                                        value={exerciseFormState.reps}
+                                        onChange={handleExerciseChange}
+                                        required />
+                                </div>
+                            </>
+                        ) : (
+                            <></>
+                        )}
+                        {exerciseFormState.type === 'Cardio' ? (
+                            <>
+                                <div>
+                                    <label htmlFor="distance">Distance:</label>
+                                    <input
+                                        type="number"
+                                        name="distance"
+                                        min="1"
+                                        max="1000"
+                                        step="1"
+                                        placeholder="5 (km's)"
+                                        value={exerciseFormState.distance}
+                                        onChange={handleExerciseChange}
+                                        required />
+                                </div>
+                                <div>
+                                    <label htmlFor="time">Time:</label>
+                                    <input
+                                        type="number"
+                                        name="time"
+                                        min="1"
+                                        max="1440"
+                                        step="1"
+                                        placeholder="45 (min)"
+                                        value={exerciseFormState.time}
+                                        onChange={handleExerciseChange}
+                                        required />
+                                </div>
+                                <div>
+                                    <label htmlFor="intensity">Intensity:</label>
+                                    <select
+                                        name="intensity"
+                                        value={exerciseFormState.intensity}
+                                        onChange={handleExerciseChange}
+                                        required >
+                                        <option value='low'>Low</option>
+                                        <option value='moderate'>Moderate</option>
+                                        <option value='high'>High</option>
+                                    </select>
+                                </div>
+                            </>
+                        ) : (
+                            <></>
+                        )}
+                        < div >
+                            <Button type="submit">Add</Button>
+                        </div>
+                    </StyledForm>
+                </StyledCard>
+            </FlexColumn>
+            <FlexColumn>
+                <h3>Exercise List:</h3>
+                <div>
+                    {exerciseList.map((item) => (
+                        <StyledCard>
+                            <CardInner as="ul" key={item.name}>
+                                <li>{item.name}</li>
+                            </CardInner>
+                        </StyledCard>
+                    ))}
+                </div>
+                <StyledCard>
+                    <StyledForm>
+                        <div >
+                            <label htmlFor="workoutName">Workout Name:</label>
+                            <input
+                                type="text"
+                                name="workoutName"
+                                placeholder='Sunday, Gym, Workout...'
+                                onChange={handleNameChange}
+                                value={workoutName}
+                                required />
+                        </div>
+                        <Button onClick={handleCreateWorkout} >Save Workout</Button>
+                    </StyledForm>
+                </StyledCard>
+            </FlexColumn>
+        </FlexTop>
     )
 }

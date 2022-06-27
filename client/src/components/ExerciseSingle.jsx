@@ -20,7 +20,7 @@ export default function ExerciseSingle({
             spaceBetween={10}
         >
             <StyledCard>
-                <div className='editContainer'>
+                <div>
                     {exercises.map((item) => {
                         return (
                             <SwiperSlide className='swiper'>
