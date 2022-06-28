@@ -11,10 +11,9 @@ export const PageContainer = styled.div`
     text-align: center;
     color: white;
 
-    @media screen and (max-width: 776px) {
-        * {
+    @media screen and (max-width: 439px) {
+        div, button {
             font-size: 1rem;
         }
-        
     }
 `
