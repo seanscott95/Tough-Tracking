@@ -41,7 +41,7 @@ export default function Navbar() {
                 {navbarPages.map((page) => (
                     Auth.loggedIn() ? (
                         <li key={page.link}>
-                            <NavLink key={page.link} to={page.link} activeClassName='active'>
+                            <NavLink key={page.link} to={page.link} activeclassname='active'>
                                 {page.title}
                             </NavLink>
                         </li>
@@ -52,11 +52,11 @@ export default function Navbar() {
                 }
                 <li >
                     {Auth.loggedIn() ? (
-                        <NavLink to='/' activeClassName='active' onClick={logout}>
+                        <NavLink to='/' activeclassname='active' onClick={logout}>
                             Logout
                         </NavLink>
                     ) : (
-                        <NavLink to='/login' activeClassName='active'>
+                        <NavLink to='/login' activeclassname='active'>
                             Login/Signup
                         </NavLink>
                     )}
