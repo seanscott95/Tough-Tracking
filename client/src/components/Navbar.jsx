@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { NavLink } from 'react-router-dom';
 
 import Auth from '../utils/auth';
@@ -14,10 +14,8 @@ export default function Navbar() {
         Auth.logout();
     };
 
-    const [currentPage, setCurrentPage] = useState('Home');
-
     const navbarPages = [
-                {
+        {
             title: 'Dashboard',
             link: '/dashboard',
         },
@@ -32,40 +30,38 @@ export default function Navbar() {
     ];
 
     return (
-        <>
-            <StyledNavbar>
-                <ul>
-                    <li>
-                        <NavLink to='/' onClick={() => setCurrentPage('Home')}>
-                            <img src={Logo} />
-                        </NavLink>
-                    </li>
+        <StyledNavbar>
+            <ul>
+                <li>
+                    <NavLink to='/'>
+                        <img src={Logo} />
+                    </NavLink>
+                </li>
 
-                    {navbarPages.map((page) => (
-                        Auth.loggedIn() ? (
-                            <li key={page.link} className={currentPage === page.title ? 'active' : ''}>
-                                <NavLink key={page.link} to={page.link} onClick={() => setCurrentPage(page.title)} >
-                                    {page.title}
-                                </NavLink>
-                            </li>
-                        ) : (
-                            <li key={page.link}></li>
-                        )
-                    ))
-                    }
-                    <li className={currentPage === 'Login' ? 'active' : ''}>
-                        {Auth.loggedIn() ? (
-                            <NavLink to='/' onClick={logout}>
-                                Logout
+                {navbarPages.map((page) => (
+                    Auth.loggedIn() ? (
+                        <li key={page.link}>
+                            <NavLink key={page.link} to={page.link} activeClassName='active'>
+                                {page.title}
                             </NavLink>
-                        ) : (
-                            <NavLink to='/login' onClick={() => setCurrentPage('Login')}>
-                                Login/Signup
-                            </NavLink>
-                        )}
-                    </li>
-                </ul>
-            </StyledNavbar>
-        </>
+                        </li>
+                    ) : (
+                        <li key={page.link}></li>
+                    )
+                ))
+                }
+                <li >
+                    {Auth.loggedIn() ? (
+                        <NavLink to='/' activeClassName='active' onClick={logout}>
+                            Logout
+                        </NavLink>
+                    ) : (
+                        <NavLink to='/login' activeClassName='active'>
+                            Login/Signup
+                        </NavLink>
+                    )}
+                </li>
+            </ul>
+        </StyledNavbar>
     );
 }

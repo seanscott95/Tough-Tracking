@@ -38,13 +38,13 @@ export const StyledNavbar = styled.nav`
         transform: scale(1.2);
     }
 
-    .active {
+    a.active {
         text-decoration: underline;
         text-transform: uppercase;
         transition: transform .2s;
     }
 
-    .active:hover {
+    a.active:hover {
         transform: scale(1.1);
     }
 
@@ -60,7 +60,7 @@ export const StyledNavbar = styled.nav`
             height: 40px;
             width: auto;
         }
-        .active:hover > img {
+        a.active:hover > img {
             transform: scale(.8);
         }
     }
