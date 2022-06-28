@@ -10,6 +10,7 @@ import { faCalendarDays, faT } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { IconContainer } from './styles/FontIcon.styled';
 import { Button } from './styles/Button.styled';
+import NoWorkouts from './NoWorkouts';
 
 export default function WorkoutCardSmall() {
 
@@ -27,12 +28,6 @@ export default function WorkoutCardSmall() {
     navigate(`/viewSingle/${id}`);
   }
 
-  // Navigates to the create workout page
-  const handleCreateClick = (e) => {
-    e.preventDefault();
-    navigate(`/createWorkout`);
-  }
-
   if (error) {
     return <div>Sorry there was an error... - {error.message}</div>;
   }
@@ -42,14 +37,7 @@ export default function WorkoutCardSmall() {
 
   if (!exercisesDB.length) {
     return (
-      <StyledCard>
-        <CardInner>
-          <p>No Workouts Yet.</p>
-          <p>Click the button to create a workout.</p>
-          <p>Lets Get Started!</p>
-          <Button onClick={handleCreateClick}>Create Workout</Button>
-        </CardInner>
-      </StyledCard>
+      <NoWorkouts />
     )
   }
 

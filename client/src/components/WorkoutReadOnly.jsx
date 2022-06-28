@@ -7,6 +7,7 @@ import { QUERY_WORKOUTS } from '../utils/queries';
 import { FlexTop, FlexColumn } from '../components/styles/Flex.styled';
 import { date_year } from '../utils/dateHelper';
 import { Button } from './styles/Button.styled';
+import NoWorkouts from './NoWorkouts';
 
 import SwiperView from './SwiperView'
 
@@ -27,10 +28,7 @@ export default function WorkoutReadOnly() {
     }
 
     // Navigates to the create workout page
-    const handleCreateClick = (e) => {
-        e.preventDefault();
-        navigate(`/createWorkout`);
-    }
+    
 
     if (error) {
         return <div>Sorry there was an error... - {error.message}</div>;
@@ -41,14 +39,7 @@ export default function WorkoutReadOnly() {
 
     if (!exercisesDB.length) {
         return (
-            <StyledCard>
-                <CardInner>
-                    <p>No Workouts Yet.</p>
-                    <p>Click the button to create a workout.</p>
-                    <p>Lets Get Started!</p>
-                    <Button onClick={handleCreateClick}>Create Workout</Button>
-                </CardInner>
-            </StyledCard>
+            <NoWorkouts />
         )
     }
 
