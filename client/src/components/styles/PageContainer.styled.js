@@ -13,7 +13,7 @@ export const PageContainer = styled.div`
 
     @media screen and (max-width: 439px) {
         div, button {
-            font-size: 1rem;
+            font-size: .9rem;
         }
     }
 `

@@ -47,13 +47,10 @@ export default function LoginForm() {
     return (
         <>
             <FlexColumn>
-                <StyledCard>
-                    <CardInner>
-                        <h2>Login</h2>
-                    </CardInner>
-                </StyledCard>
-
                 <StyledLoginForm onSubmit={handleFormSubmit}>
+                    <CardInner>
+                        <h3>Login</h3>
+                    </CardInner>
                     <div>
                         <label htmlFor="email">Email:</label>
                         <input
@@ -78,11 +75,11 @@ export default function LoginForm() {
                         <Button type="submit">Log In</Button>
                     </div>
                 </StyledLoginForm>
-                    <div>
-                        {error && (
-                            <div>{error.message}.</div>
-                        )}
-                    </div>
+                <div>
+                    {error && (
+                        <div>{error.message}.</div>
+                    )}
+                </div>
             </FlexColumn>
         </>
     )

@@ -16,6 +16,16 @@ export const StyledLoginForm = styled(StyledForm)`
     min-height: 240px;
     min-width: 300px;
 
+    @media screen and (max-width: 711px) {
+        min-height: 200px;
+        min-width: 200px;
+        font-size: 1rem;
+        
+        input, button {
+            font-size: .8rem;
+        }
+    }
+
     @media screen and (max-width: 439px) {
         min-height: 200px;
         min-width: 200px;

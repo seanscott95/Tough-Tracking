@@ -49,12 +49,10 @@ export default function SignupForm() {
     return (
         <>
             <FlexColumn>
-                <StyledCard>
-                    <CardInner>
-                        <h2>Sign up</h2>
-                    </CardInner>
-                </StyledCard>
                 <StyledLoginForm onSubmit={handleFormSubmit}>
+                    <CardInner>
+                        <h3>Sign Up</h3>
+                    </CardInner>
                     <div>
                         <label htmlFor="username">Username:</label>
                         <input
