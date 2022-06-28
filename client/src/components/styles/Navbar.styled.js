@@ -56,6 +56,13 @@ export const StyledNavbar = styled.nav`
             margin: 5px 0;
             font-size: .7rem;
         }
+        img {
+            height: 40px;
+            width: auto;
+        }
+        .active:hover > img {
+            transform: scale(.8);
+        }
     }
     @media screen and (max-width: 300px) {
         li {
