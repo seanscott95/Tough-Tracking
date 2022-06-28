@@ -171,8 +171,8 @@ export default function ViewSingle() {
             <ul>
               <li>{workout.name} - {workout.createdAt}</li>
               <Flex>
-                {workout.exercises.map((exercises) => (
-                  <StyledCard>
+                {workout.exercises.map((exercises, i) => (
+                  <StyledCard key={i}>
                     <ExerciseReadOnly exercises={exercises} />
                   </StyledCard>
                 ))}

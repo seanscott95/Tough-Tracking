@@ -17,8 +17,8 @@ export default function SwiperView({ item }) {
             centeredSlides
             spaceBetween={30}
         >
-            {item.exercises.map((exercises) => (
-                <SwiperSlide>
+            {item.exercises.map((exercises, i) => (
+                <SwiperSlide key={i}>
                     <StyledCard>
                         <ExerciseReadOnly exercises={exercises} />
                     </StyledCard>

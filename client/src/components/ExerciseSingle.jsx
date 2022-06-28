@@ -21,9 +21,9 @@ export default function ExerciseSingle({
         >
             <StyledCard>
                 <div>
-                    {exercises.map((item) => {
+                    {exercises.map((item, i) => {
                         return (
-                            <SwiperSlide className='swiper'>
+                            <SwiperSlide key={i} className='swiper'>
                                 <StyledCard>
                                     <StyledForm>
                                         <div key={item._id}>

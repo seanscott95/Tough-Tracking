@@ -62,8 +62,8 @@ export default function WorkoutReadOnly() {
             </StyledCard>
 
             <FlexTop>
-                {exercisesDB.map((item) => (
-                    <StyledCard>
+                {exercisesDB.map((item, i) => (
+                    <StyledCard key={i}>
                         <CardInner as='ul' key={item._id}>
                             <li>{item.name} - {date_year(item.createdAt)}</li>
                             <SwiperView item={item} />

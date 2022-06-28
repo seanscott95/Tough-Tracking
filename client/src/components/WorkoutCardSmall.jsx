@@ -61,8 +61,8 @@ export default function WorkoutCardSmall() {
         </CardInner>
       </StyledCard>
       <FlexTop>
-        {exercisesDB.map((item) => (
-          <StyledCard>
+        {exercisesDB.map((item, i) => (
+          <StyledCard key={i}>
             <CardInner as="ul">
               <IconContainer>
                 <li>
@@ -78,13 +78,12 @@ export default function WorkoutCardSmall() {
 
               <li>
                 <ol>
-                  {item.exercises.map((e) => {
-                    return <li key={e._id}>{e.name}</li>
+                  {item.exercises.map((e, i) => {
+                    return <li key={i}>{e.name}</li>
                   })}
                 </ol>
               </li>
               <Button
-                key={item._id}
                 id={item._id}
                 value={item._id}
                 onClick={handleViewClick}
