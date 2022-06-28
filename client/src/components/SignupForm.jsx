@@ -89,12 +89,10 @@ export default function SignupForm() {
                         <Button type="submit">Sign Up</Button>
                     </div>
                 </StyledLoginForm>
+                {error && (
+                    <p>Password must be 8 or more characters.</p>
+                )}
             </FlexColumn>
-            {error && (
-                <div>
-                    {error.message}
-                </div>
-            )}
         </>
     )
 }
