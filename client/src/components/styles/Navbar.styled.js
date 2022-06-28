@@ -21,11 +21,10 @@ export const StyledNavbar = styled.nav`
     
     ul {
         display: flex;
-        flex-direction: row;
-        min-width: 100%;
-        justify-content: space-around;
+        justify-content: space-evenly;
         align-items: center;
         padding: 10px;
+        text-align: center;
     }
 
     li {
@@ -51,7 +50,18 @@ export const StyledNavbar = styled.nav`
         transform: scale(1.1);
     }
 
-    @media screen and (max-width: 450px) {
+    @media screen and (max-width: 490px) {
         font-size: .8rem;
+    }
+    @media screen and (max-width: 370px) {
+        li {
+            margin: 5px 0;
+            font-size: .7rem;
+        }
+    }
+    @media screen and (max-width: 300px) {
+        li {
+            padding: 5px 2px;
+        }
     }
 `
