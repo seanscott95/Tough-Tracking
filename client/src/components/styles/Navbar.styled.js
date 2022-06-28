@@ -39,8 +39,6 @@ export const StyledNavbar = styled.nav`
     }
 
     .active {
-        margin: 5px;
-        padding: 5px;
         text-decoration: underline;
         text-transform: uppercase;
         transition: transform .2s;
