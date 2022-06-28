@@ -81,7 +81,15 @@ export const HomeStyle = styled.div`
 
     @media screen and (max-width: 655px) {
         flex-direction: column;
-
+        div {
+            flex-direction: column-reverse;
+        }
+        div > div {
+            flex-direction: column;
+        }
+        img {
+            margin-bottom: 20px;
+        }
         div {
             min-width: 300px;
         }
@@ -92,7 +100,9 @@ export const HomeStyle = styled.div`
 
     @media screen and (max-width: 356px) {
         h2 {
-            width: 150px;
+            width: 200px;
+            text-align: center;
+            font-size: 1.5rem;
         }
         div {
             min-width: 200px;
