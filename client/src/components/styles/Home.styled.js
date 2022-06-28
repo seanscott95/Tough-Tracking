@@ -8,13 +8,9 @@ export const HomeStyle = styled.div`
     padding: 20px;
     font-size: 20px;
 
-    ul {
+    h2 {
         font-size: 50px;
         font-weight: bold;
-    }
-
-    li span {
-        margin-left: 50px;
     }
 
     div {
@@ -25,11 +21,16 @@ export const HomeStyle = styled.div`
         align-items: center;
     }
 
-    p {
+    ul {
+        text-decoration: none;
+        align-items: start;
+    }
+
+    li {
         padding: 10px;
     }
 
-    q {
+    p {
         width: 300px;
         font-weight: normal;
         font-style: italic;
@@ -42,42 +43,63 @@ export const HomeStyle = styled.div`
         margin-top: 20px;
     }
 
-    @media screen and (max-width: 769px) {
-        .homeContainer, .dotpoints {
-            font-size: .9rem;
+    @media screen and (max-width: 869px) {
+        p {
+            font: 1rem;
+            width: 250px;
         }
+        h2 {
+            font-size: 2.5rem;
+        }
+        li {
+            font-size: 1.1rem;
+            padding: 5px;
+        }
+        img {
+            width: 250px;
+            height: 250px;
+        }
+    }
 
-        .lessThinking, .moreTraining {
+    @media screen and (max-width: 757px) {
+        p {
+            font: 1rem;
+            width: 200px;
+        }
+        h2 {
             font-size: 2rem;
         }
-
-        .dotpoints p {
-            padding: 10px;
+        li {
+            font-size: 1rem;
+            padding: 5px;
         }
-
-        .rightContainer p {
-            font-size: .9rem;
-        }
-
         img {
             width: 200px;
             height: 200px;
         }
     }
 
-    @media screen and (max-width: 610px) {
+    @media screen and (max-width: 655px) {
         flex-direction: column;
-    }
 
-    @media screen and (max-width: 481px) {
-        img {
+        div {
+            min-width: 300px;
+        }
+        ul {
             display: none;
         }
     }
 
-    @media screen and (max-width: 410px) {
-        .moreTraining {
-            margin: 0;
+    @media screen and (max-width: 356px) {
+        h2 {
+            width: 150px;
+        }
+        div {
+            min-width: 200px;
+            font-size: 1rem;
+        }
+        ul {
+            display: none;
         }
     }
 `

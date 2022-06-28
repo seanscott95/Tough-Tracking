@@ -8,6 +8,9 @@ import { HomeStyle } from '../styles/Home.styled';
 import { StyledCard, CardInner } from '../styles/Card.styled';
 import Logo from '../../assets/images/logo.png';
 
+import { faQuoteLeft, faQuoteRight } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
 export default function Home() {
     const { loading, error, data } = useQuery(QUERY_USER);
     const username = data?.myUser.username || 'Mate';
@@ -21,18 +24,16 @@ export default function Home() {
             <div>
                 <StyledCard>
                     <CardInner>
-                        <ul>
-                            <li>" Less Thinking.</li>
-                            <li><span>More Training "</span></li>
-                        </ul>
+                        <h2> <FontAwesomeIcon icon={faQuoteLeft} /> Less Thinking.</h2>
+                        <h2>More Training. <FontAwesomeIcon icon={faQuoteRight} /></h2>
                     </CardInner>
                 </StyledCard>
 
-                <StyledCard>
-                    <CardInner>
-                        <p>&rarr; Visualise and plan your workout ahead.</p>
-                        <p>&rarr; Log Strength and Cardio workouts.</p>
-                        <p>&rarr; Edit and delete past workouts.</p>
+                <StyledCard as='ul'>
+                    <CardInner >
+                        <li>&rarr; Visualise and plan your workout ahead.</li>
+                        <li>&rarr; Log Strength and Cardio workouts.</li>
+                        <li>&rarr; Edit and delete past workouts.</li>
                     </CardInner>
                 </StyledCard>
             </div>
@@ -42,7 +43,7 @@ export default function Home() {
                         {!Auth.loggedIn() ? 
                         <p>Login or signup for free to access full benefits!</p>
                         :
-                        <q>{capFirstLetter(username)}, your body can do it, it's time to convince your mind!</q>
+                        <p>{capFirstLetter(username)}, your body can do it, it's time to convince your mind!</p>
                         }
                     </CardInner>
                 </StyledCard>
