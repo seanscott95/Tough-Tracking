@@ -5,8 +5,11 @@ const { signToken } = require('../utils/auth');
 
 const resolvers = {
     Query: {
-        myUser: async () => {
-            return User.findOne();
+        myUser: async (parent, args, context) => {
+            if (context.user) {
+                return await User.findOne({ _id: context.user._id });
+            }
+            throw new AuthenticationError('You need to be logged in!');
         },
         getSingleWorkout: async (parent, args) => {
             return Workout.findById(args.workoutId).populate('exercises');
