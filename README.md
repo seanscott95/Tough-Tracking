@@ -42,9 +42,9 @@
 
 ## Screenshots
 
-<p>Homepage</p>
+<p>Homepage Logged In</p>
 
-- ![Homepage](./client/src/assets/images/homepage.png)
+- ![Homepage](./client/src/assets/images/homeLoggedIn.png)
 
 <p>Login and Signup Page</p>
 
@@ -52,27 +52,35 @@
 
 <p>Create Workout</p>
 
-- ![Create-workout](./client/src/assets/images/createPage.png)
+- ![Create-workout](./client/src/assets/images/create.png)
 
-<p>Exercises being added to the workout</p>
+<p>Cardio form</p>
 
-- ![Exercise-list](./client/src/assets/images/addingList.png)
+- ![Exercise-list](./client/src/assets/images/cardioExercise.png)
 
 <p>Edit Workout</p>
 
 - ![Delete-book](./client/src/assets/images/edit.png)
 
-<p>Summary of all Workouts</p>
+<p>Dashboard page</p>
 
-- ![Summary-workouts](./client/src/assets/images/summaryPage.png)
+- ![Summary-workouts](./client/src/assets/images/dashboard.png)
 
 <p>All Workouts</p>
 
-- ![All-Workouts](./client/src/assets/images/viewAll.png)
+- ![All-Workouts](./client/src/assets/images/workoutCarousel.png)
 
-<p>Single Workout</p>
+<p>No Workouts</p>
 
-- ![Single-Workout](./client/src/assets/images/viewSingle.png)
+- ![Single-Workout](./client/src/assets/images/noWorkouts.png)
+
+<p>Mobile Homepage</p>
+
+- ![Single-Workout](./client/src/assets/images/homeMobile.png)
+
+<p>Mobile Create</p>
+
+- ![Single-Workout](./client/src/assets/images/createMobile.png)
 
 ## Installation
 <p> To use this app online please click on the link at the bottom of the page</p>
@@ -117,4 +125,4 @@
 
 ## Links
 - [GitHub](https://github.com/seanscott95/tough-tracking)
-- [Heroku](https://tough-tracking.herokuapp.com/)
+- [Tough Tracking](https://tough-tracking.herokuapp.com/)
