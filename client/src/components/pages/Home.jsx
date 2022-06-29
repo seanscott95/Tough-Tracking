@@ -1,8 +1,5 @@
 import React from 'react';
 
-import { useQuery } from '@apollo/client';
-import { QUERY_USER } from '../../utils/queries';
-
 import Auth from '../../utils/auth';
 import { HomeStyle } from '../styles/Home.styled';
 import { StyledCard, CardInner } from '../styles/Card.styled';
@@ -12,12 +9,12 @@ import { faQuoteLeft, faQuoteRight } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 export default function Home() {
-    const { loading, error, data } = useQuery(QUERY_USER);
-    const username = data?.myUser.username || 'Mate';
-    
+
+    const username = Auth.getProfile().data.username;
+
     const capFirstLetter = (item) => {
         return item.charAt(0).toUpperCase() + item.slice(1);
-    } 
+    }
 
     return (
         <HomeStyle>
@@ -40,14 +37,14 @@ export default function Home() {
             <div>
                 <StyledCard>
                     <CardInner>
-                        {!Auth.loggedIn() ? 
-                        <p>Login or signup for free to access full benefits!</p>
-                        :
-                        <p>{capFirstLetter(username)}, your body can do it, it's time to convince your mind!</p>
+                        {!Auth.loggedIn() ?
+                            <p>Login or signup for free to access full benefits!</p>
+                            :
+                            <p>{capFirstLetter(username)}, your body can do it, it's time to convince your mind!</p>
                         }
                     </CardInner>
                 </StyledCard>
-                <img src={Logo} alt='Logo'/>
+                <img src={Logo} alt='Logo' />
             </div>
         </HomeStyle>
     );
