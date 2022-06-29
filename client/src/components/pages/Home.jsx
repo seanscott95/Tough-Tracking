@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
 import Auth from '../../utils/auth';
 import { HomeStyle } from '../styles/Home.styled';
@@ -9,8 +9,17 @@ import { faQuoteLeft, faQuoteRight } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 export default function Home() {
+    const [username, setUsername] = useState('');
 
-    const username = Auth.getProfile().data.username;
+    // Checks to see if user is logged in, if true sets username state variable to username
+    // from the jwt token using the getProfile function from the auth file
+    useEffect(() => {
+        if (!Auth.loggedIn()) {
+          return;
+        }
+        const user = Auth.getProfile();
+        setUsername(user.data.username);;
+      }, [username])
 
     const capFirstLetter = (item) => {
         return item.charAt(0).toUpperCase() + item.slice(1);
